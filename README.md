@@ -11,12 +11,16 @@ Cette api permet de déployer une bibliothèque de savoir. Elle comprends des co
 ![admin](docs/user-stories/admin.png "Administrateur")
 
 ## Cas d'utilisations
-
+```plantuml
+@startuml
+::include{file=docs/diagrammes/usecases.puml}
+@enduml
+```
 
 ## Diagramme de classes UML
 ```plantuml
 @startuml
-::include{file=docs/diagrammes/classesUML.puml}
+::include{file=docs/diagrammes/classes.puml}
 @enduml
 ```
 
