@@ -3,6 +3,16 @@
 ## Description
 Cette api permet de déployer une bibliothèque de savoir. Elle comprends des collections pour les différents sujet, les types de documentations, la gestion des membres et l'accès aux ressources.
 
+## Récits utilisateurs
+![utilisateur](https://git.dti.crosemont.quebec/2252359/projetfinalapi/-/blob/main/docs/user-stories/user.png?ref_type=heads "Utilisateur")
+
+![mentor](https://git.dti.crosemont.quebec/2252359/projetfinalapi/-/blob/main/docs/user-stories/mentor.png "Mentor")
+
+![admin](https://git.dti.crosemont.quebec/2252359/projetfinalapi/-/blob/main/docs/user-stories/admin.png "Administrateur")
+
+## Cas d'utilisations
+
+
 ## Diagramme de classes UML
 
 ## Installation
