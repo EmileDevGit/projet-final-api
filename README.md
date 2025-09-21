@@ -1,4 +1,4 @@
-# API de bibliothèque de savoir
+# API de bibliothèque de savoir SapientAPI
 
 ## Description
 Cette api permet de déployer une bibliothèque de savoir. Elle comprends des collections pour les différents sujet, les types de documentations, la gestion des membres et l'accès aux ressources.
@@ -14,6 +14,11 @@ Cette api permet de déployer une bibliothèque de savoir. Elle comprends des co
 
 
 ## Diagramme de classes UML
+```plantuml
+@startuml
+::include(file=docs/diagrammes/classesUML.puml)
+@enduml
+```
 
 ## Installation
 À venir!
@@ -31,4 +36,4 @@ API de bibliothèque de savoir © 2025 by Émile Girard & Émile Larochelle-Lang
 Pour consulter les détails de la licence, visitez https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 ## État du projet et plans futurs
-À venir!
+Sprint 1 en cours - Analyse et mise en place du projet

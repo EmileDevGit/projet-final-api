@@ -1,0 +1,39 @@
+@startuml
+class Utilisateur{
+  utilisateur_id: Int
+  ---
+  nom: String
+  prénom: String
+  email: String
+  mot_de_passe: String
+  status_actif: Boolean
+  type_compte: String
+}
+class Catégorie{
+  catégorie_id: Int
+  ---
+  nom: String
+}
+class Collection{
+  collection_id: Int
+  ---
+  titre: String
+  description: String
+  visibilité: Boolean
+  auteur_id: Int
+}
+class Ressource{
+  ressource_id: Int
+  ---
+  titre: String
+  description: String
+  url_ressource: String
+  visibilité: Boolean
+  catégorie_id: Int
+  auteur_id: Int
+}
+Collection *-- Ressource : contient
+Catégorie "1" o-- "0..*" Ressource : catégorisée dans
+Utilisateur "1"<--"0..*" Ressource : créé
+Utilisateur "1"<--"0..*" Collection : créé
+@enduml
