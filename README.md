@@ -16,7 +16,7 @@ Cette api permet de déployer une bibliothèque de savoir. Elle comprends des co
 ## Diagramme de classes UML
 ```plantuml
 @startuml
-::include(file=docs/diagrammes/classesUML.puml)
+::include{file=docs/diagrammes/classesUML.puml}
 @enduml
 ```
 
