@@ -4,11 +4,8 @@
 Cette api permet de déployer une bibliothèque de savoir. Elle comprends des collections pour les différents sujet, les types de documentations, la gestion des membres et l'accès aux ressources.
 
 ## Récits utilisateurs
-![utilisateur](docs/user-stories/user.png "Utilisateur")
+[Récits utilisateurs](docs/user-stories/user-stories.md)
 
-![mentor](docs/user-stories/mentor.png "Mentor")
-
-![admin](docs/user-stories/admin.png "Administrateur")
 
 ## Cas d'utilisations
 ```plantuml
