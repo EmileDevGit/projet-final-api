@@ -52,9 +52,6 @@ end note
 note right of (Télécharger une ressource)
   GET
 end note
-note right of (ajouter une ressource à la bibliothèque)
-  PUT
-end note
 note right of (Évaluer un mentor)
   POST
 end note
@@ -63,10 +60,10 @@ end note
 note right of (Créer une ressource) 
   POST
 end note
-note right of (modifier une ressource) 
+note right of (Modifier une ressource) 
   PATCH
 end note
-note right of (supprimer une ressource) 
+note right of (Supprimer une ressource) 
   DELETE
 end note
 note right of (Créer une collection) 
@@ -75,7 +72,7 @@ end note
 note right of (Modifier une collection) 
   PATCH
 end note
-note right of (supprimer une collection) 
+note right of (Supprimer une collection) 
   DELETE
 end note
 note right of (Contacter un administrateur) 
@@ -90,13 +87,13 @@ end note
 note right of (Modifier une catégorie) 
   PATCH
 end note
-note right of (supprimer une catégorie) 
+note right of (Supprimer une catégorie) 
   DELETE
 end note
-note right of (lister les utilisateurs) 
+note right of (Lister les utilisateurs) 
   GET
 end note
-note right of (bannir un utilisateurs) 
+note right of (Bannir un utilisateurs) 
   PATCH
 end note
  
