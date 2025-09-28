@@ -6,7 +6,7 @@ actor Mentor
 actor Administrateur
  
 rectangle "public"{
-Utilisateur --> (Parcourir la bibliothèque)
+Utilisateur --> (Parcourir sa bibliothèque)
 Utilisateur --> (Filtrer par catégorie)
 Utilisateur --> (Filtrer par mot-clé)
 Utilisateur --> (Consulter une ressource)
