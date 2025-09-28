@@ -11,38 +11,33 @@ Utilisateur --> (Filtrer par catégorie)
 Utilisateur --> (Filtrer par mot-clé)
 Utilisateur --> (Consulter une ressource)
 Utilisateur --> (Télécharger une ressource)
-Utilisateur --> (Consulter son espace de savoir)
-Utilisateur --> (ajouter une ressource a son espace de savoir)
+Utilisateur --> (Consulter sa bibliothèque)
 Utilisateur --> (Évaluer un mentor)
  
  
 Mentor --> (Créer une ressource)
-Mentor --> (modifier une ressource)
-Mentor --> (supprimer une ressource)
-Mentor --> (Gérer la visibilité d'une ressource)
-Mentor --> (Associer une ressource a une catégorie)
-Mentor --> (Associer une ressource a une collection)
+Mentor --> (Modifier une ressource)
+Mentor --> (Supprimer une ressource)
+Mentor --> (Ajouter une ressource à une collection)
 Mentor --> (Créer une collection)
 Mentor --> (Modifier une collection)
-Mentor --> (supprimer une collection)
-Mentor --> (Gérer la visibilité d'une collection)
-Mentor --> (Associer une collection a une catégorie)
+Mentor --> (Supprimer une collection)
 Mentor --> (Contacter un administrateur)
 }
  
 rectangle "privé"{
 Administrateur --> (Créer une catégorie)
 Administrateur --> (Modifier une catégorie)
-Administrateur --> (supprimer une catégorie)
-Administrateur --> (lister les utilisateurs)
-Administrateur --> (bannir un utilisateurs)
+Administrateur --> (Supprimer une catégorie)
+Administrateur --> (Lister les utilisateurs)
+Administrateur --> (Bannir un utilisateurs)
 rectangle "public"{
  
 Administrateur --> Mentor
 Mentor --> Utilisateur
  
  
-note right of (Parcourir la bibliothèque)
+note right of (Parcourir sa bibliothèque)
   GET
 end note
 note right of (Filtrer par catégorie)
@@ -57,10 +52,7 @@ end note
 note right of (Télécharger une ressource)
   GET
 end note
-note right of (Consulter son espace de savoir)
-  GET
-end note
-note right of (ajouter une ressource a son espace de savoir)
+note right of (ajouter une ressource à la bibliothèque)
   PUT
 end note
 note right of (Évaluer un mentor)
@@ -77,15 +69,6 @@ end note
 note right of (supprimer une ressource) 
   DELETE
 end note
-note right of (Gérer la visibilité d'une ressource) 
-  PUT
-end note
-note right of (Associer une ressource a une catégorie) 
-  PUT
-end note
-note right of (Associer une ressource a une collection) 
-  PUT
-end note
 note right of (Créer une collection) 
   POST
 end note
@@ -94,12 +77,6 @@ note right of (Modifier une collection)
 end note
 note right of (supprimer une collection) 
   DELETE
-end note
-note right of (Gérer la visibilité d'une collection) 
-  PATCH
-end note
-note right of (Associer une collection a une catégorie) 
-  PUT
 end note
 note right of (Contacter un administrateur) 
   POST

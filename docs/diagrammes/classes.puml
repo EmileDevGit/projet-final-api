@@ -7,7 +7,7 @@ class Utilisateur{
   email: String
   mot_de_passe: String
   status_actif: Boolean
-  type_compte: String
+  type_compte: Enum(MENTOR, ADMIN, ÉTUDIANT)
 }
 class Catégorie{
   catégorie_id: Int
@@ -31,8 +31,9 @@ class Ressource{
   visibilité: Boolean
   catégorie_id: Int
   auteur_id: Int
+	collection_id: Int
 }
-Collection *-- Ressource : contient
+Collection *-- Ressource : regroupe
 Catégorie "1" o-- "0..*" Ressource : catégorisée dans
 Utilisateur "1"<--"0..*" Ressource : créé
 Utilisateur "1"<--"0..*" Collection : créé
