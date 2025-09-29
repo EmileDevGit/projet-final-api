@@ -6,6 +6,8 @@ actor Mentor
 actor Administrateur
  
 rectangle "public"{
+Utilisateur --> (S'inscrire à la plateforme)
+Utilisateur --> (Se connecter à la plateforme)
 Utilisateur --> (Parcourir sa bibliothèque)
 Utilisateur --> (Filtrer par catégorie)
 Utilisateur --> (Filtrer par mot-clé)
@@ -13,6 +15,7 @@ Utilisateur --> (Consulter une ressource)
 Utilisateur --> (Télécharger une ressource)
 Utilisateur --> (Consulter sa bibliothèque)
 Utilisateur --> (Évaluer un mentor)
+Utilisateur --> (Désactiver son compte)
  
  
 Mentor --> (Créer une ressource)
@@ -35,8 +38,12 @@ rectangle "public"{
  
 Administrateur --> Mentor
 Mentor --> Utilisateur
- 
- 
+ note right of (Se connecter à la plateforme)
+  GET
+end note
+ note right of (S'inscrire à la plateforme)
+  GET
+end note
 note right of (Parcourir sa bibliothèque)
   GET
 end note
