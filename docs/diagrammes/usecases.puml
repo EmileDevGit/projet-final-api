@@ -52,8 +52,8 @@ note right of (Se connecter à la plateforme)
   POST
 end note
 
-note right of (S'inscrire à la plateforme)
-  GET
+note right of (Ajouter une ressource à une collection)
+  POST 
 end note
 
 note right of (Parcourir sa bibliothèque)
