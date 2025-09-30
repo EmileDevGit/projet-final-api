@@ -1,25 +1,26 @@
 # API de bibliothèque de savoir SapientAPI
 
 ## Description
-Cette api permet de déployer une bibliothèque de savoir. Elle comprends des collections pour les différents sujet, les types de documentations, la gestion des membres et l'accès aux ressources.
+Cette api permet de déployer une bibliothèque de savoir. Elle comprends des collections pour les différents sujet, les types de documentations, la gestion des membres et l'accès aux ressources. Les droitsCRUD des acteurs sont séparés selon le tableau suivant :
+
+| Acteur / Droits | Utilisateur | Mentor | Admin |
+| --------------- | ----------- | ------ | ----- |
+| CRUD ressources | ✅ *        | ✅     | ✅    |
+| CRUD catégories | ❌          | ❌     | ✅    |
+| CRUD collections| ✅ *        | ✅     | ✅    |
+| CRUD utilisateur| ✅ *        | ❌     | ✅    |
+
+* Les droits de l'utilisateurs sont limités à sa propre entité
 
 ## Récits utilisateurs
 [Récits utilisateurs](docs/user-stories/user-stories.md)
 
 
 ## Cas d'utilisations
-```plantuml
-@startuml
-::include{file=docs/diagrammes/usecases.puml}
-@enduml
-```
+[Cas d'utilisations](docs/diagrammes/usecases.puml)
 
 ## Diagramme de classes UML
-```plantuml
-@startuml
-::include{file=docs/diagrammes/classes.puml}
-@enduml
-```
+[Diagramme de classes](docs/diagrammes/classes.puml)
 
 ## Installation
 À venir!
@@ -37,4 +38,4 @@ API de bibliothèque de savoir © 2025 by Émile Girard & Émile Larochelle-Lang
 Pour consulter les détails de la licence, visitez https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 ## État du projet et plans futurs
-Sprint 1 en cours - Analyse et mise en place du projet
+Sprint 1 en cours - Analyse du projet et ébauche du mock de l'API
