@@ -13,7 +13,6 @@ Utilisateur --> (Filtrer par catégorie)
 Utilisateur --> (Filtrer par mot-clé)
 Utilisateur --> (Consulter une ressource)
 Utilisateur --> (Télécharger une ressource)
-Utilisateur --> (Consulter sa bibliothèque)
 Utilisateur --> (Évaluer un mentor)
 Utilisateur --> (Désactiver son compte)
  
@@ -34,31 +33,49 @@ Administrateur --> (Modifier une catégorie)
 Administrateur --> (Supprimer une catégorie)
 Administrateur --> (Lister les utilisateurs)
 Administrateur --> (Bannir un utilisateurs)
+}
+
 rectangle "public"{
  
 Administrateur --> Mentor
 Mentor --> Utilisateur
- note right of (Se connecter à la plateforme)
+
+note right of (Désactiver son compte)
+  POST
+end note
+
+note right of (S'inscrire à la plateforme)
+  POST
+end note
+
+note right of (Se connecter à la plateforme)
+  POST
+end note
+
+note right of (S'inscrire à la plateforme)
   GET
 end note
- note right of (S'inscrire à la plateforme)
-  GET
-end note
+
 note right of (Parcourir sa bibliothèque)
   GET
 end note
+
 note right of (Filtrer par catégorie)
   GET
 end note
+
 note right of (Filtrer par mot-clé)
   GET
 end note
+
 note right of (Consulter une ressource)
   GET
 end note
+
 note right of (Télécharger une ressource)
   GET
 end note
+
 note right of (Évaluer un mentor)
   POST
 end note
@@ -67,21 +84,27 @@ end note
 note right of (Créer une ressource) 
   POST
 end note
+
 note right of (Modifier une ressource) 
   PATCH
 end note
+
 note right of (Supprimer une ressource) 
   DELETE
 end note
+
 note right of (Créer une collection) 
   POST
 end note
+
 note right of (Modifier une collection) 
   PATCH
 end note
+
 note right of (Supprimer une collection) 
   DELETE
 end note
+
 note right of (Contacter un administrateur) 
   POST
 end note
@@ -91,17 +114,23 @@ end note
 note right of (Créer une catégorie) 
   POST
 end note
+
 note right of (Modifier une catégorie) 
   PATCH
 end note
+
 note right of (Supprimer une catégorie) 
   DELETE
 end note
+
 note right of (Lister les utilisateurs) 
   GET
 end note
+
 note right of (Bannir un utilisateurs) 
   PATCH
 end note
- 
+
+}
+
 @enduml
