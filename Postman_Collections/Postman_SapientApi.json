@@ -1,0 +1,1185 @@
+{
+  "info": {
+    "_postman_id": "93d923e6-6e1b-4cf1-85fe-85ac6fac14e8",
+    "name": "SapientAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "/utilisateurs",
+          "id": "480883a3-c789-4fb6-80c7-268b65d20b49",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{adminToken}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/utilisateurs"
+          },
+          "response": [
+            {
+              "id": "dabf08da-f43e-483e-9e2a-c6e19231917a",
+              "name": "/utilisateurs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    {\n        \"utilisateur_id\": 12,\n        \"nom\": \"Rousseau\",\n        \"prénom\": \"Thomas\",\n        \"email\": \"thomas.rousseau@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"étudiant\"\n    },\n    {\n        \"utilisateur_id\": 15,\n        \"nom\": \"Martin\",\n        \"prénom\": \"Sophie\",\n        \"email\": \"sophie.martin@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"admin\"\n    },\n    {\n        \"utilisateur_id\": 23,\n        \"nom\": \"Dubois\",\n        \"prénom\": \"Alexandre\",\n        \"email\": \"alexandre.dubois@example.com\",\n        \"status_actif\": false,\n        \"type_compte\": \"étudiant\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "/utilisateurs/recherche?mot-clé",
+          "id": "26bdd600-b32d-4acc-a9b3-6fa10269aba4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "utilisateurs",
+                "recherche"
+              ],
+              "query": [
+                {
+                  "key": "mot-clé",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "65f821dc-c829-4a9d-aa0a-143a02973b59",
+              "name": "/utilisateurs/recherche?mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé=marie",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": "marie"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche d'utilisateurs effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/utilisateurs/{id}",
+          "id": "bd47e6fc-a4af-4ff2-85df-a3269c1fc4de",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": [
+            {
+              "id": "21f257f9-c38e-42de-805f-9b056300f6e3",
+              "name": "/utilisateurs/8",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/8"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories/{id}",
+          "id": "1d443ec9-b185-4b70-a0d8-a45397a81c58",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "ab6a9d9f-868e-4397-bc26-87b58f69ed54",
+              "name": "/catégories/3",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nom\": \"Design UX/UI & Expérience Utilisateur\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie mise à jour avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"date_modification\": \"2024-03-20T13:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:15:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories/{id}",
+          "id": "bf0f3a55-9009-4366-bf4d-655b462a8bfe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "bebde58c-9e73-48b3-bc4d-a7a63f9d9f8e",
+              "name": "/catégories/3",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie supprimée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"supprimé_le\": \"2024-03-20T13:20:00Z\",\n        \"ressources_affectées\": 15,\n        \"action_ressources\": \"Déplacées vers catégorie 'Non classé' (ID: 0)\"\n    },\n    \"timestamp\": \"2024-03-20T13:20:00Z\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
+    },
+    {
+      "name": "Mentor",
+      "item": [
+        {
+          "name": "/collections/{id}?visible",
+          "id": "23de8236-f47a-4c8d-855b-0c5cee06243f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/collections/{id}?visible",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "collections",
+                "{id}"
+              ],
+              "query": [
+                {
+                  "key": "visible",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46ceb188-73ad-4e97-b583-51fbb75343ee",
+              "name": "/collections/4?visible=false",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la collection mise à jour\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"visibilité\": false,\n        \"date_modification\": \"2024-03-20T13:40:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:40:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/collections/{id}",
+          "id": "9c1ff8cb-d2ef-4f61-9090-0fdb735a4b5c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/collections/{id}"
+          },
+          "response": [
+            {
+              "id": "5d0bac99-ba96-47b0-88eb-aa2e5bbfd13b",
+              "name": "/collections/4",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "42193496-9939-4330-81bd-a0d194c28a2b"
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "/utilisateurs/{id}",
+          "id": "438e8a73-fe29-4425-8462-08b31574ed3b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": [
+            {
+              "id": "ad9b520d-df19-49d7-b6bb-20e08098cfd7",
+              "name": "/utilisateurs/8",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/8"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/auth/connexion",
+          "id": "3dbc591b-5ba6-4704-be75-1e8b1fab8e03",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/connexion"
+          },
+          "response": []
+        },
+        {
+          "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé",
+          "id": "44699cc2-0962-4e3e-ae96-94c8055e1559",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "utilisateurs",
+                "recherche"
+              ],
+              "query": [
+                {
+                  "key": "type_compte",
+                  "value": "mentor"
+                },
+                {
+                  "key": "mot-clé",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
+              "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé=marie",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_compte",
+                      "value": "mentor"
+                    },
+                    {
+                      "key": "mot-clé",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/utilisateurs/{id}",
+          "id": "5b45642f-ae83-461b-9603-a7da33fc5a28",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": []
+        },
+        {
+          "name": "/utilisateurs/{id}?actif",
+          "id": "3d0bf635-dfe3-43d4-9546-43d1ee425778",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "utilisateurs",
+                "{id}"
+              ],
+              "query": [
+                {
+                  "key": "actif",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/collections",
+          "id": "f1036a4c-9b05-4d6e-83bf-cb7e8652f597",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/collections"
+          },
+          "response": [
+            {
+              "id": "2ef8dafb-e03f-4fec-b30a-8d635da6dd2f",
+              "name": "/collections",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/collections"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            },\n            {\n                \"collection_id\": 2,\n                \"titre\": \"Algorithmes Fondamentaux\",\n                \"description\": \"Collection des algorithmes essentiels en informatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 23\n            },\n            {\n                \"collection_id\": 3,\n                \"titre\": \"Design System Guide\",\n                \"description\": \"Ressources pour créer et maintenir un design system\",\n                \"visibilité\": false,\n                \"auteur_id\": 8\n            },\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            }\n        ],\n        \"pagination\": {\n            \"page_actuelle\": 1,\n            \"total_pages\": 2,\n            \"total_collections\": 7,\n            \"collections_par_page\": 4\n        }\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/collections/recherche?mot_clé",
+          "id": "3c6b8551-aa1e-4c7b-84c5-a7079eacfcdc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/collections/recherche?mot_clé",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "collections",
+                "recherche"
+              ],
+              "query": [
+                {
+                  "key": "mot_clé",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "92617eb9-4227-459e-874b-1ac78e34cea9",
+              "name": "/collections/recherche?mot_clé=marie",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/recherche?mot-clé=machine",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": "machine"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de collections effectuée\",\n    \"data\": {\n        \"mot_clé\": \"machine\",\n        \"collections\": [\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            },\n            {\n                \"collection_id\": 7,\n                \"titre\": \"Machine Learning Avancé\",\n                \"description\": \"Techniques avancées et recherche en apprentissage automatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 34\n            }\n        ],\n        \"total_résultats\": 2\n    },\n    \"timestamp\": \"2024-03-20T13:30:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/collections/{id}",
+          "id": "6ccefa79-4f9d-4828-b2ac-820b03f7e013",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/collections/{id}"
+          },
+          "response": [
+            {
+              "id": "cd8df9a1-5bf1-408e-87a8-78c66fd9ebe8",
+              "name": "/collections/4",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection récupérée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"description\": \"Tutoriels et exercices pratiques en ML\",\n        \"visibilité\": true,\n        \"auteur_id\": 12,\n        \"nombre_ressources\": 8,\n        \"ressources_publiques\": 6,\n        \"ressources_privées\": 2,\n        \"date_création\": \"2024-02-05T09:00:00Z\",\n        \"date_modification\": \"2024-03-18T16:45:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T16:45:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:35:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/ressources",
+          "id": "66394802-b2ea-4ff8-996e-5ad38cf752e7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/ressources"
+          },
+          "response": [
+            {
+              "id": "0dab5d39-8a22-47e3-95d9-4924eec04ee9",
+              "name": "/ressources",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/ressources"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    },\n    {\n        \"ressource_id\": 2,\n        \"titre\": \"Algorithmes de tri en Python\",\n        \"description\": \"Implémentation et comparaison des principaux algorithmes de tri\",\n        \"url_ressource\": \"/uploads/ressources/algorithmes-tri-python.zip\",\n        \"visibilité\": true,\n        \"catégorie_id\": 1,\n        \"auteur_id\": 23\n    },\n    {\n        \"ressource_id\": 3,\n        \"titre\": \"Design Thinking pour l'innovation\",\n        \"description\": \"Méthode créative pour résoudre des problèmes complexes et innover\",\n        \"url_ressource\": \"/uploads/ressources/design-thinking-innovation.pptx\",\n        \"visibilité\": false,\n        \"catégorie_id\": 3,\n        \"auteur_id\": 8\n    },\n    {\n        \"ressource_id\": 4,\n        \"titre\": \"Machine Learning avec Scikit-learn\",\n        \"description\": \"Tutoriel pratique pour débuter en apprentissage automatique\",\n        \"url_ressource\": \"/uploads/ressources/machine-learning-scikit-learn.ipynb\",\n        \"visibilité\": true,\n        \"catégorie_id\": 4,\n        \"auteur_id\": 12\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "/ressources/recherche?mot-clé",
+          "id": "02e18c8b-7325-42fb-8fce-95bec47a5512",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ressources/recherche?mot-clé",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ressources",
+                "recherche"
+              ],
+              "query": [
+                {
+                  "key": "mot-clé",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "141d8459-8db8-4d46-9d0a-f900ff520cbc",
+              "name": "/ressources/recherche?mot-clé=React",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/recherche?mot-clé=React",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": "React"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "/ressources/{id}",
+          "id": "7230653f-4d95-4106-a2b0-f1fa82b884ac",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/ressources/{id}"
+          },
+          "response": [
+            {
+              "id": "12391c6a-1d4c-47e1-b9f0-000b2b9c8a12",
+              "name": "/ressources/1",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"ressource_id\": 1,\n    \"titre\": \"Introduction à React.js\",\n    \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n    \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n    \"visibilité\": true,\n    \"catégorie_id\": 2,\n    \"auteur_id\": 15\n}"
+            }
+          ]
+        },
+        {
+          "name": "/ressources/{id}/télécharger",
+          "id": "a235d8f8-9676-43a2-8083-81eb806bdb5e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/ressources/{id}/télécharger"
+          },
+          "response": [
+            {
+              "id": "a2d114f5-b18f-4883-a369-37bb68aa0557",
+              "name": "/ressources/1/télécharger",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1/télécharger"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource prête pour téléchargement\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"nom_fichier\": \"react-intro-guide.pdf\",\n        \"url_telechargement\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"taille_fichier\": \"2.5 MB\",\n        \"type_fichier\": \"application/pdf\",\n        \"mime_type\": \"application/pdf\",\n        \"date_creation\": \"2024-01-15T10:30:00Z\",\n        \"auteur\": {\n            \"nom\": \"Martin\",\n            \"prénom\": \"Sophie\"\n        },\n        \"expires_at\": \"2024-03-20T18:00:00Z\"\n    },\n    \"headers\": {\n        \"Content-Type\": \"application/pdf\",\n        \"Content-Disposition\": \"attachment; filename=\\\"react-intro-guide.pdf\\\"\",\n        \"Content-Length\": \"2621440\",\n        \"Cache-Control\": \"private, max-age=3600\"\n    },\n    \"timestamp\": \"2024-03-20T12:00:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/ressources/{id}",
+          "id": "504201ae-fd4a-48d4-b971-738f32725910",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{baseUrl}}/ressources/{id}"
+          },
+          "response": [
+            {
+              "id": "ae139f94-e3ca-4107-bb7a-66c61ebfc19b",
+              "name": "/ressources/1",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"titre\": \"Introduction avancée à React.js et Hooks\",\n  \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n  \"visibilité\": true,\n  \"catégorie_id\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource mise à jour avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction avancée à React.js et Hooks\",\n        \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15,\n        \"date_création\": \"2024-01-15T10:30:00Z\",\n        \"date_modification\": \"2024-03-20T12:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:15:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/ressources/{id}?visible",
+          "id": "b16f3553-2668-438c-ae45-78cb6d88584e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ressources/{id}?visible",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ressources",
+                "{id}"
+              ],
+              "query": [
+                {
+                  "key": "visible",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fce6d7c3-657f-40c8-b831-2e0bd5cd1e58",
+              "name": "/ressources/1?visible=true",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/ressources/{id}",
+          "id": "38e700a8-db3a-45d9-9b8d-5169fb59e64c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/ressources/{id}"
+          },
+          "response": [
+            {
+              "id": "d37218f9-82e1-4b23-b2b9-78f79807b91d",
+              "name": "/ressources/1",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource supprimée avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"supprimé_le\": \"2024-03-20T12:45:00Z\",\n        \"fichier_supprimé\": \"/uploads/ressources/react-intro-guide.pdf\"\n    },\n    \"timestamp\": \"2024-03-20T12:45:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories",
+          "id": "984f0629-16cf-4942-8d5a-376c1e16a4ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/catégories"
+          },
+          "response": [
+            {
+              "id": "fcd39c4a-7c65-4f38-8480-55043f3a2c9f",
+              "name": "/catégories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégories récupérées avec succès\",\n    \"data\": {\n        \"catégories\": [\n            {\n                \"catégorie_id\": 1,\n                \"nom\": \"Informatique\"\n            },\n            {\n                \"catégorie_id\": 2,\n                \"nom\": \"Développement Web\"\n            },\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            },\n            {\n                \"catégorie_id\": 4,\n                \"nom\": \"Intelligence Artificielle\"\n            },\n            {\n                \"catégorie_id\": 5,\n                \"nom\": \"Base de données\"\n            },\n            {\n                \"catégorie_id\": 6,\n                \"nom\": \"Cybersécurité\"\n            },\n            {\n                \"catégorie_id\": 7,\n                \"nom\": \"Mobile\"\n            },\n            {\n                \"catégorie_id\": 8,\n                \"nom\": \"DevOps\"\n            }\n        ],\n        \"total_catégories\": 8\n    },\n    \"timestamp\": \"2024-03-20T12:50:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories/recherche?mot-clé",
+          "id": "6e0b5ef5-2a24-4771-a865-e9718707410b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/catégories/recherche?mot-clé",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "catégories",
+                "recherche"
+              ],
+              "query": [
+                {
+                  "key": "mot-clé",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a4645599-bc41-47a7-880f-3cd5ba5b9a3a",
+              "name": "/catégories/recherche?mot-clé=design",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/catégories/recherche?mot-clé=design",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "catégories",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": "design"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de catégories effectuée\",\n    \"data\": {\n        \"mot_clé\": \"design\",\n        \"catégories\": [\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T12:55:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories/{id}",
+          "id": "af70766c-584a-43a4-a9cf-54276feda07b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "67bb45ad-70e8-4993-a2b1-a1dba30de749",
+              "name": "/catégories/3",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie récupérée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design & UX\",\n        \"nombre_ressources\": 15,\n        \"ressources_publiques\": 12,\n        \"ressources_privées\": 3,\n        \"date_création\": \"2024-01-10T08:00:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T14:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:00:00Z\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "e6a9902e-39ad-481e-86b3-384dd6ba4e0b"
+    },
+    {
+      "name": "Public",
+      "item": [
+        {
+          "name": "/auth/inscrire",
+          "id": "6a776674-cc99-4ce5-a5bf-e3012062e8b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Dupont\",\n  \"prénom\": \"Jean\",\n  \"email\": \"jean.dupont@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\",\n  \"type_compte\": \"Utilisateur\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/inscrire"
+          },
+          "response": []
+        }
+      ],
+      "id": "896ba2fc-00f5-4845-af90-8705f37c5353"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "4f6fd7db-722a-4e5c-ab2a-01f8e7ac62a5",
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "8f1758bd-ca9f-4ebe-95ad-a9973a36213c",
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "adminToken",
+      "value": ""
+    }
+  ]
+}
