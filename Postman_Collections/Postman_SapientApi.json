@@ -28,7 +28,7 @@
           "response": [
             {
               "id": "dabf08da-f43e-483e-9e2a-c6e19231917a",
-              "name": "/utilisateurs",
+              "name": "[OK] /utilisateurs",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -366,6 +366,8 @@
                 "header": [],
                 "url": "{{baseUrl}}/utilisateurs/8"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
