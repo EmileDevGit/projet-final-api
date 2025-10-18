@@ -28,7 +28,7 @@
           "response": [
             {
               "id": "dabf08da-f43e-483e-9e2a-c6e19231917a",
-              "name": "[OK] /utilisateurs",
+              "name": "[200] /utilisateurs",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
