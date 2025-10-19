@@ -634,7 +634,7 @@
           "response": [
             {
               "id": "97873767-0203-4303-9bca-d77731895299",
-              "name": "Utilisateur - Suppression",
+              "name": "200 OK - Admin - Supprimer un utilisateur",
               "originalRequest": {
                 "method": "DELETE",
                 "header": [],
