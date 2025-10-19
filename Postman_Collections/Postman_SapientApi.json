@@ -943,14 +943,14 @@
             },
             {
               "id": "f1dff324-2586-430d-961a-2dbb5dd86be2",
-              "name": "200 OK - Utilisateur - Détails d'une collection (visible) Copy",
+              "name": "404 Not Found - Utilisateur - Détails d'une collection (non-visible)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "url": "{{baseUrl}}/collections/4"
+                "url": "{{baseUrl}}/collections/5"
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Not Found",
+              "code": 404,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -962,7 +962,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection récupérée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"description\": \"Tutoriels et exercices pratiques en ML\",\n        \"visibilité\": true,\n        \"auteur_id\": 12,\n        \"nombre_ressources\": 8,\n        \"ressources_publiques\": 6,\n        \"ressources_privées\": 2,\n        \"date_création\": \"2024-02-05T09:00:00Z\",\n        \"date_modification\": \"2024-03-18T16:45:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T16:45:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:35:00Z\"\n}"
+              "body": "{\n    \"status\": \"404\",\n    \"message\": \"Not Found\"\n}"
             }
           ]
         },
