@@ -1004,6 +1004,8 @@
                 "header": [],
                 "url": "{{baseUrl}}/collections"
               },
+              "status": "Created",
+              "code": 201,
               "_postman_previewlanguage": null,
               "header": null,
               "cookie": [],
@@ -1018,6 +1020,8 @@
                 "header": [],
                 "url": "{{baseUrl}}/collections"
               },
+              "status": "Created",
+              "code": 201,
               "_postman_previewlanguage": null,
               "header": null,
               "cookie": [],
@@ -1032,6 +1036,24 @@
                 "header": [],
                 "url": "{{baseUrl}}/collections"
               },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "9015ce7b-b441-4f1e-b814-466c9c0fd000",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une collection",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/collections"
+              },
+              "status": "Unauthorized",
+              "code": 401,
               "_postman_previewlanguage": null,
               "header": null,
               "cookie": [],
