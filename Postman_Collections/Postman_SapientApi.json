@@ -234,7 +234,7 @@
             },
             {
               "id": "5dc6e51f-2556-4038-bac6-487019dff137",
-              "name": "401 Unauthorized - Utilisateur - Détails d'un utilisateur (autre)",
+              "name": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -253,7 +253,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
+              "body": "{\n    \"error\": \"forbidden\"\n}"
             },
             {
               "id": "193af623-f1d1-469d-929b-dc4a520903d6",
@@ -389,7 +389,7 @@
             },
             {
               "id": "d0e3a2a9-7df0-4570-930b-1152e2c3e96e",
-              "name": "401 Unauthorized - Utilisateur -  Changer status d'un utilisateur (autre)",
+              "name": "403 Forbidden - Utilisateur -  Changer status d'un utilisateur (autre)",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
@@ -410,6 +410,8 @@
                   ]
                 }
               },
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -421,7 +423,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
+              "body": "{\n    \"error\": \"forbidden\"\n}"
             },
             {
               "id": "ffa4e018-5219-40ef-b5cc-319183374972",
@@ -580,7 +582,7 @@
             },
             {
               "id": "633c3db4-c57a-4995-a16f-2ae2b494c657",
-              "name": "401 Unauthorized - Utilisateur - Modifier un utilisateur (autre) Copy",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Modifier un utilisateur",
               "originalRequest": {
                 "method": "PUT",
                 "header": [],
@@ -679,6 +681,29 @@
             {
               "id": "6b40ff0f-6f61-4a54-a7e2-9fbb62bdf787",
               "name": "401 Unauthorized - Utilisateur - Supprimer un utilisateur (autre)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            },
+            {
+              "id": "33523e63-b155-4cc0-b541-f45765abe729",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer un utilisateur",
               "originalRequest": {
                 "method": "DELETE",
                 "header": [],
