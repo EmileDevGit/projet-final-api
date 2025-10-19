@@ -486,6 +486,68 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
+                  "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Utilisateur mis à jour avec succès\"\n}"
+            },
+            {
+              "id": "5304781a-ea37-4b78-9842-e466de94fb56",
+              "name": "200 OK - Utilisateur se met à jour",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Utilisateur mis à jour avec succès\"\n}"
+            },
+            {
+              "id": "a7d60634-041a-46b8-af59-bb2602caec07",
+              "name": "Utilisateur - Modification",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
                   "raw": "",
                   "options": {
                     "raw": {
