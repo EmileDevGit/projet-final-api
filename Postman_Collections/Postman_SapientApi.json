@@ -31,7 +31,13 @@
               "name": "200 OK - Admin - Liste des utilisateurs",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des utilisateurs",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs"
               },
               "status": "OK",
@@ -1067,6 +1073,11 @@
                   {
                     "key": "Content-Type",
                     "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Frobidden - Utilisateur - Ajouter une collection (user)",
                     "type": "text"
                   }
                 ],
