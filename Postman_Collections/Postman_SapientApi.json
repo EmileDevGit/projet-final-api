@@ -16,10 +16,7 @@
           },
           "request": {
             "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{adminToken}}"
-              }
+              "type": "noauth"
             },
             "method": "GET",
             "header": [],
@@ -1788,7 +1785,13 @@
               "name": "403 Forbidden - Utilisateur - Supprimer une collection (non-propriétaire)",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Supprimer une collection (non-propriétaire)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections/4"
               },
               "status": "Forbidden",
@@ -1811,7 +1814,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une collection",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une collection",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections/4"
               },
               "status": "Unauthorized",
