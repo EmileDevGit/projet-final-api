@@ -442,16 +442,23 @@
                   ]
                 }
               },
-              "_postman_previewlanguage": null,
-              "header": null,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
         {
-          "name": "/utilisateurs/{id}",
+          "name": "Utilisateur - Modification",
           "id": "5b45642f-ae83-461b-9603-a7da33fc5a28",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -470,7 +477,31 @@
             },
             "url": "{{baseUrl}}/utilisateurs/{id}"
           },
-          "response": []
+          "response": [
+            {
+              "id": "c31bd7ef-6c0c-4ab5-8015-29bf9d53c8ba",
+              "name": "200 OK - Admin met un utilisateur à jour",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         }
       ],
       "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
