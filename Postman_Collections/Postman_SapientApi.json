@@ -527,6 +527,8 @@
                 },
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -542,13 +544,13 @@
             },
             {
               "id": "a7d60634-041a-46b8-af59-bb2602caec07",
-              "name": "Utilisateur - Modification",
+              "name": "401 Unauthorized - Utilisateur met un autre utilisateur à jour",
               "originalRequest": {
                 "method": "PUT",
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "",
+                  "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -557,11 +559,20 @@
                 },
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
-              "_postman_previewlanguage": null,
-              "header": null,
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         }
@@ -572,7 +583,7 @@
       "name": "/collections",
       "item": [
         {
-          "name": "/collections",
+          "name": "Collections - Liste",
           "id": "f1036a4c-9b05-4d6e-83bf-cb7e8652f597",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -585,7 +596,7 @@
           "response": [
             {
               "id": "2ef8dafb-e03f-4fec-b30a-8d635da6dd2f",
-              "name": "/collections",
+              "name": "200 OK - Admin accède à la liste des collections",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
