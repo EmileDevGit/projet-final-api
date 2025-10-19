@@ -733,7 +733,13 @@
               "name": "200 OK - Admin - Supprimer un utilisateur",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Supprimer un utilisateur",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "OK",
@@ -756,7 +762,13 @@
               "name": "200 OK - Utilisateur - Supprimer un utilisateur (sois)",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Supprimer un utilisateur (sois)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "OK",
@@ -779,7 +791,13 @@
               "name": "403 Forbidden - Utilisateur - Supprimer un utilisateur (autre)",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Supprimer un utilisateur (autre)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "Forbidden",
@@ -802,7 +820,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer un utilisateur",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Supprimer un utilisateur",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "Unauthorized",
