@@ -9,7 +9,7 @@
       "name": "/utilisateurs",
       "item": [
         {
-          "name": "Utilisateurs - Liste complète",
+          "name": "Utilisateurs - Liste",
           "id": "480883a3-c789-4fb6-80c7-268b65d20b49",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -50,58 +50,6 @@
               "body": "[\n    {\n        \"utilisateur_id\": 1,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    {\n        \"utilisateur_id\": 2,\n        \"nom\": \"Rousseau\",\n        \"prénom\": \"Thomas\",\n        \"email\": \"thomas.rousseau@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"étudiant\"\n    },\n    {\n        \"utilisateur_id\": 3,\n        \"nom\": \"Martin\",\n        \"prénom\": \"Sophie\",\n        \"email\": \"sophie.martin@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"admin\"\n    },\n    {\n        \"utilisateur_id\": 4,\n        \"nom\": \"Dubois\",\n        \"prénom\": \"Alexandre\",\n        \"email\": \"alexandre.dubois@example.com\",\n        \"status_actif\": false,\n        \"type_compte\": \"étudiant\"\n    }\n]"
             },
             {
-              "id": "615af1ec-71d3-46f1-bfd5-5194cc2bec8d",
-              "name": "401 Unauthorized - Un non-admin accède à la liste des utilisateurs",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs"
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "Utilisateurs - Liste filtrée par mot-clé",
-          "id": "26bdd600-b32d-4acc-a9b3-6fa10269aba4",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "utilisateurs",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
               "id": "65f821dc-c829-4a9d-aa0a-143a02973b59",
               "name": "200 OK - Admin recherche les utilisateurs par mot-clé",
               "originalRequest": {
@@ -140,6 +88,29 @@
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche d'utilisateurs effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
             },
             {
+              "id": "615af1ec-71d3-46f1-bfd5-5194cc2bec8d",
+              "name": "401 Unauthorized - Un non-admin accède à la liste des utilisateurs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            },
+            {
               "id": "8a60b226-6b17-4c3c-810a-ed49237d8556",
               "name": "401 Unauthorized - Utilisateur recherche les autres utilisateurs par mot-clé",
               "originalRequest": {
@@ -176,52 +147,7 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"error\": \"unauthorized\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "Utilisateurs - Liste filtrée par type de compte",
-          "id": "09134bbe-b02f-4426-80cb-058a679a7f0b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": []
-          },
-          "response": []
-        },
-        {
-          "name": "Utilisateurs - Liste filtrée par type de compte et mot-clé",
-          "id": "44699cc2-0962-4e3e-ae96-94c8055e1559",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "utilisateurs",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "type_compte",
-                  "value": "mentor"
-                },
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
+            },
             {
               "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
               "name": "200 OK - Utilisateur recherche un mentor par mot-clé",
