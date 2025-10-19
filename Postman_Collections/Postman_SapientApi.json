@@ -533,7 +533,7 @@
           ]
         },
         {
-          "name": "Utilisateur - Modification",
+          "name": "Utilisateur - Modifier",
           "id": "5b45642f-ae83-461b-9603-a7da33fc5a28",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -708,7 +708,7 @@
           ]
         },
         {
-          "name": "Utilisateur - Suppression",
+          "name": "Utilisateur - Supprimer",
           "id": "bc665103-dafc-464d-9597-3ee6f429d644",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -1566,7 +1566,7 @@
           ]
         },
         {
-          "name": "Collection - Modification",
+          "name": "Collection - Modifier",
           "id": "23de8236-f47a-4c8d-855b-0c5cee06243f",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -1711,7 +1711,7 @@
           ]
         },
         {
-          "name": "Collection - Suppression",
+          "name": "Collection - Supprimer",
           "id": "9c1ff8cb-d2ef-4f61-9090-0fdb735a4b5c",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -1967,7 +1967,7 @@
           ]
         },
         {
-          "name": "Catégorie - Suppression",
+          "name": "Catégorie - Supprimer",
           "id": "bf0f3a55-9009-4366-bf4d-655b462a8bfe",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
