@@ -1847,7 +1847,7 @@
       "name": "/catégories",
       "item": [
         {
-          "name": "/catégories",
+          "name": "Catégories - Liste",
           "id": "984f0629-16cf-4942-8d5a-376c1e16a4ae",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -1882,7 +1882,7 @@
           ]
         },
         {
-          "name": "/catégories/{id}",
+          "name": "Catégorie - Détails",
           "id": "af70766c-584a-43a4-a9cf-54276feda07b",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -1917,72 +1917,7 @@
           ]
         },
         {
-          "name": "/catégories/recherche?mot-clé",
-          "id": "6e0b5ef5-2a24-4771-a865-e9718707410b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/catégories/recherche?mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "catégories",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "a4645599-bc41-47a7-880f-3cd5ba5b9a3a",
-              "name": "/catégories/recherche?mot-clé=design",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/catégories/recherche?mot-clé=design",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "catégories",
-                    "recherche"
-                  ],
-                  "query": [
-                    {
-                      "key": "mot-clé",
-                      "value": "design"
-                    }
-                  ]
-                }
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de catégories effectuée\",\n    \"data\": {\n        \"mot_clé\": \"design\",\n        \"catégories\": [\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T12:55:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories/{id}",
+          "name": "Catégorie - Modifier",
           "id": "1d443ec9-b185-4b70-a0d8-a45397a81c58",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2032,7 +1967,7 @@
           ]
         },
         {
-          "name": "/catégories/{id}",
+          "name": "Catégorie - Suppression",
           "id": "bf0f3a55-9009-4366-bf4d-655b462a8bfe",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2073,7 +2008,7 @@
       "name": "/ressources",
       "item": [
         {
-          "name": "/ressources",
+          "name": "Ressources - Liste",
           "id": "66394802-b2ea-4ff8-996e-5ad38cf752e7",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2108,7 +2043,7 @@
           ]
         },
         {
-          "name": "/ressources/{id}",
+          "name": "Ressource - Détails",
           "id": "7230653f-4d95-4106-a2b0-f1fa82b884ac",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2143,7 +2078,7 @@
           ]
         },
         {
-          "name": "/ressources/{id}/télécharger",
+          "name": "Ressource - Télécharger",
           "id": "a235d8f8-9676-43a2-8083-81eb806bdb5e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2178,72 +2113,7 @@
           ]
         },
         {
-          "name": "/ressources/recherche?mot-clé",
-          "id": "02e18c8b-7325-42fb-8fce-95bec47a5512",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/ressources/recherche?mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "ressources",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "141d8459-8db8-4d46-9d0a-f900ff520cbc",
-              "name": "/ressources/recherche?mot-clé=React",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/ressources/recherche?mot-clé=React",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "ressources",
-                    "recherche"
-                  ],
-                  "query": [
-                    {
-                      "key": "mot-clé",
-                      "value": "React"
-                    }
-                  ]
-                }
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    }\n]"
-            }
-          ]
-        },
-        {
-          "name": "/ressources/{id}?visible",
+          "name": "Ressource - Visibilité",
           "id": "b16f3553-2668-438c-ae45-78cb6d88584e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2308,7 +2178,7 @@
           ]
         },
         {
-          "name": "/ressources/{id}",
+          "name": "Ressource - Modifier",
           "id": "504201ae-fd4a-48d4-b971-738f32725910",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2358,7 +2228,7 @@
           ]
         },
         {
-          "name": "/ressources/{id}",
+          "name": "Ressource - Supprimer",
           "id": "38e700a8-db3a-45d9-9b8d-5169fb59e64c",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
