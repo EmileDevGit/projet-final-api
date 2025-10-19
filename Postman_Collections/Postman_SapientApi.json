@@ -985,6 +985,62 @@
           ]
         },
         {
+          "name": "Collections - Ajouter",
+          "id": "333a2bd3-4ac6-425b-bde3-7ca3d78299e8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/collections"
+          },
+          "response": [
+            {
+              "id": "d534a526-a1b1-4d4c-9f21-b1edc8d9a9cc",
+              "name": "201 Created - Admin - Créer une collection",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/collections"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "e955a8de-49ed-40cf-8565-fb94d6b8afa3",
+              "name": "201 Created - Utilisateur - Créer une collection (mentor)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/collections"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "3f4980cc-04b7-4011-9c08-d0c6c9f8bfa5",
+              "name": "403 Frobidden - Utilisateur - Créer une collection (user)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/collections"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
           "name": "Collections - Visibilité",
           "id": "239fabfa-5075-4712-8748-15b2873ec71d",
           "protocolProfileBehavior": {
