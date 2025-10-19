@@ -136,7 +136,7 @@
           ]
         },
         {
-          "name": "/utilisateurs/recherche?mot-clé",
+          "name": "Utilisateurs - Liste filtrée",
           "id": "26bdd600-b32d-4acc-a9b3-6fa10269aba4",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -164,7 +164,7 @@
           "response": [
             {
               "id": "65f821dc-c829-4a9d-aa0a-143a02973b59",
-              "name": "/utilisateurs/recherche?mot-clé",
+              "name": "200 OK - Admin recherche les utilisateurs par mot-clé",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -197,6 +197,35 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche d'utilisateurs effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
+              "id": "8a60b226-6b17-4c3c-810a-ed49237d8556",
+              "name": "401 Unauthorized - Utilisateurs recherche les autres utilisateurs par mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
             }
           ]
         },
