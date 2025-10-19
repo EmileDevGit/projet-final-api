@@ -1006,7 +1006,84 @@
             "header": [],
             "url": "{{baseUrl}}/collections"
           },
-          "response": []
+          "response": [
+            {
+              "id": "809e3d29-556a-4ba4-a208-c26a31bf51b4",
+              "name": "200 OK - Admin - Modifier la visibilité d'une collection",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"modification effectuée avec succès\"\n}"
+            },
+            {
+              "id": "d7d309fc-0fb2-41d7-ad73-06605b164457",
+              "name": "200 OK - Admin - Modifier la visibilité d'une collection Copy",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"modification effectuée avec succès\"\n}"
+            }
+          ]
         },
         {
           "name": "Collection - Modification",
