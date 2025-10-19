@@ -869,7 +869,13 @@
               "name": "200 OK - Admin - Liste des collections",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des collections",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections"
               },
               "_postman_previewlanguage": "json",
@@ -890,7 +896,13 @@
               "name": "200 OK - Admin - Liste des collections filtrée par mot-clé",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des collections filtrée par mot-clé",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/collections?mot-cle=React",
                   "host": [
@@ -925,7 +937,13 @@
               "name": "200 OK - Utilisateur - Liste des collections (visibles)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des collections (visibles)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections"
               },
               "status": "OK",
@@ -948,7 +966,13 @@
               "name": "200 OK - Utilisateur - Liste des collections filtrée par mot-clé (visible)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des collections filtrée par mot-clé (visible)",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/collections?mot-cle=React",
                   "host": [
@@ -985,7 +1009,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des collections",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Liste des collections",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections"
               },
               "_postman_previewlanguage": "json",
@@ -1020,7 +1050,13 @@
               "name": "200 OK - Admin - Détail d'une collection",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Détail d'une collection",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections/4"
               },
               "status": "OK",
@@ -1043,7 +1079,13 @@
               "name": "200 OK - Utilisateur - Détails d'une collection (visible)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Détails d'une collection (visible)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections/4"
               },
               "status": "OK",
