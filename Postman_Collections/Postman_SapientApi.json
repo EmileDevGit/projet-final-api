@@ -308,91 +308,6 @@
             }
           },
           "response": []
-        },
-        {
-          "name": "/catégories/{id}",
-          "id": "1d443ec9-b185-4b70-a0d8-a45397a81c58",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "url": "{{baseUrl}}/catégories/{id}"
-          },
-          "response": [
-            {
-              "id": "ab6a9d9f-868e-4397-bc26-87b58f69ed54",
-              "name": "/catégories/3",
-              "originalRequest": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"nom\": \"Design UX/UI & Expérience Utilisateur\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": "{{baseUrl}}/catégories/3"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie mise à jour avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"date_modification\": \"2024-03-20T13:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:15:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories/{id}",
-          "id": "bf0f3a55-9009-4366-bf4d-655b462a8bfe",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{baseUrl}}/catégories/{id}"
-          },
-          "response": [
-            {
-              "id": "bebde58c-9e73-48b3-bc4d-a7a63f9d9f8e",
-              "name": "/catégories/3",
-              "originalRequest": {
-                "method": "DELETE",
-                "header": [],
-                "url": "{{baseUrl}}/catégories/3"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie supprimée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"supprimé_le\": \"2024-03-20T13:20:00Z\",\n        \"ressources_affectées\": 15,\n        \"action_ressources\": \"Déplacées vers catégorie 'Non classé' (ID: 0)\"\n    },\n    \"timestamp\": \"2024-03-20T13:20:00Z\"\n}"
-            }
-          ]
         }
       ],
       "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
@@ -400,134 +315,6 @@
     {
       "name": "/collections",
       "item": [
-        {
-          "name": "/collections/{id}?visible",
-          "id": "23de8236-f47a-4c8d-855b-0c5cee06243f",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PATCH",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/collections/{id}?visible",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "collections",
-                "{id}"
-              ],
-              "query": [
-                {
-                  "key": "visible",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "46ceb188-73ad-4e97-b583-51fbb75343ee",
-              "name": "/collections/4?visible=false",
-              "originalRequest": {
-                "method": "PATCH",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/collections/4?visible=false",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "collections",
-                    "4"
-                  ],
-                  "query": [
-                    {
-                      "key": "visible",
-                      "value": "false"
-                    }
-                  ]
-                }
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la collection mise à jour\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"visibilité\": false,\n        \"date_modification\": \"2024-03-20T13:40:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:40:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/collections/{id}",
-          "id": "9c1ff8cb-d2ef-4f61-9090-0fdb735a4b5c",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{baseUrl}}/collections/{id}"
-          },
-          "response": [
-            {
-              "id": "5d0bac99-ba96-47b0-88eb-aa2e5bbfd13b",
-              "name": "/collections/4",
-              "originalRequest": {
-                "method": "DELETE",
-                "header": [],
-                "url": "{{baseUrl}}/collections/4"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
-            }
-          ]
-        }
-      ],
-      "id": "42193496-9939-4330-81bd-a0d194c28a2b"
-    },
-    {
-      "name": "/catégories",
-      "item": [
-        {
-          "name": "/auth/connexion",
-          "id": "3dbc591b-5ba6-4704-be75-1e8b1fab8e03",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{baseUrl}}/auth/connexion"
-          },
-          "response": []
-        },
         {
           "name": "/collections",
           "id": "f1036a4c-9b05-4d6e-83bf-cb7e8652f597",
@@ -664,24 +451,54 @@
           ]
         },
         {
-          "name": "/ressources",
-          "id": "66394802-b2ea-4ff8-996e-5ad38cf752e7",
+          "name": "/collections/{id}?visible",
+          "id": "23de8236-f47a-4c8d-855b-0c5cee06243f",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
-            "method": "GET",
+            "method": "PATCH",
             "header": [],
-            "url": "{{baseUrl}}/ressources"
+            "url": {
+              "raw": "{{baseUrl}}/collections/{id}?visible",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "collections",
+                "{id}"
+              ],
+              "query": [
+                {
+                  "key": "visible",
+                  "value": null
+                }
+              ]
+            }
           },
           "response": [
             {
-              "id": "0dab5d39-8a22-47e3-95d9-4924eec04ee9",
-              "name": "/ressources",
+              "id": "46ceb188-73ad-4e97-b583-51fbb75343ee",
+              "name": "/collections/4?visible=false",
               "originalRequest": {
-                "method": "GET",
+                "method": "PATCH",
                 "header": [],
-                "url": "{{baseUrl}}/ressources"
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
               },
               "_postman_previewlanguage": "json",
               "header": [
@@ -694,10 +511,277 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    },\n    {\n        \"ressource_id\": 2,\n        \"titre\": \"Algorithmes de tri en Python\",\n        \"description\": \"Implémentation et comparaison des principaux algorithmes de tri\",\n        \"url_ressource\": \"/uploads/ressources/algorithmes-tri-python.zip\",\n        \"visibilité\": true,\n        \"catégorie_id\": 1,\n        \"auteur_id\": 23\n    },\n    {\n        \"ressource_id\": 3,\n        \"titre\": \"Design Thinking pour l'innovation\",\n        \"description\": \"Méthode créative pour résoudre des problèmes complexes et innover\",\n        \"url_ressource\": \"/uploads/ressources/design-thinking-innovation.pptx\",\n        \"visibilité\": false,\n        \"catégorie_id\": 3,\n        \"auteur_id\": 8\n    },\n    {\n        \"ressource_id\": 4,\n        \"titre\": \"Machine Learning avec Scikit-learn\",\n        \"description\": \"Tutoriel pratique pour débuter en apprentissage automatique\",\n        \"url_ressource\": \"/uploads/ressources/machine-learning-scikit-learn.ipynb\",\n        \"visibilité\": true,\n        \"catégorie_id\": 4,\n        \"auteur_id\": 12\n    }\n]"
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la collection mise à jour\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"visibilité\": false,\n        \"date_modification\": \"2024-03-20T13:40:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:40:00Z\"\n}"
             }
           ]
         },
+        {
+          "name": "/collections/{id}",
+          "id": "9c1ff8cb-d2ef-4f61-9090-0fdb735a4b5c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/collections/{id}"
+          },
+          "response": [
+            {
+              "id": "5d0bac99-ba96-47b0-88eb-aa2e5bbfd13b",
+              "name": "/collections/4",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "42193496-9939-4330-81bd-a0d194c28a2b"
+    },
+    {
+      "name": "/catégories",
+      "item": [
+        {
+          "name": "/catégories",
+          "id": "984f0629-16cf-4942-8d5a-376c1e16a4ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/catégories"
+          },
+          "response": [
+            {
+              "id": "fcd39c4a-7c65-4f38-8480-55043f3a2c9f",
+              "name": "/catégories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégories récupérées avec succès\",\n    \"data\": {\n        \"catégories\": [\n            {\n                \"catégorie_id\": 1,\n                \"nom\": \"Informatique\"\n            },\n            {\n                \"catégorie_id\": 2,\n                \"nom\": \"Développement Web\"\n            },\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            },\n            {\n                \"catégorie_id\": 4,\n                \"nom\": \"Intelligence Artificielle\"\n            },\n            {\n                \"catégorie_id\": 5,\n                \"nom\": \"Base de données\"\n            },\n            {\n                \"catégorie_id\": 6,\n                \"nom\": \"Cybersécurité\"\n            },\n            {\n                \"catégorie_id\": 7,\n                \"nom\": \"Mobile\"\n            },\n            {\n                \"catégorie_id\": 8,\n                \"nom\": \"DevOps\"\n            }\n        ],\n        \"total_catégories\": 8\n    },\n    \"timestamp\": \"2024-03-20T12:50:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories/recherche?mot-clé",
+          "id": "6e0b5ef5-2a24-4771-a865-e9718707410b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/catégories/recherche?mot-clé",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "catégories",
+                "recherche"
+              ],
+              "query": [
+                {
+                  "key": "mot-clé",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a4645599-bc41-47a7-880f-3cd5ba5b9a3a",
+              "name": "/catégories/recherche?mot-clé=design",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/catégories/recherche?mot-clé=design",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "catégories",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": "design"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de catégories effectuée\",\n    \"data\": {\n        \"mot_clé\": \"design\",\n        \"catégories\": [\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T12:55:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories/{id}",
+          "id": "af70766c-584a-43a4-a9cf-54276feda07b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "67bb45ad-70e8-4993-a2b1-a1dba30de749",
+              "name": "/catégories/3",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie récupérée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design & UX\",\n        \"nombre_ressources\": 15,\n        \"ressources_publiques\": 12,\n        \"ressources_privées\": 3,\n        \"date_création\": \"2024-01-10T08:00:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T14:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:00:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories/{id}",
+          "id": "1d443ec9-b185-4b70-a0d8-a45397a81c58",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "ab6a9d9f-868e-4397-bc26-87b58f69ed54",
+              "name": "/catégories/3",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nom\": \"Design UX/UI & Expérience Utilisateur\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie mise à jour avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"date_modification\": \"2024-03-20T13:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:15:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/catégories/{id}",
+          "id": "bf0f3a55-9009-4366-bf4d-655b462a8bfe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "bebde58c-9e73-48b3-bc4d-a7a63f9d9f8e",
+              "name": "/catégories/3",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie supprimée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"supprimé_le\": \"2024-03-20T13:20:00Z\",\n        \"ressources_affectées\": 15,\n        \"action_ressources\": \"Déplacées vers catégorie 'Non classé' (ID: 0)\"\n    },\n    \"timestamp\": \"2024-03-20T13:20:00Z\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "e6a9902e-39ad-481e-86b3-384dd6ba4e0b"
+    },
+    {
+      "name": "/ressources",
+      "item": [
         {
           "name": "/ressources/recherche?mot-clé",
           "id": "02e18c8b-7325-42fb-8fce-95bec47a5512",
@@ -984,24 +1068,24 @@
           ]
         },
         {
-          "name": "/catégories",
-          "id": "984f0629-16cf-4942-8d5a-376c1e16a4ae",
+          "name": "/ressources",
+          "id": "66394802-b2ea-4ff8-996e-5ad38cf752e7",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
             "method": "GET",
             "header": [],
-            "url": "{{baseUrl}}/catégories"
+            "url": "{{baseUrl}}/ressources"
           },
           "response": [
             {
-              "id": "fcd39c4a-7c65-4f38-8480-55043f3a2c9f",
-              "name": "/catégories",
+              "id": "0dab5d39-8a22-47e3-95d9-4924eec04ee9",
+              "name": "/ressources",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "url": "{{baseUrl}}/catégories"
+                "url": "{{baseUrl}}/ressources"
               },
               "_postman_previewlanguage": "json",
               "header": [
@@ -1014,116 +1098,38 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégories récupérées avec succès\",\n    \"data\": {\n        \"catégories\": [\n            {\n                \"catégorie_id\": 1,\n                \"nom\": \"Informatique\"\n            },\n            {\n                \"catégorie_id\": 2,\n                \"nom\": \"Développement Web\"\n            },\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            },\n            {\n                \"catégorie_id\": 4,\n                \"nom\": \"Intelligence Artificielle\"\n            },\n            {\n                \"catégorie_id\": 5,\n                \"nom\": \"Base de données\"\n            },\n            {\n                \"catégorie_id\": 6,\n                \"nom\": \"Cybersécurité\"\n            },\n            {\n                \"catégorie_id\": 7,\n                \"nom\": \"Mobile\"\n            },\n            {\n                \"catégorie_id\": 8,\n                \"nom\": \"DevOps\"\n            }\n        ],\n        \"total_catégories\": 8\n    },\n    \"timestamp\": \"2024-03-20T12:50:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories/recherche?mot-clé",
-          "id": "6e0b5ef5-2a24-4771-a865-e9718707410b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/catégories/recherche?mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "catégories",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "a4645599-bc41-47a7-880f-3cd5ba5b9a3a",
-              "name": "/catégories/recherche?mot-clé=design",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/catégories/recherche?mot-clé=design",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "catégories",
-                    "recherche"
-                  ],
-                  "query": [
-                    {
-                      "key": "mot-clé",
-                      "value": "design"
-                    }
-                  ]
-                }
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de catégories effectuée\",\n    \"data\": {\n        \"mot_clé\": \"design\",\n        \"catégories\": [\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T12:55:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories/{id}",
-          "id": "af70766c-584a-43a4-a9cf-54276feda07b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/catégories/{id}"
-          },
-          "response": [
-            {
-              "id": "67bb45ad-70e8-4993-a2b1-a1dba30de749",
-              "name": "/catégories/3",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/catégories/3"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie récupérée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design & UX\",\n        \"nombre_ressources\": 15,\n        \"ressources_publiques\": 12,\n        \"ressources_privées\": 3,\n        \"date_création\": \"2024-01-10T08:00:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T14:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:00:00Z\"\n}"
+              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    },\n    {\n        \"ressource_id\": 2,\n        \"titre\": \"Algorithmes de tri en Python\",\n        \"description\": \"Implémentation et comparaison des principaux algorithmes de tri\",\n        \"url_ressource\": \"/uploads/ressources/algorithmes-tri-python.zip\",\n        \"visibilité\": true,\n        \"catégorie_id\": 1,\n        \"auteur_id\": 23\n    },\n    {\n        \"ressource_id\": 3,\n        \"titre\": \"Design Thinking pour l'innovation\",\n        \"description\": \"Méthode créative pour résoudre des problèmes complexes et innover\",\n        \"url_ressource\": \"/uploads/ressources/design-thinking-innovation.pptx\",\n        \"visibilité\": false,\n        \"catégorie_id\": 3,\n        \"auteur_id\": 8\n    },\n    {\n        \"ressource_id\": 4,\n        \"titre\": \"Machine Learning avec Scikit-learn\",\n        \"description\": \"Tutoriel pratique pour débuter en apprentissage automatique\",\n        \"url_ressource\": \"/uploads/ressources/machine-learning-scikit-learn.ipynb\",\n        \"visibilité\": true,\n        \"catégorie_id\": 4,\n        \"auteur_id\": 12\n    }\n]"
             }
           ]
         }
       ],
-      "id": "e6a9902e-39ad-481e-86b3-384dd6ba4e0b"
+      "id": "896ba2fc-00f5-4845-af90-8705f37c5353"
     },
     {
-      "name": "/ressources",
+      "name": "/auth",
       "item": [
+        {
+          "name": "/auth/connexion",
+          "id": "3dbc591b-5ba6-4704-be75-1e8b1fab8e03",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/connexion"
+          },
+          "response": []
+        },
         {
           "name": "/auth/inscrire",
           "id": "6a776674-cc99-4ce5-a5bf-e3012062e8b0",
@@ -1147,7 +1153,7 @@
           "response": []
         }
       ],
-      "id": "896ba2fc-00f5-4845-af90-8705f37c5353"
+      "id": "39e662c0-c492-4109-8e0b-e25b76be2929"
     }
   ],
   "event": [
