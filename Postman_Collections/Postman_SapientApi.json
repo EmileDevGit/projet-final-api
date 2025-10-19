@@ -496,7 +496,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié -  Changer status d'un utilisateur",
               "originalRequest": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié -  Changer status d'un utilisateur",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
                   "host": [
@@ -555,7 +561,13 @@
               "name": "200 OK - Admin - Modifier un utilisateur",
               "originalRequest": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier un utilisateur",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
@@ -587,7 +599,13 @@
               "name": "200 OK - Utilisateur - Modifier un utilisateur (sois)",
               "originalRequest": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Modifier un utilisateur (sois)",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
@@ -619,7 +637,13 @@
               "name": "403 Forbidden - Utilisateur - Modifier un utilisateur (autre)",
               "originalRequest": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Modifier un utilisateur (autre)",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
@@ -651,7 +675,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Modifier un utilisateur",
               "originalRequest": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Modifier un utilisateur",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
