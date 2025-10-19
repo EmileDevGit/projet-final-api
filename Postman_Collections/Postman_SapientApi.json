@@ -1860,7 +1860,30 @@
           "response": [
             {
               "id": "fcd39c4a-7c65-4f38-8480-55043f3a2c9f",
-              "name": "200 OK - Utilisateur - Liste des catégories",
+              "name": "200 OK - Any - Liste des catégories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégories récupérées avec succès\",\n    \"data\": {\n        \"catégories\": [\n            {\n                \"catégorie_id\": 1,\n                \"nom\": \"Informatique\"\n            },\n            {\n                \"catégorie_id\": 2,\n                \"nom\": \"Développement Web\"\n            },\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            },\n            {\n                \"catégorie_id\": 4,\n                \"nom\": \"Intelligence Artificielle\"\n            },\n            {\n                \"catégorie_id\": 5,\n                \"nom\": \"Base de données\"\n            },\n            {\n                \"catégorie_id\": 6,\n                \"nom\": \"Cybersécurité\"\n            },\n            {\n                \"catégorie_id\": 7,\n                \"nom\": \"Mobile\"\n            },\n            {\n                \"catégorie_id\": 8,\n                \"nom\": \"DevOps\"\n            }\n        ],\n        \"total_catégories\": 8\n    },\n    \"timestamp\": \"2024-03-20T12:50:00Z\"\n}"
+            },
+            {
+              "id": "be235a71-5769-480c-9479-af090fd8ac10",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des catégories",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
