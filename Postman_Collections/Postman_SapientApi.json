@@ -200,12 +200,12 @@
             },
             {
               "id": "8a60b226-6b17-4c3c-810a-ed49237d8556",
-              "name": "401 Unauthorized - Utilisateurs recherche les autres utilisateurs par mot-clé",
+              "name": "401 Unauthorized - Utilisateur recherche les autres utilisateurs par mot-clé",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé",
+                  "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé=john",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -216,16 +216,23 @@
                   "query": [
                     {
                       "key": "mot-clé",
-                      "value": null
+                      "value": "john"
                     }
                   ]
                 }
               },
-              "_postman_previewlanguage": null,
-              "header": null,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
@@ -262,7 +269,47 @@
           "response": [
             {
               "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
-              "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé=marie",
+              "name": "200 OK - Utilisateur recherche un mentor par mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé=marie",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_compte",
+                      "value": "mentor"
+                    },
+                    {
+                      "key": "mot-clé",
+                      "value": "marie"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
+              "id": "8ea3fff3-0111-444f-aad6-8e0338dbeed2",
+              "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -287,18 +334,11 @@
                   ]
                 }
               },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
+              "_postman_previewlanguage": null,
+              "header": null,
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+              "body": null
             }
           ]
         },
