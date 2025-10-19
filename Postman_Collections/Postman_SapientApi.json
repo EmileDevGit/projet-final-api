@@ -50,29 +50,6 @@
               "body": "[\n    {\n        \"utilisateur_id\": 1,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    {\n        \"utilisateur_id\": 2,\n        \"nom\": \"Rousseau\",\n        \"prénom\": \"Thomas\",\n        \"email\": \"thomas.rousseau@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"étudiant\"\n    },\n    {\n        \"utilisateur_id\": 3,\n        \"nom\": \"Martin\",\n        \"prénom\": \"Sophie\",\n        \"email\": \"sophie.martin@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"admin\"\n    },\n    {\n        \"utilisateur_id\": 4,\n        \"nom\": \"Dubois\",\n        \"prénom\": \"Alexandre\",\n        \"email\": \"alexandre.dubois@example.com\",\n        \"status_actif\": false,\n        \"type_compte\": \"étudiant\"\n    }\n]"
             },
             {
-              "id": "d509401a-8663-4364-8ff1-d90752815b36",
-              "name": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"data\":[\n        {\n            \"utilisateur_id\": 1,\n            \"nom\": \"Leclerc\",\n            \"prénom\": \"Marie\",\n            \"email\": \"marie.leclerc@example.com\",\n            \"status_actif\": true,\n            \"type_compte\": \"mentor\"\n        }\n        \n    ],\n    \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_type_compte\"\n        }\n}\n    "
-            },
-            {
               "id": "65f821dc-c829-4a9d-aa0a-143a02973b59",
               "name": "200 OK - Admin - Liste des utilisateurs filtrée par mot-clé",
               "originalRequest": {
@@ -108,6 +85,29 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche d'utilisateurs effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
+              "id": "d509401a-8663-4364-8ff1-d90752815b36",
+              "name": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\":[\n        {\n            \"utilisateur_id\": 1,\n            \"nom\": \"Leclerc\",\n            \"prénom\": \"Marie\",\n            \"email\": \"marie.leclerc@example.com\",\n            \"status_actif\": true,\n            \"type_compte\": \"mentor\"\n        }\n        \n    ],\n    \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_type_compte\"\n        }\n}\n    "
             },
             {
               "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
@@ -189,29 +189,8 @@
           },
           "response": [
             {
-              "id": "21f257f9-c38e-42de-805f-9b056300f6e3",
-              "name": "200 OK - Utilisateur accède à son propre id",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs/8"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
-            },
-            {
               "id": "1d9b6406-7b37-4bd3-94c6-9e6446cfa82d",
-              "name": "200 OK - Admin accède au détails d'un utilisateur par id",
+              "name": "200 OK - Admin - Détails d'un utilisateur",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -233,8 +212,29 @@
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
             },
             {
+              "id": "21f257f9-c38e-42de-805f-9b056300f6e3",
+              "name": "200 OK - Utilisateur - Détails d'un utilisateur (sois)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/8"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
               "id": "5dc6e51f-2556-4038-bac6-487019dff137",
-              "name": "401 Unauthorized - Utilisateur accède au détails d'un autre utilisateur",
+              "name": "401 Unauthorized - Utilisateur - Détails d'un utilisateur (autre)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -286,7 +286,7 @@
           "response": [
             {
               "id": "02e6c0b3-252f-4cf7-a084-4306727a507e",
-              "name": "200 OK - Admin change le status d'un utilisateur",
+              "name": "200 OK - Admin - Changer status d'un utilisateur",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [
@@ -330,7 +330,7 @@
             },
             {
               "id": "b223291e-d361-4f99-a905-230a2246e9c2",
-              "name": "200 OK - Utilisateur change son propre status d'activité",
+              "name": "200 OK - Utilisateur - Changer status d'un utilisateur (sois)",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
