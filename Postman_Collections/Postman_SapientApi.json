@@ -28,7 +28,7 @@
           "response": [
             {
               "id": "dabf08da-f43e-483e-9e2a-c6e19231917a",
-              "name": "200 OK - Admin accède à la liste des utilisateurs",
+              "name": "200 OK - Admin - Liste des utilisateurs",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -51,7 +51,7 @@
             },
             {
               "id": "65f821dc-c829-4a9d-aa0a-143a02973b59",
-              "name": "200 OK - Admin recherche les utilisateurs par mot-clé",
+              "name": "200 OK - Admin - Liste des utilisateurs filtrée par mot-clé",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -88,7 +88,7 @@
             },
             {
               "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
-              "name": "200 OK - Utilisateur recherche un mentor par mot-clé",
+              "name": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -130,89 +130,11 @@
             },
             {
               "id": "615af1ec-71d3-46f1-bfd5-5194cc2bec8d",
-              "name": "401 Unauthorized - Non-admin accède à la liste des utilisateurs",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des utilisateurs",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
                 "url": "{{baseUrl}}/utilisateurs"
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
-            },
-            {
-              "id": "8a60b226-6b17-4c3c-810a-ed49237d8556",
-              "name": "401 Unauthorized - Utilisateur recherche les autres utilisateurs par mot-clé",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/utilisateurs?mot-clé=john",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "utilisateurs"
-                  ],
-                  "query": [
-                    {
-                      "key": "mot-clé",
-                      "value": "john"
-                    }
-                  ]
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
-            },
-            {
-              "id": "8ea3fff3-0111-444f-aad6-8e0338dbeed2",
-              "name": "401 Unauthorized - Utilisateur non authentifié recherche les mentors par mot-clé",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/utilisateurs?type_compte=mentor&mot-clé",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "utilisateurs"
-                  ],
-                  "query": [
-                    {
-                      "key": "type_compte",
-                      "value": "mentor"
-                    },
-                    {
-                      "key": "mot-clé",
-                      "value": null
-                    }
-                  ]
-                }
               },
               "status": "Unauthorized",
               "code": 401,
