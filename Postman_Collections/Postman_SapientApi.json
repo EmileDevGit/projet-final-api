@@ -6,7 +6,7 @@
   },
   "item": [
     {
-      "name": "Admin",
+      "name": "/utilisateurs",
       "item": [
         {
           "name": "/utilisateurs",
@@ -115,6 +115,79 @@
           ]
         },
         {
+          "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé",
+          "id": "44699cc2-0962-4e3e-ae96-94c8055e1559",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "utilisateurs",
+                "recherche"
+              ],
+              "query": [
+                {
+                  "key": "type_compte",
+                  "value": "mentor"
+                },
+                {
+                  "key": "mot-clé",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
+              "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé=marie",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "recherche"
+                  ],
+                  "query": [
+                    {
+                      "key": "type_compte",
+                      "value": "mentor"
+                    },
+                    {
+                      "key": "mot-clé",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            }
+          ]
+        },
+        {
           "name": "/utilisateurs/{id}",
           "id": "bd47e6fc-a4af-4ff2-85df-a3269c1fc4de",
           "protocolProfileBehavior": {
@@ -148,6 +221,93 @@
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
             }
           ]
+        },
+        {
+          "name": "/utilisateurs/{id}",
+          "id": "438e8a73-fe29-4425-8462-08b31574ed3b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": [
+            {
+              "id": "ad9b520d-df19-49d7-b6bb-20e08098cfd7",
+              "name": "/utilisateurs/8",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/8"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/utilisateurs/{id}",
+          "id": "5b45642f-ae83-461b-9603-a7da33fc5a28",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": []
+        },
+        {
+          "name": "/utilisateurs/{id}?actif",
+          "id": "3d0bf635-dfe3-43d4-9546-43d1ee425778",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "utilisateurs",
+                "{id}"
+              ],
+              "query": [
+                {
+                  "key": "actif",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": []
         },
         {
           "name": "/catégories/{id}",
@@ -238,7 +398,7 @@
       "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
     },
     {
-      "name": "Mentor",
+      "name": "/collections",
       "item": [
         {
           "name": "/collections/{id}?visible",
@@ -344,45 +504,8 @@
       "id": "42193496-9939-4330-81bd-a0d194c28a2b"
     },
     {
-      "name": "User",
+      "name": "/catégories",
       "item": [
-        {
-          "name": "/utilisateurs/{id}",
-          "id": "438e8a73-fe29-4425-8462-08b31574ed3b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/utilisateurs/{id}"
-          },
-          "response": [
-            {
-              "id": "ad9b520d-df19-49d7-b6bb-20e08098cfd7",
-              "name": "/utilisateurs/8",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs/8"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
-            }
-          ]
-        },
         {
           "name": "/auth/connexion",
           "id": "3dbc591b-5ba6-4704-be75-1e8b1fab8e03",
@@ -402,129 +525,6 @@
               }
             },
             "url": "{{baseUrl}}/auth/connexion"
-          },
-          "response": []
-        },
-        {
-          "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé",
-          "id": "44699cc2-0962-4e3e-ae96-94c8055e1559",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "utilisateurs",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "type_compte",
-                  "value": "mentor"
-                },
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
-              "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé=marie",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "utilisateurs",
-                    "recherche"
-                  ],
-                  "query": [
-                    {
-                      "key": "type_compte",
-                      "value": "mentor"
-                    },
-                    {
-                      "key": "mot-clé",
-                      "value": null
-                    }
-                  ]
-                }
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/utilisateurs/{id}",
-          "id": "5b45642f-ae83-461b-9603-a7da33fc5a28",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{baseUrl}}/utilisateurs/{id}"
-          },
-          "response": []
-        },
-        {
-          "name": "/utilisateurs/{id}?actif",
-          "id": "3d0bf635-dfe3-43d4-9546-43d1ee425778",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PATCH",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "utilisateurs",
-                "{id}"
-              ],
-              "query": [
-                {
-                  "key": "actif",
-                  "value": null
-                }
-              ]
-            }
           },
           "response": []
         },
@@ -1122,7 +1122,7 @@
       "id": "e6a9902e-39ad-481e-86b3-384dd6ba4e0b"
     },
     {
-      "name": "Public",
+      "name": "/ressources",
       "item": [
         {
           "name": "/auth/inscrire",
