@@ -366,7 +366,7 @@
             },
             {
               "id": "d0e3a2a9-7df0-4570-930b-1152e2c3e96e",
-              "name": "401 Unauthorized - Utilisateur change le status d'activité d'un autre utilisateur",
+              "name": "401 Unauthorized - Utilisateur -  Changer status d'un utilisateur (autre)",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
@@ -518,6 +518,40 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Utilisateur - Suppression",
+          "id": "bc665103-dafc-464d-9597-3ee6f429d644",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{adminToken}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": [
+            {
+              "id": "97873767-0203-4303-9bca-d77731895299",
+              "name": "200 OK - Admin - Supprimer un utilisateur",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
             }
           ]
         }
