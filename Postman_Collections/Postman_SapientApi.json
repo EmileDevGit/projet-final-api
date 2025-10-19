@@ -50,6 +50,29 @@
               "body": "[\n    {\n        \"utilisateur_id\": 1,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    {\n        \"utilisateur_id\": 2,\n        \"nom\": \"Rousseau\",\n        \"prénom\": \"Thomas\",\n        \"email\": \"thomas.rousseau@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"étudiant\"\n    },\n    {\n        \"utilisateur_id\": 3,\n        \"nom\": \"Martin\",\n        \"prénom\": \"Sophie\",\n        \"email\": \"sophie.martin@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"admin\"\n    },\n    {\n        \"utilisateur_id\": 4,\n        \"nom\": \"Dubois\",\n        \"prénom\": \"Alexandre\",\n        \"email\": \"alexandre.dubois@example.com\",\n        \"status_actif\": false,\n        \"type_compte\": \"étudiant\"\n    }\n]"
             },
             {
+              "id": "d509401a-8663-4364-8ff1-d90752815b36",
+              "name": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"utilisateur_id\": 1,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    {\n        \"utilisateur_id\": 2,\n        \"nom\": \"Rousseau\",\n        \"prénom\": \"Thomas\",\n        \"email\": \"thomas.rousseau@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"étudiant\"\n    },\n    {\n        \"utilisateur_id\": 3,\n        \"nom\": \"Martin\",\n        \"prénom\": \"Sophie\",\n        \"email\": \"sophie.martin@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"admin\"\n    },\n    {\n        \"utilisateur_id\": 4,\n        \"nom\": \"Dubois\",\n        \"prénom\": \"Alexandre\",\n        \"email\": \"alexandre.dubois@example.com\",\n        \"status_actif\": false,\n        \"type_compte\": \"étudiant\"\n    }\n]"
+            },
+            {
               "id": "65f821dc-c829-4a9d-aa0a-143a02973b59",
               "name": "200 OK - Admin - Liste des utilisateurs filtrée par mot-clé",
               "originalRequest": {
@@ -88,7 +111,7 @@
             },
             {
               "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
-              "name": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
+              "name": "200 OK - Utilisateur - Liste des utilisateurs filtrée par mot-clé (mentor)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -126,7 +149,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_type_compte_mentor\"\n        }\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
             },
             {
               "id": "615af1ec-71d3-46f1-bfd5-5194cc2bec8d",
