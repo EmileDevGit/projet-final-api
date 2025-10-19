@@ -313,7 +313,7 @@
           ]
         },
         {
-          "name": "/utilisateurs/{id}?actif",
+          "name": "Utilisateurs - Activité",
           "id": "3d0bf635-dfe3-43d4-9546-43d1ee425778",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -338,7 +338,37 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "id": "02e6c0b3-252f-4cf7-a084-4306727a507e",
+              "name": "Utilisateurs - Activité",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "{id}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actif",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         },
         {
           "name": "/utilisateurs/{id}",
