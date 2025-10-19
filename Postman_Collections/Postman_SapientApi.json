@@ -385,7 +385,7 @@
             },
             {
               "id": "b223291e-d361-4f99-a905-230a2246e9c2",
-              "name": "Utilisateur - Activité",
+              "name": "200 OK - Utilisateur change son propre status d'activité",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
@@ -418,6 +418,35 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"message\": \"Status d'activité changé avec succès\"\n}"
+            },
+            {
+              "id": "d0e3a2a9-7df0-4570-930b-1152e2c3e96e",
+              "name": "401 Unauthorized - Utilisateur change le status d'activité d'un autre utilisateur",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "{id}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actif",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
             }
           ]
         },
