@@ -920,68 +920,22 @@
         },
         {
           "name": "Collections - Visibilité",
-          "id": "3c6b8551-aa1e-4c7b-84c5-a7079eacfcdc",
+          "id": "239fabfa-5075-4712-8748-15b2873ec71d",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{adminToken}}"
+              }
+            },
             "method": "PATCH",
             "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/collections/{id}?visible",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "collections",
-                "{id}"
-              ],
-              "query": [
-                {
-                  "key": "visible",
-                  "value": null
-                }
-              ]
-            }
+            "url": "{{baseUrl}}/collections"
           },
-          "response": [
-            {
-              "id": "92617eb9-4227-459e-874b-1ac78e34cea9",
-              "name": "/collections/recherche?mot_clé=marie",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/collections/recherche?mot-clé=machine",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "collections",
-                    "recherche"
-                  ],
-                  "query": [
-                    {
-                      "key": "mot-clé",
-                      "value": "machine"
-                    }
-                  ]
-                }
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de collections effectuée\",\n    \"data\": {\n        \"mot_clé\": \"machine\",\n        \"collections\": [\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            },\n            {\n                \"collection_id\": 7,\n                \"titre\": \"Machine Learning Avancé\",\n                \"description\": \"Techniques avancées et recherche en apprentissage automatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 34\n            }\n        ],\n        \"total_résultats\": 2\n    },\n    \"timestamp\": \"2024-03-20T13:30:00Z\"\n}"
-            }
-          ]
+          "response": []
         },
         {
           "name": "Collection - Modification",
