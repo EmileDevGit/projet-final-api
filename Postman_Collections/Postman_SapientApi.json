@@ -240,8 +240,8 @@
                 "header": [],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
-              "status": "Unauthorized",
-              "code": 401,
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -550,7 +550,7 @@
             },
             {
               "id": "a7d60634-041a-46b8-af59-bb2602caec07",
-              "name": "401 Unauthorized - Utilisateur - Modifier un utilisateur (autre)",
+              "name": "403 Forbidden - Utilisateur - Modifier un utilisateur (autre)",
               "originalRequest": {
                 "method": "PUT",
                 "header": [],
@@ -565,8 +565,8 @@
                 },
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
-              "status": "Unauthorized",
-              "code": 401,
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -578,7 +578,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
+              "body": "{\n    \"error\": \"forbidden\"\n}"
             },
             {
               "id": "633c3db4-c57a-4995-a16f-2ae2b494c657",
@@ -680,14 +680,14 @@
             },
             {
               "id": "6b40ff0f-6f61-4a54-a7e2-9fbb62bdf787",
-              "name": "401 Unauthorized - Utilisateur - Supprimer un utilisateur (autre)",
+              "name": "403 Forbidden - Utilisateur - Supprimer un utilisateur (autre)",
               "originalRequest": {
                 "method": "DELETE",
                 "header": [],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
-              "status": "Unauthorized",
-              "code": 401,
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -699,7 +699,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
+              "body": "{\n    \"error\": \"forbidden\"\n}"
             },
             {
               "id": "33523e63-b155-4cc0-b541-f45765abe729",
