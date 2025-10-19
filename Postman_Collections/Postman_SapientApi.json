@@ -1392,7 +1392,7 @@
             },
             {
               "id": "d7d309fc-0fb2-41d7-ad73-06605b164457",
-              "name": "200 OK - Utilisateur - Modifier la visibilité d'une collection (mentor / sois)",
+              "name": "200 OK - Utilisateur - Modifier la visibilité d'une collection (mentor / propriétaire)",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [
@@ -1421,6 +1421,50 @@
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"modification effectuée avec succès\"\n}"
+            },
+            {
+              "id": "cd586cb9-0177-492c-a0df-352c1f7f15df",
+              "name": "403 Forbidden - Utilisateur - Modifier la visibilité d'une collection (mentor / non-propriétaire)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Modifier la visibilité d'une collection (mentor / non-propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -1582,7 +1626,36 @@
             },
             {
               "id": "59c58439-66af-4fc7-a988-b056ee23dbe2",
-              "name": "200 OK - Admin - Modifier une collection Copy",
+              "name": "200 OK - Utilisateur - Modifier une collection (propriétaire)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "0b4ac209-dde9-4495-a4c9-4e9681efba38",
+              "name": "200 OK - Utilisateur - Modifier une collection (propriétaire) Copy",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [
