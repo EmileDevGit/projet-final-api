@@ -1395,7 +1395,13 @@
               "name": "200 OK - Utilisateur - Modifier la visibilité d'une collection (mentor / sois)",
               "originalRequest": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Modifier la visibilité d'une collection (mentor / sois)",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/collections/4?visible=false",
                   "host": [
@@ -1433,7 +1439,13 @@
               "name": "403 Forbidden - Utilisateur - Modifier la visibilité d'une collection (user)",
               "originalRequest": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Modifier la visibilité d'une collection (user)",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/collections/4?visible=false",
                   "host": [
@@ -1471,7 +1483,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Modifier la visibilité d'une collection",
               "originalRequest": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Modifier la visibilité d'une collection",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/collections/4?visible=false",
                   "host": [
@@ -1535,27 +1553,20 @@
           "response": [
             {
               "id": "46ceb188-73ad-4e97-b583-51fbb75343ee",
-              "name": "/collections/4?visible=false",
+              "name": "200 OK - Admin - Modifier une collection",
               "originalRequest": {
                 "method": "PATCH",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/collections/4?visible=false",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "collections",
-                    "4"
-                  ],
-                  "query": [
-                    {
-                      "key": "visible",
-                      "value": "false"
-                    }
-                  ]
-                }
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -1567,7 +1578,36 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la collection mise à jour\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"visibilité\": false,\n        \"date_modification\": \"2024-03-20T13:40:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:40:00Z\"\n}"
+              "body": ""
+            },
+            {
+              "id": "59c58439-66af-4fc7-a988-b056ee23dbe2",
+              "name": "200 OK - Admin - Modifier une collection Copy",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
             }
           ]
         },
