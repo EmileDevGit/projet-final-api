@@ -1730,11 +1730,92 @@
               "name": "200 OK - Admin - Supprimer une collection",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Supprimer une collection",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections/4"
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            },
+            {
+              "id": "b7cb5b6b-b7e6-44a8-820b-ed12fcb3189e",
+              "name": "200 OK - Utilisateur - Supprimer une collection (propriétaire)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Supprimer une collection (propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            },
+            {
+              "id": "a23fcbb0-0f7d-49c8-b289-c9a32c2b8694",
+              "name": "403 Forbidden - Utilisateur - Supprimer une collection (non-propriétaire)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            },
+            {
+              "id": "5b0f17f1-a772-42b3-883f-7144ae5853ae",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une collection",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "Unauthorized",
+              "code": 401,
               "_postman_previewlanguage": "json",
               "header": [
                 {
