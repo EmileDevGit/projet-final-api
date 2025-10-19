@@ -1108,7 +1108,13 @@
               "name": "404 Not Found - Utilisateur - Détails d'une collection (non-visible)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "404 Not Found - Utilisateur - Détails d'une collection (non-visible)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections/5"
               },
               "status": "Not Found",
@@ -1131,7 +1137,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une collection",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une collection",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/collections/5"
               },
               "status": "Unauthorized",
@@ -1173,6 +1185,11 @@
                     "key": "Content-Type",
                     "value": "application/json",
                     "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "201 Created - Admin - Ajouter une collection",
+                    "type": "text"
                   }
                 ],
                 "body": {
@@ -1203,6 +1220,11 @@
                   {
                     "key": "Content-Type",
                     "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "201 Created - Utilisateur - Ajouter une collection (mentor)",
                     "type": "text"
                   }
                 ],
@@ -1329,7 +1351,13 @@
               "name": "200 OK - Admin - Modifier la visibilité d'une collection",
               "originalRequest": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier la visibilité d'une collection",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/collections/4?visible=false",
                   "host": [
