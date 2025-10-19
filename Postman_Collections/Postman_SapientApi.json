@@ -1099,6 +1099,11 @@
                     "key": "Content-Type",
                     "value": "application/json",
                     "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une collection",
+                    "type": "text"
                   }
                 ],
                 "body": {
