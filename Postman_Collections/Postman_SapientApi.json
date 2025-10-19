@@ -56,13 +56,12 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé=marie",
+                  "raw": "{{baseUrl}}/utilisateurs?mot-clé=marie",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "utilisateurs",
-                    "recherche"
+                    "utilisateurs"
                   ],
                   "query": [
                     {
@@ -86,67 +85,6 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche d'utilisateurs effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
-            },
-            {
-              "id": "615af1ec-71d3-46f1-bfd5-5194cc2bec8d",
-              "name": "401 Unauthorized - Un non-admin accède à la liste des utilisateurs",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs"
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
-            },
-            {
-              "id": "8a60b226-6b17-4c3c-810a-ed49237d8556",
-              "name": "401 Unauthorized - Utilisateur recherche les autres utilisateurs par mot-clé",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé=john",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "utilisateurs",
-                    "recherche"
-                  ],
-                  "query": [
-                    {
-                      "key": "mot-clé",
-                      "value": "john"
-                    }
-                  ]
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
             },
             {
               "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
@@ -191,19 +129,78 @@
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
             },
             {
+              "id": "615af1ec-71d3-46f1-bfd5-5194cc2bec8d",
+              "name": "401 Unauthorized - Non-admin accède à la liste des utilisateurs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            },
+            {
+              "id": "8a60b226-6b17-4c3c-810a-ed49237d8556",
+              "name": "401 Unauthorized - Utilisateur recherche les autres utilisateurs par mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs?mot-clé=john",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": "john"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            },
+            {
               "id": "8ea3fff3-0111-444f-aad6-8e0338dbeed2",
               "name": "401 Unauthorized - Utilisateur non authentifié recherche les mentors par mot-clé",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
+                  "raw": "{{baseUrl}}/utilisateurs?type_compte=mentor&mot-clé",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "utilisateurs",
-                    "recherche"
+                    "utilisateurs"
                   ],
                   "query": [
                     {
