@@ -1860,12 +1860,14 @@
           "response": [
             {
               "id": "fcd39c4a-7c65-4f38-8480-55043f3a2c9f",
-              "name": "/catégories",
+              "name": "200 OK - Utilisateur - Liste des catégories",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
                 "url": "{{baseUrl}}/catégories"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
