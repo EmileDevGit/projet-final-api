@@ -75,7 +75,7 @@
           ]
         },
         {
-          "name": "Utilisateurs - Liste filtrée",
+          "name": "Utilisateurs - Liste filtrée par mot-clé",
           "id": "26bdd600-b32d-4acc-a9b3-6fa10269aba4",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -180,88 +180,19 @@
           ]
         },
         {
-          "name": "Utilisateur - Détails",
-          "id": "bd47e6fc-a4af-4ff2-85df-a3269c1fc4de",
+          "name": "Utilisateurs - Liste filtrée par type de compte",
+          "id": "09134bbe-b02f-4426-80cb-058a679a7f0b",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
             "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/utilisateurs/{id}"
+            "header": []
           },
-          "response": [
-            {
-              "id": "21f257f9-c38e-42de-805f-9b056300f6e3",
-              "name": "200 OK - Utilisateur accède à son propre id",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs/8"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
-            },
-            {
-              "id": "1d9b6406-7b37-4bd3-94c6-9e6446cfa82d",
-              "name": "200 OK - Admin accède au détails d'un utilisateur par id",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs/{id}"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
-            },
-            {
-              "id": "5dc6e51f-2556-4038-bac6-487019dff137",
-              "name": "401 Unauthorized - Utilisateur accède au détails d'un autre utilisateur",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs/{id}"
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
-            }
-          ]
+          "response": []
         },
         {
-          "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé",
+          "name": "Utilisateurs - Liste filtrée par type de compte et mot-clé",
           "id": "44699cc2-0962-4e3e-ae96-94c8055e1559",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -359,6 +290,87 @@
                     }
                   ]
                 }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Utilisateur - Détails",
+          "id": "bd47e6fc-a4af-4ff2-85df-a3269c1fc4de",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": [
+            {
+              "id": "21f257f9-c38e-42de-805f-9b056300f6e3",
+              "name": "200 OK - Utilisateur accède à son propre id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/8"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
+              "id": "1d9b6406-7b37-4bd3-94c6-9e6446cfa82d",
+              "name": "200 OK - Admin accède au détails d'un utilisateur par id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
+              "id": "5dc6e51f-2556-4038-bac6-487019dff137",
+              "name": "401 Unauthorized - Utilisateur accède au détails d'un autre utilisateur",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "Unauthorized",
               "code": 401,
