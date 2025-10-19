@@ -218,7 +218,13 @@
               "name": "200 OK - Admin - Détails d'un utilisateur",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Détails d'un utilisateur",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "OK",
@@ -241,7 +247,13 @@
               "name": "200 OK - Utilisateur - Détails d'un utilisateur (sois)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Détails d'un utilisateur (sois)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/8"
               },
               "_postman_previewlanguage": "json",
@@ -262,7 +274,13 @@
               "name": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "Forbidden",
@@ -285,7 +303,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'un utilisateur",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Détails d'un utilisateur",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "Unauthorized",
@@ -342,6 +366,11 @@
                     "key": "Content-Type",
                     "value": "application/json",
                     "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Changer status d'un utilisateur",
+                    "type": "text"
                   }
                 ],
                 "url": {
@@ -381,7 +410,13 @@
               "name": "200 OK - Utilisateur - Changer status d'un utilisateur (sois)",
               "originalRequest": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Changer status d'un utilisateur (sois)",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/utilisateurs/{id}?actif=false",
                   "host": [
@@ -417,7 +452,13 @@
               "name": "403 Forbidden - Utilisateur -  Changer status d'un utilisateur (autre)",
               "originalRequest": {
                 "method": "PATCH",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur -  Changer status d'un utilisateur (autre)",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
                   "host": [
