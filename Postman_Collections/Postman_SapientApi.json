@@ -1655,20 +1655,49 @@
             },
             {
               "id": "0b4ac209-dde9-4495-a4c9-4e9681efba38",
-              "name": "200 OK - Utilisateur - Modifier une collection (propriétaire) Copy",
+              "name": "403 Forbidden - Utilisateur - Modifier une collection (non-propriétaire)",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [
                   {
                     "key": "x-mock-response-name",
-                    "value": "200 OK - Admin - Modifier une collection",
+                    "value": "403 Forbidden - Utilisateur - Modifier une collection (non-propriétaire)",
                     "type": "text"
                   }
                 ],
                 "url": "{{baseUrl}}/collections/4"
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "d28ee5f4-4fed-4b88-b953-58708f20595c",
+              "name": "401 Unauthorized - Utilisateur - Modifier une collection",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur - Modifier une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "Unauthorized",
+              "code": 401,
               "_postman_previewlanguage": "json",
               "header": [
                 {
