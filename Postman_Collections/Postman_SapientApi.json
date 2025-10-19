@@ -313,7 +313,7 @@
           ]
         },
         {
-          "name": "Utilisateurs - Activité",
+          "name": "Utilisateur - Activité",
           "id": "3d0bf635-dfe3-43d4-9546-43d1ee425778",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -341,7 +341,51 @@
           "response": [
             {
               "id": "02e6c0b3-252f-4cf7-a084-4306727a507e",
-              "name": "Utilisateurs - Activité",
+              "name": "200 OK - Admin change le status d'un utilisateur",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/{id}?actif=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "{id}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actif",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Status d'activité changé avec succès\"\n}"
+            },
+            {
+              "id": "b223291e-d361-4f99-a905-230a2246e9c2",
+              "name": "Utilisateur - Activité",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
