@@ -60,7 +60,13 @@
               "name": "200 OK - Admin - Liste des utilisateurs filtrée par mot-clé",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des utilisateurs filtrée par mot-clé",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/utilisateurs?mot-clé=marie",
                   "host": [
@@ -97,7 +103,13 @@
               "name": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs"
               },
               "status": "OK",
@@ -120,7 +132,13 @@
               "name": "200 OK - Utilisateur - Liste des utilisateurs filtrée par mot-clé (mentor)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des utilisateurs filtrée par mot-clé (mentor)",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/utilisateurs?mot-clé=marie",
                   "host": [
@@ -157,7 +175,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des utilisateurs",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Liste des utilisateurs",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs"
               },
               "status": "Unauthorized",
