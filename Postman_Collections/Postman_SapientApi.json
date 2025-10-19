@@ -616,29 +616,8 @@
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            },\n            {\n                \"collection_id\": 2,\n                \"titre\": \"Algorithmes Fondamentaux\",\n                \"description\": \"Collection des algorithmes essentiels en informatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 23\n            },\n            {\n                \"collection_id\": 3,\n                \"titre\": \"Design System Guide\",\n                \"description\": \"Ressources pour créer et maintenir un design system\",\n                \"visibilité\": false,\n                \"auteur_id\": 8\n            },\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            }\n        ],\n        \"pagination\": {\n            \"page_actuelle\": 1,\n            \"total_pages\": 2,\n            \"total_collections\": 7,\n            \"collections_par_page\": 4\n        }\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
             },
             {
-              "id": "6314ff94-2d0c-44e4-aebc-d4a047326587",
-              "name": "401 Unauthorized - Non-admin accède à la liste des collections",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/collections"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"error\": \"unauthorized\"\n}"
-            },
-            {
               "id": "7f0f054d-85f5-4184-8b0f-e660d966e237",
-              "name": "200 OK - Utilisateur accède au collections visibles",
+              "name": "200 OK - Liste des collections visibles",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -658,11 +637,74 @@
                   ]
                 }
               },
-              "_postman_previewlanguage": null,
-              "header": null,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            },\n            {\n                \"collection_id\": 2,\n                \"titre\": \"Algorithmes Fondamentaux\",\n                \"description\": \"Collection des algorithmes essentiels en informatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 23\n            },\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            }\n        ]\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
+            },
+            {
+              "id": "7a91ad78-91c1-4249-a309-e8f0c15aed1d",
+              "name": "200 OK - Liste des collections visibles filtrée par mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/collections?mot-cle=React",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-cle",
+                      "value": "React"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            }\n        ]\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
+            },
+            {
+              "id": "6314ff94-2d0c-44e4-aebc-d4a047326587",
+              "name": "401 Unauthorized - Non-admin accède à la liste des collections",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/collections"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
