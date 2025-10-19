@@ -596,7 +596,7 @@
           "response": [
             {
               "id": "2ef8dafb-e03f-4fec-b30a-8d635da6dd2f",
-              "name": "200 OK - Admin accède à la liste des collections",
+              "name": "200 OK - Admin - Liste des collections",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -617,7 +617,7 @@
             },
             {
               "id": "7f0f054d-85f5-4184-8b0f-e660d966e237",
-              "name": "200 OK - Liste des collections visibles",
+              "name": "200 OK - Utilisateur - Liste des collections (visibles)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
