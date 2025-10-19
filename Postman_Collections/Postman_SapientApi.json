@@ -884,7 +884,7 @@
           ]
         },
         {
-          "name": "/collections/{id}",
+          "name": "Collection - Détails",
           "id": "6ccefa79-4f9d-4828-b2ac-820b03f7e013",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -919,26 +919,26 @@
           ]
         },
         {
-          "name": "/collections/recherche?mot_clé",
+          "name": "Collections - Visibilité",
           "id": "3c6b8551-aa1e-4c7b-84c5-a7079eacfcdc",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
-            "method": "GET",
+            "method": "PATCH",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/collections/recherche?mot_clé",
+              "raw": "{{baseUrl}}/collections/{id}?visible",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "collections",
-                "recherche"
+                "{id}"
               ],
               "query": [
                 {
-                  "key": "mot_clé",
+                  "key": "visible",
                   "value": null
                 }
               ]
@@ -984,13 +984,13 @@
           ]
         },
         {
-          "name": "/collections/{id}?visible",
+          "name": "Collection - Modification",
           "id": "23de8236-f47a-4c8d-855b-0c5cee06243f",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
-            "method": "PATCH",
+            "method": "PUT",
             "header": [],
             "url": {
               "raw": "{{baseUrl}}/collections/{id}?visible",
@@ -1049,7 +1049,7 @@
           ]
         },
         {
-          "name": "/collections/{id}",
+          "name": "Collection - Suppression",
           "id": "9c1ff8cb-d2ef-4f61-9090-0fdb735a4b5c",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
