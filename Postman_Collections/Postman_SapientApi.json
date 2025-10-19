@@ -552,6 +552,50 @@
               "cookie": [],
               "responseTime": null,
               "body": null
+            },
+            {
+              "id": "c16d3c18-2899-40fd-b318-6110f1ec0b74",
+              "name": "200 OK - Utilisateur - Supprimer un utilisateur (sois)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Utilisateur supprimé avec succès\"\n}"
+            },
+            {
+              "id": "6b40ff0f-6f61-4a54-a7e2-9fbb62bdf787",
+              "name": "401 Unauthorized - Utilisateur - Supprimer un utilisateur (autre)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Utilisateur supprimé avec succès\"\n}"
             }
           ]
         }
