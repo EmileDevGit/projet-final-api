@@ -652,12 +652,12 @@
             },
             {
               "id": "7a91ad78-91c1-4249-a309-e8f0c15aed1d",
-              "name": "200 OK - Liste des collections visibles filtrée par mot-clé",
+              "name": "200 OK - Any - Liste des collections visibles filtrée par mot-clé",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{baseUrl}}/collections?mot-cle=React",
+                  "raw": "{{baseUrl}}/collections?visible=true&mot-cle=React",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -665,6 +665,10 @@
                     "collections"
                   ],
                   "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    },
                     {
                       "key": "mot-cle",
                       "value": "React"
@@ -687,7 +691,7 @@
             },
             {
               "id": "6314ff94-2d0c-44e4-aebc-d4a047326587",
-              "name": "401 Unauthorized - Non-admin accède à la liste des collections",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des collections",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
