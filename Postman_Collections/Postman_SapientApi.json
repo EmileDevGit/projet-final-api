@@ -116,19 +116,14 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé=marie",
+                  "raw": "{{baseUrl}}/utilisateurs?mot-clé=marie",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "utilisateurs",
-                    "recherche"
+                    "utilisateurs"
                   ],
                   "query": [
-                    {
-                      "key": "type_compte",
-                      "value": "mentor"
-                    },
                     {
                       "key": "mot-clé",
                       "value": "marie"
