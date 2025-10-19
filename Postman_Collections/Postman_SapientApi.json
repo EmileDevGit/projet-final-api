@@ -963,6 +963,29 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"404\",\n    \"message\": \"Not Found\"\n}"
+            },
+            {
+              "id": "d64dcb02-f9ac-4298-9bb5-a27ac2401fe5",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une collection",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/collections/5"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
