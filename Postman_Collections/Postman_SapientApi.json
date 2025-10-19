@@ -1684,13 +1684,13 @@
             },
             {
               "id": "d28ee5f4-4fed-4b88-b953-58708f20595c",
-              "name": "401 Unauthorized - Utilisateur - Modifier une collection",
+              "name": "401 Unauthorized - Utilisateur non-identifié - Modifier une collection",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [
                   {
                     "key": "x-mock-response-name",
-                    "value": "401 Unauthorized - Utilisateur - Modifier une collection",
+                    "value": "401 Unauthorized - Utilisateur non-identifié - Modifier une collection",
                     "type": "text"
                   }
                 ],
@@ -1727,12 +1727,14 @@
           "response": [
             {
               "id": "5d0bac99-ba96-47b0-88eb-aa2e5bbfd13b",
-              "name": "/collections/4",
+              "name": "200 OK - Admin - Supprimer une collection",
               "originalRequest": {
                 "method": "DELETE",
                 "header": [],
                 "url": "{{baseUrl}}/collections/4"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
