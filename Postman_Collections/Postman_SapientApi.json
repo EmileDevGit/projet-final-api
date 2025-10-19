@@ -1001,7 +1001,22 @@
               "name": "201 Created - Admin - Ajouter une collection",
               "originalRequest": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": "{{baseUrl}}/collections"
               },
               "status": "Created",
@@ -1017,7 +1032,22 @@
               "name": "201 Created - Utilisateur - Ajouter une collection (mentor)",
               "originalRequest": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": "{{baseUrl}}/collections"
               },
               "status": "Created",
@@ -1033,7 +1063,22 @@
               "name": "403 Frobidden - Utilisateur - Ajouter une collection (user)",
               "originalRequest": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": "{{baseUrl}}/collections"
               },
               "status": "Forbidden",
@@ -1049,16 +1094,38 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une collection",
               "originalRequest": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": "{{baseUrl}}/collections"
               },
               "status": "Unauthorized",
               "code": 401,
-              "_postman_previewlanguage": null,
-              "header": null,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": "{\n    \"error\": \"unauthorized\" \n}"
             }
           ]
         },
