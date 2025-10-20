@@ -2377,7 +2377,7 @@
           "response": [
             {
               "id": "0dab5d39-8a22-47e3-95d9-4924eec04ee9",
-              "name": "/ressources",
+              "name": "200 OK - Admin - Liste des ressources",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
