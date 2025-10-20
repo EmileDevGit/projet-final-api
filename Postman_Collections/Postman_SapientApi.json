@@ -2757,7 +2757,7 @@
           "response": [
             {
               "id": "fce6d7c3-657f-40c8-b831-2e0bd5cd1e58",
-              "name": "/ressources/1?visible=true",
+              "name": "200 OK - Admin - Changer la visibilité d'une ressource",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
@@ -2778,6 +2778,84 @@
                   ]
                 }
               },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            },
+            {
+              "id": "40b215e7-f423-4dc9-be6f-ea9605582b57",
+              "name": "200 OK - Utilisateur - Changer la visibilité d'une ressource (propriétaire / mentor)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            },
+            {
+              "id": "18e149d2-8d2c-4bc6-b0ff-f6afa72d9124",
+              "name": "200 OK - Utilisateur - Changer la visibilité d'une ressource (propriétaire / mentor) Copy",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
