@@ -2694,12 +2694,60 @@
           "response": [
             {
               "id": "a2d114f5-b18f-4883-a369-37bb68aa0557",
-              "name": "/ressources/1/télécharger",
+              "name": "200 OK - Admin - Télécharger une ressource",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
                 "url": "{{baseUrl}}/ressources/1/télécharger"
               },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource prête pour téléchargement\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"nom_fichier\": \"react-intro-guide.pdf\",\n        \"url_telechargement\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"taille_fichier\": \"2.5 MB\",\n        \"type_fichier\": \"application/pdf\",\n        \"mime_type\": \"application/pdf\",\n        \"date_creation\": \"2024-01-15T10:30:00Z\",\n        \"auteur\": {\n            \"nom\": \"Martin\",\n            \"prénom\": \"Sophie\"\n        },\n        \"expires_at\": \"2024-03-20T18:00:00Z\"\n    },\n    \"headers\": {\n        \"Content-Type\": \"application/pdf\",\n        \"Content-Disposition\": \"attachment; filename=\\\"react-intro-guide.pdf\\\"\",\n        \"Content-Length\": \"2621440\",\n        \"Cache-Control\": \"private, max-age=3600\"\n    },\n    \"timestamp\": \"2024-03-20T12:00:00Z\"\n}"
+            },
+            {
+              "id": "637b7e55-c014-4adf-8134-fc5342810720",
+              "name": "200 OK - Utilisateur - Télécharger une ressource (visible)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1/télécharger"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource prête pour téléchargement\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"nom_fichier\": \"react-intro-guide.pdf\",\n        \"url_telechargement\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"taille_fichier\": \"2.5 MB\",\n        \"type_fichier\": \"application/pdf\",\n        \"mime_type\": \"application/pdf\",\n        \"date_creation\": \"2024-01-15T10:30:00Z\",\n        \"auteur\": {\n            \"nom\": \"Martin\",\n            \"prénom\": \"Sophie\"\n        },\n        \"expires_at\": \"2024-03-20T18:00:00Z\"\n    },\n    \"headers\": {\n        \"Content-Type\": \"application/pdf\",\n        \"Content-Disposition\": \"attachment; filename=\\\"react-intro-guide.pdf\\\"\",\n        \"Content-Length\": \"2621440\",\n        \"Cache-Control\": \"private, max-age=3600\"\n    },\n    \"timestamp\": \"2024-03-20T12:00:00Z\"\n}"
+            },
+            {
+              "id": "c17505f4-cc3b-477e-a103-d3f5d65ebab1",
+              "name": "200 OK - Utilisateur - Télécharger une ressource (visible) Copy",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1/télécharger"
+              },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
