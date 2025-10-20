@@ -2622,7 +2622,7 @@
             },
             {
               "id": "60950e90-ac4f-4769-814c-7abb05cc7678",
-              "name": "404 Not Found - Utilisateur - Détails d'une ressource (non-visible)",
+              "name": "403 Forbidden - Utilisateur - Détails d'une ressource (non-visible)",
               "originalRequest": {
                 "method": "GET",
                 "header": [
@@ -2634,8 +2634,8 @@
                 ],
                 "url": "{{baseUrl}}/ressources/3"
               },
-              "status": "Not Found",
-              "code": 404,
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -2647,7 +2647,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"error\": \"not found\"\n}"
+              "body": "{\n    \"error\": \"forbidden\"\n}"
             },
             {
               "id": "a5168bfb-6246-46e6-ab7d-dc44cfbea4c0",
