@@ -2629,8 +2629,7 @@
                   {
                     "key": "x-mock-response-name",
                     "value": "404 Not Found - Utilisateur - Détails d'une ressource (non-visible)",
-                    "type": "text",
-                    "disabled": true
+                    "type": "text"
                   }
                 ],
                 "url": "{{baseUrl}}/ressources/3"
