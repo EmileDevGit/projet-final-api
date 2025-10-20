@@ -2806,6 +2806,22 @@
               "cookie": [],
               "responseTime": null,
               "body": null
+            },
+            {
+              "id": "fafb228e-1840-4fc5-81a4-f4913aae1a8a",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une ressource",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "/ressources"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
             }
           ]
         },
