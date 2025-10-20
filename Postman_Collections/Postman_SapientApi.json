@@ -2567,7 +2567,13 @@
               "name": "200 OK - Admin - Détails d'une ressource",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Détails d'une ressource",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/ressources/1"
               },
               "status": "OK",
@@ -2590,7 +2596,13 @@
               "name": "200 OK - Utilisateur - Détails d'une ressource (propriétaire)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Détails d'une ressource (propriétaire)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/ressources/1"
               },
               "status": "OK",
@@ -2610,14 +2622,14 @@
             },
             {
               "id": "60950e90-ac4f-4769-814c-7abb05cc7678",
-              "name": "200 OK - Utilisateur - Détails d'une ressource (propriétaire) Copy",
+              "name": "404 Not Found - Utilisateur - Détails d'une ressource (non-visible)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "url": "{{baseUrl}}/ressources/1"
+                "url": "{{baseUrl}}/ressources/3"
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Not Found",
+              "code": 404,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -2629,7 +2641,30 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"ressource_id\": 1,\n    \"titre\": \"Introduction à React.js\",\n    \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n    \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n    \"visibilité\": true,\n    \"catégorie_id\": 2,\n    \"auteur_id\": 15\n}"
+              "body": "{\n    \"error\": \"not found\"\n}"
+            },
+            {
+              "id": "a5168bfb-6246-46e6-ab7d-dc44cfbea4c0",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une ressource",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/3"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
