@@ -2050,7 +2050,13 @@
               "name": "200 OK - Admin - Ajouter une catégorie",
               "originalRequest": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Ajouter une catégorie",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/catégories"
               },
               "status": "OK",
@@ -2264,12 +2270,20 @@
           "response": [
             {
               "id": "bebde58c-9e73-48b3-bc4d-a7a63f9d9f8e",
-              "name": "/catégories/3",
+              "name": "200 OK - Admin - Supprimer une catégorie",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Supprimer une catégorie",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/catégories/3"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -2282,6 +2296,58 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie supprimée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"supprimé_le\": \"2024-03-20T13:20:00Z\",\n        \"ressources_affectées\": 15,\n        \"action_ressources\": \"Déplacées vers catégorie 'Non classé' (ID: 0)\"\n    },\n    \"timestamp\": \"2024-03-20T13:20:00Z\"\n}"
+            },
+            {
+              "id": "669a1588-2eff-4eef-ad1b-8606228f3492",
+              "name": "403 Forbidden - Utilisateur - Supprimer une catégorie",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Supprimer une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "7f6f467e-ac58-478e-a3f0-a6c6c52193d7",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une catégorie",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         }
