@@ -2331,7 +2331,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une catégorie",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une catégorie",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/catégories/3"
               },
               "status": "Unauthorized",
@@ -2461,6 +2467,19 @@
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource prête pour téléchargement\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"nom_fichier\": \"react-intro-guide.pdf\",\n        \"url_telechargement\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"taille_fichier\": \"2.5 MB\",\n        \"type_fichier\": \"application/pdf\",\n        \"mime_type\": \"application/pdf\",\n        \"date_creation\": \"2024-01-15T10:30:00Z\",\n        \"auteur\": {\n            \"nom\": \"Martin\",\n            \"prénom\": \"Sophie\"\n        },\n        \"expires_at\": \"2024-03-20T18:00:00Z\"\n    },\n    \"headers\": {\n        \"Content-Type\": \"application/pdf\",\n        \"Content-Disposition\": \"attachment; filename=\\\"react-intro-guide.pdf\\\"\",\n        \"Content-Length\": \"2621440\",\n        \"Cache-Control\": \"private, max-age=3600\"\n    },\n    \"timestamp\": \"2024-03-20T12:00:00Z\"\n}"
             }
           ]
+        },
+        {
+          "name": "Ressource - Ajouter",
+          "id": "79ef4fe0-2c3b-446e-bc7a-757063a64208",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "/ressources"
+          },
+          "response": []
         },
         {
           "name": "Ressource - Visibilité",
