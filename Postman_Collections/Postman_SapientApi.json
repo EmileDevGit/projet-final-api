@@ -1892,7 +1892,13 @@
               "name": "200 OK - Utilisateur - Liste des catégories filtrée par mot-clé",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des catégories filtrée par mot-clé",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{baseUrl}}/catégories?mot-clé=Dev",
                   "host": [
@@ -1929,7 +1935,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des catégories",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Liste des catégories",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/catégories"
               },
               "status": "Unauthorized",
@@ -1963,7 +1975,7 @@
           "response": [
             {
               "id": "67bb45ad-70e8-4993-a2b1-a1dba30de749",
-              "name": "/catégories/3",
+              "name": "200 OK - Utilisateur - Détails d'une catégorie",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -1981,6 +1993,29 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie récupérée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design & UX\",\n        \"nombre_ressources\": 15,\n        \"ressources_publiques\": 12,\n        \"ressources_privées\": 3,\n        \"date_création\": \"2024-01-10T08:00:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T14:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:00:00Z\"\n}"
+            },
+            {
+              "id": "c01682c9-f615-44b0-b0d8-5ff7c9158f65",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une catégorie",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
