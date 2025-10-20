@@ -2044,7 +2044,40 @@
             "header": [],
             "url": "{{baseUrl}}/catégories"
           },
-          "response": []
+          "response": [
+            {
+              "id": "9ef7c3c9-b738-4270-98c2-59bc7253cf0a",
+              "name": "200 OK - Admin - Ajouter une catégorie",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "4dcaf95d-a74a-4b0c-b4fe-01d4aa7e1926",
+              "name": "200 OK - Admin - Ajouter une catégorie Copy",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         },
         {
           "name": "Catégorie - Modifier",
@@ -2153,6 +2186,11 @@
                   {
                     "key": "Content-Type",
                     "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Modifier une catégorie",
                     "type": "text"
                   }
                 ],
