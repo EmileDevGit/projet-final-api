@@ -2063,14 +2063,42 @@
             },
             {
               "id": "4dcaf95d-a74a-4b0c-b4fe-01d4aa7e1926",
-              "name": "200 OK - Admin - Ajouter une catégorie Copy",
+              "name": "403 Forbidden - Utilisateur - Ajouter une catégorie",
               "originalRequest": {
                 "method": "POST",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Ajouter une catégorie",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/catégories"
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "b2cc0691-f6e2-4abe-9000-787c73b282bb",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une catégorie",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "Unauthorized",
+              "code": 401,
               "_postman_previewlanguage": null,
               "header": null,
               "cookie": [],
