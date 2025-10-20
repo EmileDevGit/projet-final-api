@@ -2397,6 +2397,41 @@
               "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    },\n    {\n        \"ressource_id\": 2,\n        \"titre\": \"Algorithmes de tri en Python\",\n        \"description\": \"Implémentation et comparaison des principaux algorithmes de tri\",\n        \"url_ressource\": \"/uploads/ressources/algorithmes-tri-python.zip\",\n        \"visibilité\": true,\n        \"catégorie_id\": 1,\n        \"auteur_id\": 23\n    },\n    {\n        \"ressource_id\": 3,\n        \"titre\": \"Design Thinking pour l'innovation\",\n        \"description\": \"Méthode créative pour résoudre des problèmes complexes et innover\",\n        \"url_ressource\": \"/uploads/ressources/design-thinking-innovation.pptx\",\n        \"visibilité\": false,\n        \"catégorie_id\": 3,\n        \"auteur_id\": 8\n    },\n    {\n        \"ressource_id\": 4,\n        \"titre\": \"Machine Learning avec Scikit-learn\",\n        \"description\": \"Tutoriel pratique pour débuter en apprentissage automatique\",\n        \"url_ressource\": \"/uploads/ressources/machine-learning-scikit-learn.ipynb\",\n        \"visibilité\": true,\n        \"catégorie_id\": 4,\n        \"auteur_id\": 12\n    }\n]"
             },
             {
+              "id": "5bb7dfb0-80ab-46b2-9fd1-5591c1f2d637",
+              "name": "200 OK - Admin - Liste des ressources filtrée par mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources?mot-cle=React",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-cle",
+                      "value": "React"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    }\n]"
+            },
+            {
               "id": "4f61c87b-324f-4901-9817-da3e4cc800a5",
               "name": "200 OK - Utilisateur - Liste des ressources (visible / propriétaire)",
               "originalRequest": {
