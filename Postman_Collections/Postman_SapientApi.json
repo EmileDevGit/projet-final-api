@@ -1978,9 +1978,17 @@
               "name": "200 OK - Utilisateur - Détails d'une catégorie",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Détails d'une catégorie",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/catégories/3"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -1999,7 +2007,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une catégorie",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une catégorie",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/catégories/3"
               },
               "status": "Unauthorized",
@@ -2033,7 +2047,7 @@
           "response": [
             {
               "id": "ab6a9d9f-868e-4397-bc26-87b58f69ed54",
-              "name": "/catégories/3",
+              "name": "200 OK - Admin - Modifier une catégorie",
               "originalRequest": {
                 "method": "PUT",
                 "header": [
@@ -2054,6 +2068,46 @@
                 },
                 "url": "{{baseUrl}}/catégories/3"
               },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie mise à jour avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"date_modification\": \"2024-03-20T13:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:15:00Z\"\n}"
+            },
+            {
+              "id": "4ef73bbd-2947-48c2-b57a-d6a292c39e79",
+              "name": "403 Forbidden - Utilisateur - Modifier une catégorie",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nom\": \"Design UX/UI & Expérience Utilisateur\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
