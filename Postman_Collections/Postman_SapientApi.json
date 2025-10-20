@@ -2625,7 +2625,13 @@
               "name": "404 Not Found - Utilisateur - Détails d'une ressource (non-visible)",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "404 Not Found - Utilisateur - Détails d'une ressource (non-visible)",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/ressources/3"
               },
               "status": "Not Found",
@@ -2648,7 +2654,13 @@
               "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une ressource",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une ressource",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/ressources/3"
               },
               "status": "Unauthorized",
