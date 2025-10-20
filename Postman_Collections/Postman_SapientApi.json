@@ -1102,7 +1102,7 @@
             },
             {
               "id": "f1dff324-2586-430d-961a-2dbb5dd86be2",
-              "name": "404 Not Found - Utilisateur - Détails d'une collection (non-visible)",
+              "name": "403 Forbidden - Utilisateur - Détails d'une collection (non-visible)",
               "originalRequest": {
                 "method": "GET",
                 "header": [
@@ -1114,8 +1114,8 @@
                 ],
                 "url": "{{baseUrl}}/collections/5"
               },
-              "status": "Not Found",
-              "code": 404,
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -1127,7 +1127,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"404\",\n    \"message\": \"Not Found\"\n}"
+              "body": "{\n    \"status\": \"403\",\n    \"message\": \"forbidden\"\n}"
             },
             {
               "id": "d64dcb02-f9ac-4298-9bb5-a27ac2401fe5",
