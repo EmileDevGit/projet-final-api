@@ -3300,8 +3300,8 @@
               "body": null
             },
             {
-              "id": "9431d256-4acf-45f8-b6d9-61470093da59",
-              "name": "200 OK - Utilisateur inexistant - Se connecter Copy",
+              "id": "a414ad60-e6c5-4e00-87f2-11b394469a92",
+              "name": "200 OK - Utilisateur existant - Se connecter Copy",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -3318,6 +3318,31 @@
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "9431d256-4acf-45f8-b6d9-61470093da59",
+              "name": "401 Unauthorized - Utilisateur inexistant - Se connecter Copy",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/connexion"
+              },
+              "status": "Unauthorized",
+              "code": 401,
               "_postman_previewlanguage": null,
               "header": null,
               "cookie": [],
