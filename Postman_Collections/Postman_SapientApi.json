@@ -2817,11 +2817,18 @@
               },
               "status": "OK",
               "code": 200,
-              "_postman_previewlanguage": null,
-              "header": null,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
@@ -3096,7 +3103,7 @@
             },
             {
               "id": "dfd13521-73b5-4f66-95f3-fa5d61a3cfef",
-              "name": "200 OK - Utilisateur - Modifier une ressource (propriétaire) Copy",
+              "name": "401 Unauthorized - Utilisateur non-authentfié - Modifier une ressource",
               "originalRequest": {
                 "method": "PUT",
                 "header": [
@@ -3117,8 +3124,8 @@
                 },
                 "url": "{{baseUrl}}/ressources/1"
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Unauthorized",
+              "code": 401,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -3130,7 +3137,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource mise à jour avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction avancée à React.js et Hooks\",\n        \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15,\n        \"date_création\": \"2024-01-15T10:30:00Z\",\n        \"date_modification\": \"2024-03-20T12:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:15:00Z\"\n}"
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
@@ -3148,12 +3155,14 @@
           "response": [
             {
               "id": "d37218f9-82e1-4b23-b2b9-78f79807b91d",
-              "name": "/ressources/1",
+              "name": "200 OK - Admin - Supprimer une ressource",
               "originalRequest": {
                 "method": "DELETE",
                 "header": [],
                 "url": "{{baseUrl}}/ressources/1"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -3166,6 +3175,75 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource supprimée avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"supprimé_le\": \"2024-03-20T12:45:00Z\",\n        \"fichier_supprimé\": \"/uploads/ressources/react-intro-guide.pdf\"\n    },\n    \"timestamp\": \"2024-03-20T12:45:00Z\"\n}"
+            },
+            {
+              "id": "9c34128a-cdde-4c48-bc04-f91ee10e5a8b",
+              "name": "200 OK - Utilisateur - Supprimer une ressource (propriétaire)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource supprimée avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"supprimé_le\": \"2024-03-20T12:45:00Z\",\n        \"fichier_supprimé\": \"/uploads/ressources/react-intro-guide.pdf\"\n    },\n    \"timestamp\": \"2024-03-20T12:45:00Z\"\n}"
+            },
+            {
+              "id": "dc78e5fd-cf3e-436b-9fa7-bb004f4e6e39",
+              "name": "403 Forbidden - Utilisateur - Supprimer une ressource (non-propriétaire)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "3b27174f-b8b8-44de-a6c6-dcc3e6006d28",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une ressource",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         }
@@ -3176,7 +3254,7 @@
       "name": "/auth",
       "item": [
         {
-          "name": "/auth/connexion",
+          "name": "Authentification - Connexion",
           "id": "3dbc591b-5ba6-4704-be75-1e8b1fab8e03",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -3195,10 +3273,34 @@
             },
             "url": "{{baseUrl}}/auth/connexion"
           },
-          "response": []
+          "response": [
+            {
+              "id": "9da9ac39-94f6-44c0-9623-2f355edf8adb",
+              "name": "/auth/connexion",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/connexion"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         },
         {
-          "name": "/auth/inscrire",
+          "name": "Authentification - Inscription",
           "id": "6a776674-cc99-4ce5-a5bf-e3012062e8b0",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
