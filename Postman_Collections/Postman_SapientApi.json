@@ -2717,7 +2717,7 @@
             },
             {
               "id": "637b7e55-c014-4adf-8134-fc5342810720",
-              "name": "200 OK - Utilisateur - Télécharger une ressource (visible)",
+              "name": "200 OK - Utilisateur - Télécharger une ressource (visible / propriétaire)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
@@ -2740,14 +2740,14 @@
             },
             {
               "id": "c17505f4-cc3b-477e-a103-d3f5d65ebab1",
-              "name": "200 OK - Utilisateur - Télécharger une ressource (visible) Copy",
+              "name": "403 Forbidden - Utilisateur - Télécharger une ressource (non-visible)",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
                 "url": "{{baseUrl}}/ressources/1/télécharger"
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -2759,7 +2759,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource prête pour téléchargement\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"nom_fichier\": \"react-intro-guide.pdf\",\n        \"url_telechargement\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"taille_fichier\": \"2.5 MB\",\n        \"type_fichier\": \"application/pdf\",\n        \"mime_type\": \"application/pdf\",\n        \"date_creation\": \"2024-01-15T10:30:00Z\",\n        \"auteur\": {\n            \"nom\": \"Martin\",\n            \"prénom\": \"Sophie\"\n        },\n        \"expires_at\": \"2024-03-20T18:00:00Z\"\n    },\n    \"headers\": {\n        \"Content-Type\": \"application/pdf\",\n        \"Content-Disposition\": \"attachment; filename=\\\"react-intro-guide.pdf\\\"\",\n        \"Content-Length\": \"2621440\",\n        \"Cache-Control\": \"private, max-age=3600\"\n    },\n    \"timestamp\": \"2024-03-20T12:00:00Z\"\n}"
+              "body": "{\n    \"error\": \"forbidden\"\n}"
             }
           ]
         },
@@ -2774,7 +2774,40 @@
             "header": [],
             "url": "/ressources"
           },
-          "response": []
+          "response": [
+            {
+              "id": "7e0e4684-9f9d-4af7-8c66-7b663c667365",
+              "name": "200 OK - Admin - Ajouter une ressource",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "/ressources"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "c1a2dbdd-419b-428b-9ae6-f7c14c393f69",
+              "name": "200 OK - Utilisateur - Ajouter une ressource",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "/ressources"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         },
         {
           "name": "Ressource - Visibilité",
@@ -2880,8 +2913,8 @@
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
             },
             {
-              "id": "18e149d2-8d2c-4bc6-b0ff-f6afa72d9124",
-              "name": "200 OK - Utilisateur - Changer la visibilité d'une ressource (propriétaire / mentor) Copy",
+              "id": "4fdc751d-7e95-4303-94d2-52161fbfa762",
+              "name": "403 Forbidden - Utilisateur - Changer la visibilité d'une ressource",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
@@ -2902,8 +2935,8 @@
                   ]
                 }
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -2915,7 +2948,45 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "9ae61dc7-ca57-47c9-9836-78f3298ec8fe",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Changer la visibilité d'une ressource",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
@@ -2933,7 +3004,7 @@
           "response": [
             {
               "id": "ae139f94-e3ca-4107-bb7a-66c61ebfc19b",
-              "name": "/ressources/1",
+              "name": "200 OK - Admin - Modifier une ressource",
               "originalRequest": {
                 "method": "PUT",
                 "header": [
@@ -2954,6 +3025,84 @@
                 },
                 "url": "{{baseUrl}}/ressources/1"
               },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource mise à jour avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction avancée à React.js et Hooks\",\n        \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15,\n        \"date_création\": \"2024-01-15T10:30:00Z\",\n        \"date_modification\": \"2024-03-20T12:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:15:00Z\"\n}"
+            },
+            {
+              "id": "2b7283b4-ceaa-4fd7-9ed3-d9fd7c536794",
+              "name": "200 OK - Utilisateur - Modifier une ressource (propriétaire)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"titre\": \"Introduction avancée à React.js et Hooks\",\n  \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n  \"visibilité\": true,\n  \"catégorie_id\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource mise à jour avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction avancée à React.js et Hooks\",\n        \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15,\n        \"date_création\": \"2024-01-15T10:30:00Z\",\n        \"date_modification\": \"2024-03-20T12:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:15:00Z\"\n}"
+            },
+            {
+              "id": "dfd13521-73b5-4f66-95f3-fa5d61a3cfef",
+              "name": "200 OK - Utilisateur - Modifier une ressource (propriétaire) Copy",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"titre\": \"Introduction avancée à React.js et Hooks\",\n  \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n  \"visibilité\": true,\n  \"catégorie_id\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
