@@ -13,3 +13,10 @@ Feature: /utilisateurs - Liste des utilisateurs
 		And je reçoit un tableau json nommé utilisateurs
 		And les utilisateurs dans le tableau ont la chaîne marie dans leurs propriétées
 
+	Scenario: Un utilisateur afficher la liste des utilisateurs
+		Given un utilisateur existant avec le rôle user
+		When je fais un fetch sur l'endpoint /utilisateurs
+		Then je reçoit un code 200
+		And je reçoit un tableau json nommé utilisateurs
+		And les utilisateurs dans le tableau ont le rôle mentor
+
