@@ -3080,7 +3080,7 @@
             },
             {
               "id": "69720b8d-6a4b-4473-959f-e1a81b6dfb63",
-              "name": "200 OK - Utilisateur - Changer la visibilité d'une ressource (propriétaire / mentor)",
+              "name": "200 OK - Utilisateur - Changer la catégorie d'une ressource (propriétaire)",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
