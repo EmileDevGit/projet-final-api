@@ -3042,7 +3042,7 @@
           "response": [
             {
               "id": "a1eebc39-11db-40cd-9b17-d354c272c72d",
-              "name": "200 OK - Admin - Changer la visibilité d'une ressource",
+              "name": "200 OK - Admin - Changer la catégorie d'une ressource",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
