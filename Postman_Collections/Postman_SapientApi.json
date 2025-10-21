@@ -3014,6 +3014,187 @@
           ]
         },
         {
+          "name": "Ressource - Changer catégorie",
+          "id": "2230c60b-7e62-4257-8252-3977b9abb15d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ressources/{id}?visible",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ressources",
+                "{id}"
+              ],
+              "query": [
+                {
+                  "key": "visible",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a1eebc39-11db-40cd-9b17-d354c272c72d",
+              "name": "200 OK - Admin - Changer la visibilité d'une ressource",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            },
+            {
+              "id": "69720b8d-6a4b-4473-959f-e1a81b6dfb63",
+              "name": "200 OK - Utilisateur - Changer la visibilité d'une ressource (propriétaire / mentor)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            },
+            {
+              "id": "db379ce7-9a09-4aa9-9b36-8d32fddb6b15",
+              "name": "403 Forbidden - Utilisateur - Changer la visibilité d'une ressource",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "d72fd412-9a3c-4a30-9bdc-f57591b3e4ef",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Changer la visibilité d'une ressource",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
           "name": "Ressource - Modifier",
           "id": "504201ae-fd4a-48d4-b971-738f32725910",
           "protocolProfileBehavior": {
