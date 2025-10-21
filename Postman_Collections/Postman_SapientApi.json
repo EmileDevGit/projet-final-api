@@ -3300,33 +3300,8 @@
               "body": null
             },
             {
-              "id": "a414ad60-e6c5-4e00-87f2-11b394469a92",
-              "name": "200 OK - Utilisateur existant - Se connecter Copy",
-              "originalRequest": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": "{{baseUrl}}/auth/connexion"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": null,
-              "header": null,
-              "cookie": [],
-              "responseTime": null,
-              "body": null
-            },
-            {
-              "id": "9431d256-4acf-45f8-b6d9-61470093da59",
-              "name": "401 Unauthorized - Utilisateur inexistant - Se connecter Copy",
+              "id": "0ebecca4-8a1c-4ec9-b5bc-970aa0ca8f28",
+              "name": "401 Unauthorized - Utilisateur existant - Se connecter (mauvais credentials)",
               "originalRequest": {
                 "method": "POST",
                 "header": [],
@@ -3343,6 +3318,56 @@
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "a414ad60-e6c5-4e00-87f2-11b394469a92",
+              "name": "403 Forbidden - Utilisateur existant- Se connecter (inactif)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/connexion"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "9431d256-4acf-45f8-b6d9-61470093da59",
+              "name": "404 Not Found - Utilisateur inexistant - Se connecter",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/connexion"
+              },
+              "status": "Not Found",
+              "code": 404,
               "_postman_previewlanguage": null,
               "header": null,
               "cookie": [],
@@ -3371,7 +3396,33 @@
             },
             "url": "{{baseUrl}}/auth/inscrire"
           },
-          "response": []
+          "response": [
+            {
+              "id": "4d627a00-d9ed-49b0-beaf-44cd8d5d8792",
+              "name": "201 Created - Inscription",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nom\": \"Dupont\",\n  \"prénom\": \"Jean\",\n  \"email\": \"jean.dupont@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\",\n  \"type_compte\": \"Utilisateur\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/inscrire"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         }
       ],
       "id": "39e662c0-c492-4109-8e0b-e25b76be2929"
