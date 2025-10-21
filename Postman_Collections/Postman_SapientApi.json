@@ -3427,6 +3427,18 @@
               "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
+        },
+        {
+          "name": "New Request",
+          "id": "29ead3ae-4564-432b-9283-4deee694542a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
         }
       ],
       "id": "896ba2fc-00f5-4845-af90-8705f37c5353"
