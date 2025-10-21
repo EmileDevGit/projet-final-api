@@ -3118,7 +3118,7 @@
             },
             {
               "id": "db379ce7-9a09-4aa9-9b36-8d32fddb6b15",
-              "name": "403 Forbidden - Utilisateur - Changer la visibilité d'une ressource",
+              "name": "403 Forbidden - Utilisateur - Changer la catégorie d'une ressource (non-propriétaire)",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
