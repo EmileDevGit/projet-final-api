@@ -3156,7 +3156,7 @@
             },
             {
               "id": "d72fd412-9a3c-4a30-9bdc-f57591b3e4ef",
-              "name": "401 Unauthorized - Utilisateur non-authentifié - Changer la visibilité d'une ressource",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Changer la catégorie d'une ressource",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
