@@ -1,0 +1,51 @@
+@startuml
+
+
+entity "UTILISATEUR" as utilisateur {
+  *utilisateur_id : INT <<PK>>
+  --
+  nom : VARCHAR(100)
+  prénom : VARCHAR(100)
+  email : VARCHAR(150)
+  mot_de_passe : VARCHAR(255)
+  status_actif : BOOLEAN
+  type_compte : ENUM('MENTOR', 'ADMIN', 'ÉTUDIANT')
+}
+
+entity "CATÉGORIE" as categorie {
+  *catégorie_id : INT <<PK>>
+  --
+  nom : VARCHAR(100)
+}
+
+entity "RESSOURCE" as ressource {
+  *ressource_id : INT <<PK>>
+  --
+  titre : VARCHAR(200)
+  description : VARCHAR(500)
+  url_ressource : VARCHAR(500)
+  visibilité : BOOLEAN
+  catégorie_id : INT <<FK>>
+  auteur_id : INT <<FK>>
+}
+
+entity "COLLECTION" as collection {
+  *collection_id : INT <<PK>>
+  --
+  titre : VARCHAR(200)
+  description : VARCHAR(500)
+  visibilité : BOOLEAN
+  auteur_id : INT <<FK>>
+  ressource_id : INT <<FK>>
+}
+
+
+
+utilisateur ||--o{ ressource 
+categorie ||--o{ ressource 
+utilisateur ||--o{ collection 
+ressource ||--o{ collection 
+
+@enduml
+
+
