@@ -36,15 +36,21 @@ entity "COLLECTION" as collection {
   description : VARCHAR(500)
   visibilité : BOOLEAN
   auteur_id : INT <<FK>>
-  ressource_id : INT <<FK>>
+  collection_ressource_id : INT <<FK>>
+}
+
+entity "COLLECTION_RESSOURCE" as collection_ressource {
+	collection_id : INT <<FK>>
+	ressource_id : INT <<FK>>
 }
 
 
 
-utilisateur ||--o{ ressource 
+utilisateur ||--o{ ressource
 categorie ||--o{ ressource 
 utilisateur ||--o{ collection 
-ressource ||--o{ collection 
+ressource ||--o{ collection_ressource
+collection ||--o{ collection_ressource
 
 @enduml
 
