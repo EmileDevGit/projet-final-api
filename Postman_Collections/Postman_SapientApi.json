@@ -276,8 +276,22 @@
                     "key": "x-mock-response-name",
                     "value": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
                     "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   }
                 ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"current_user_id\": 5\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
               "status": "Forbidden",
