@@ -840,6 +840,33 @@
               "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
+        },
+        {
+          "name": "{{baseUrl}}/utilisateurs/{id}",
+          "id": "10acbf59-1c39-479e-a0d2-845a9ccc9a4d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-mock-response-name",
+                "value": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": []
         }
       ],
       "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
