@@ -901,7 +901,13 @@
               "name": "404 Not found - Admin - utilisateur inexistant",
               "originalRequest": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "404 Not found - Admin - utilisateur inexistant",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/999"
               },
               "status": "Not Found",
