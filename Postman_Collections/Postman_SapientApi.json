@@ -337,6 +337,20 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"error\": \"unauthorized\"\n}"
+            },
+            {
+              "id": "06f901ec-5989-42ca-ac94-c4211507e027",
+              "name": "Utilisateur - Détails",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
             }
           ]
         },
