@@ -251,7 +251,7 @@
                     "type": "text"
                   }
                 ],
-                "url": "{{baseUrl}}/utilisateurs/8"
+                "url": "{{baseUrl}}/utilisateurs/5"
               },
               "_postman_previewlanguage": "json",
               "header": [
@@ -264,7 +264,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 5 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 5,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
             },
             {
               "id": "5dc6e51f-2556-4038-bac6-487019dff137",
