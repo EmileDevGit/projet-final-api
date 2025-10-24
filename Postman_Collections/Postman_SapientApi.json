@@ -854,6 +854,18 @@
               "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
+        },
+        {
+          "name": "New Request",
+          "id": "81ca1e74-add7-4936-b397-cdb16d3afc87",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
         }
       ],
       "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
