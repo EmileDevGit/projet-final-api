@@ -866,7 +866,22 @@
             "header": [],
             "url": "{{baseUrl}}/utilisateurs"
           },
-          "response": []
+          "response": [
+            {
+              "id": "4aa2d878-7a33-4126-8e5e-7f10d009d076",
+              "name": "Utilisateur Ajouter",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         }
       ],
       "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
