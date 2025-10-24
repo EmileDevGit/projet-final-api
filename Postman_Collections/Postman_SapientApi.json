@@ -906,8 +906,15 @@
               },
               "status": "Not Found",
               "code": 404,
-              "_postman_previewlanguage": null,
-              "header": null,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"message\": \"not found\"\n}"
