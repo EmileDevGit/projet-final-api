@@ -895,6 +895,20 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"error\": \"unauthorized\"\n}"
+            },
+            {
+              "id": "5ece1290-70ae-4cc3-9760-a386bd86f110",
+              "name": "Utilisateur - Supprimer",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
             }
           ]
         },
