@@ -310,6 +310,49 @@
               "body": "{\n    \"error\": \"forbidden\"\n}"
             },
             {
+              "id": "570212d1-8420-4ae6-95de-ae61cbcd245a",
+              "name": "404 Not Found - Admin - Détails d'un utilisateur inexistant",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
               "id": "193af623-f1d1-469d-929b-dc4a520903d6",
               "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'un utilisateur",
               "originalRequest": {
