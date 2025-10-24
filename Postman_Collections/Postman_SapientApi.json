@@ -856,7 +856,7 @@
           ]
         },
         {
-          "name": "New Request",
+          "name": "Utilisateur Ajouter",
           "id": "81ca1e74-add7-4936-b397-cdb16d3afc87",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
