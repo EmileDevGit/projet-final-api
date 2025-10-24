@@ -902,13 +902,15 @@
               "originalRequest": {
                 "method": "DELETE",
                 "header": [],
-                "url": "{{baseUrl}}/utilisateurs/{id}"
+                "url": "{{baseUrl}}/utilisateurs/999"
               },
+              "status": "Not Found",
+              "code": 404,
               "_postman_previewlanguage": null,
               "header": null,
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": "{\n    \"message\": \"not found\"\n}"
             }
           ]
         },
