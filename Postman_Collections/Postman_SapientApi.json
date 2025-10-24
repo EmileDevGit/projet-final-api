@@ -337,8 +337,8 @@
                 },
                 "url": "{{baseUrl}}/utilisateurs/{id}"
               },
-              "status": "Forbidden",
-              "code": 403,
+              "status": "Not Found",
+              "code": 404,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -350,7 +350,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"error\": \"forbidden\"\n}"
+              "body": "{\n    \"error\": \"not found\"\n}"
             },
             {
               "id": "193af623-f1d1-469d-929b-dc4a520903d6",
