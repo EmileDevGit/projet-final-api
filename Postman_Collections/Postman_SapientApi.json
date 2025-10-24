@@ -898,7 +898,7 @@
             },
             {
               "id": "5ece1290-70ae-4cc3-9760-a386bd86f110",
-              "name": "Utilisateur - Supprimer",
+              "name": "404 Not found - Admin - utilisateur inexistant",
               "originalRequest": {
                 "method": "DELETE",
                 "header": [],
