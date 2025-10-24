@@ -865,7 +865,21 @@
             "method": "GET",
             "header": []
           },
-          "response": []
+          "response": [
+            {
+              "id": "dd6b83de-5f50-4c51-ae6c-c4c7623632c6",
+              "name": "Utilisateur Ajouter",
+              "originalRequest": {
+                "method": "GET",
+                "header": []
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         }
       ],
       "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
