@@ -46,7 +46,7 @@ def existing_user_with_name(user_id, user_role, prenom):
 @given(parsers.parse("un utilisateur inexistant ayant l'id {user_id:d}"))
 def non_existing_user(user_id):
     response = requests.delete(f"{BASE_URL}/utilisateurs/{user_id}")
-    assert response.status_code == 200
+    assert response.status_code == 200 or response.status_code == 404 
 
 @when(parsers.parse("je fais un fetch sur l'utilisateur ayant l'id {user_id:d}"))
 def fetch_user(user_id, request):
