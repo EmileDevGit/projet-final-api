@@ -865,7 +865,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"error\": \"forbidden\"\n}"
+              "body": "{\n    \"message\": \"forbidden\"\n}"
             },
             {
               "id": "33523e63-b155-4cc0-b541-f45765abe729",
