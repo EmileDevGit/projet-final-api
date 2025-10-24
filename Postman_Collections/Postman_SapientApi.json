@@ -875,6 +875,8 @@
                 "header": [],
                 "url": "{{baseUrl}}/utilisateurs"
               },
+              "status": "Created",
+              "code": 201,
               "_postman_previewlanguage": null,
               "header": null,
               "cookie": [],
