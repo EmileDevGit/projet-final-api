@@ -122,7 +122,7 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"data\":[\n        {\n            \"utilisateur_id\": 1,\n            \"nom\": \"Leclerc\",\n            \"prénom\": \"Marie\",\n            \"email\": \"marie.leclerc@example.com\",\n            \"status_actif\": true,\n            \"type_compte\": \"mentor\"\n        }\n        \n    ],\n    \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_type_compte\"\n        }\n}\n    "
+              "body": "{\n    \"utilisateurs\":[\n        {\n            \"utilisateur_id\": 1,\n            \"nom\": \"Leclerc\",\n            \"prénom\": \"Marie\",\n            \"email\": \"marie.leclerc@example.com\",\n            \"status_actif\": true,\n            \"type_compte\": \"mentor\"\n        }\n        \n    ],\n    \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_type_compte\"\n        }\n}\n    "
             },
             {
               "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
