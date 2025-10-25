@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from .routers import utilisateurs
+from routers import utilisateurs
 
 app = FastAPI()
-app.include_router(user_router)
+app.include_router(utilisateurs)
 
 @app.get("/health")
 def check_service_health():
