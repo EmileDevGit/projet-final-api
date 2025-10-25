@@ -48,7 +48,7 @@ def non_existing_user(user_id):
     response = requests.delete(f"{BASE_URL}/utilisateurs/{user_id}")
     assert response.status_code == 200 or response.status_code == 404 
 
-@when(parsers.parse("je fais un fetch sur l'utilisateur ayant l'id {user_id:d}"))
+@when(parsers.parse("il fais un fetch sur l'utilisateur ayant l'id {user_id:d}"))
 def fetch_user(user_id, request):
     response = requests.get(f"{BASE_URL}/utilisateurs/{user_id}")
     request._user_api_response = response
