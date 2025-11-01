@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from enum import Enum
 
 
@@ -9,10 +9,10 @@ class Role(Enum):
 
 
 class Utilisateur(BaseModel):
-    id: int
+    id: int = Field(alias="utilisateur_id")
     nom: str
-    prenom: str
+    prénom: str
     email: str
-    role: Role
-    active: bool
-
+    type_compte: str
+    mot_de_passe: str
+    status_actif: bool
