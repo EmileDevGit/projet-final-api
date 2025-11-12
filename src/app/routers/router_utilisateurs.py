@@ -1,6 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, HTTPException
 from data.connexion import mydb as db
 from services.service_utilisateurs import UserServices as UserServices
+from utils.auth import verify_token
+
 
 users_router = APIRouter(prefix="/utilisateurs")
 
@@ -8,7 +10,10 @@ service = UserServices(db)
 
 
 @users_router.get("/")
-async def get_users():
+async def get_users(user=Depends(verify_token)):
+    if user["role"] not in ["ADMIN"]:
+        raise HTTPException(
+            status_code=403, detail="Accès refusé : rôle insuffisant")
     return service.get_all_utilisateurs()
 
 
