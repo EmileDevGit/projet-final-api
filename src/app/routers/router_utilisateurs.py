@@ -24,10 +24,25 @@ async def get_auth_token(id:int, role: str):
     return {"access_token": token}
 
 
-@ users_router.get("/{id}")
-async def get_user_by_id(id: int):
-    return {"message": "Un utilisateurs particulier"}
+@users_router.get("/{id}")
+async def get_user_by_id(id: int, user=Depends(verify_token)):
+    if user["role"] == "ADMIN":
+        utilisateur = service.get_utilisateur_by_id(id)
+        #404 si utilisateur existe pas
+        if not utilisateur:
+            raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+        return utilisateur
 
+    elif user["id"] == id:
+        utilisateur = service.get_utilisateur_by_id(id)
+        if not utilisateur:
+            #404 si utilisateur existe pas
+            raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+        return utilisateur
+
+    else:
+        #403 si l'utilisateur n'a pas les droit admin
+        raise HTTPException(status_code=403,detail="Accès refusé : vous ne pouvez consulter que votre propre profil")
 
 @ users_router.post("/")
 async def post_users():

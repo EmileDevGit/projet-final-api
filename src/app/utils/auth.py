@@ -30,6 +30,6 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
         role: str = payload.get("role")
         if email is None or role is None:
             raise HTTPException(status_code=401, detail="Token invalide")
-        return {"email": email, "role": role}
+        return {"id": id, "email": email, "role": role}
     except JWTError:
         raise HTTPException(status_code=401, detail="Token invalide ou expiré")
