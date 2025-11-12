@@ -29,3 +29,23 @@ class UserServices:
 
         finally:
             cursor.close()
+
+    def get_utilisateur_by_id(self, utilisateur_id: int):
+        cursor = self.db.cursor(dictionary=True)
+        try:
+            cursor.execute("SELECT * FROM utilisateur WHERE utilisateur_id = %s", (utilisateur_id,))
+            row = cursor.fetchone()
+            # Transformation du SET en str pour le type de compte
+            if isinstance(row.get("type_compte"), set):
+                row["type_compte"] = next(iter(row["type_compte"]), "USER")
+
+            utilisateur = UtilisateurResponse(**row)
+            return utilisateur
+
+        except Exception as e:
+            print(f"Erreur lors de la récupération de l'utilisateur : {e}")
+            return None
+
+        finally:
+            cursor.close()
+
