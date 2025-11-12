@@ -61,7 +61,7 @@ async def put_user(id: int, data: UtilisateurModify, user=Depends(verify_token))
 
 @users_router.patch("/{id}")
 async def patch_user_visibility(id: int, actif: bool, user=Depends(verify_token)):
-    if user["role"] in ["ADMIN"]:
+    if user["role"] in ["ADMIN"] or user["id"] == id:
         updated_user = service.update_user_status(id, actif)
         if not updated_user:
             raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
