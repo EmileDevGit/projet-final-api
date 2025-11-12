@@ -59,10 +59,19 @@ async def put_user(id: int, data: UtilisateurModify, user=Depends(verify_token))
             status_code=403, detail="Vous ne possédez pas les droits de modification pour cet utilisateur")
 
 
-@ users_router.patch("/{id}")
-async def patch_user_visibility(id: int, actif: bool):
-    return {"message": f"L'utilisateur avec l'id {id} est mis à jour actif: {actif}"}
-
+@users_router.patch("/{id}")
+async def patch_user_visibility(id: int, actif: bool, user=Depends(verify_token)):
+    if user["role"] in ["ADMIN"]:
+        updated_user = service.update_user_status(id, actif)
+        if not updated_user:
+            raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+        return updated_user
+        
+    else:
+        raise HTTPException(
+            status_code=403,
+            detail="Vous ne possédez pas les droits de modification pour cet utilisateur"
+        )
 
 @ users_router.delete("/{id}")
 async def delete_user(id: int):

@@ -93,3 +93,20 @@ class UserServices:
             return
         finally:
             cursor.close()
+
+
+
+    def update_user_status(self, id: int, actif: bool):
+        cursor = self.db.cursor(dictionary=True)
+        try:
+            query = "UPDATE utilisateur SET status_actif = %s WHERE utilisateur_id = %s"
+            values = [actif, id]
+            cursor.execute(query, values)
+            self.db.commit()
+            return self.get_utilisateur_by_id(id)
+
+        except Exception as e:
+            print(f"Erreur lors de la mise à jour du status_actif : {e}")
+            return
+        finally:
+            cursor.close()
