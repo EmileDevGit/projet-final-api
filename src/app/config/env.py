@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     MYSQL_DATABASE: str
     MYSQL_USER: str
     MYSQL_PASSWORD: str
+    SECRET_KEY: str
+    ALGORITHM: str
 
 
 model_config = SettingsConfigDict(
