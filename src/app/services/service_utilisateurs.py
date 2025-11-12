@@ -1,6 +1,7 @@
 from data.connexion import mydb as db
 from data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
 from data.models.model_utilisateur import UtilisateurResponse as UtilisateurResponse
+from data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
 
 
 class UserServices:
@@ -77,3 +78,16 @@ class UserServices:
         finally:
             cursor.close()
 
+    def edit_user(self, id: int, data: UtilisateurModify):
+        cursor = self.db.cursor(dictionary=True)
+        try:
+            query = "UPDATE utilisateur SET nom=%s, prenom=%s, email=%s, mot_de_passe=%s WHERE utilisateur_id=%s"
+            values = [data.nom, data.prenom,
+                      data.email, data.mot_de_passe, id]
+            cursor.execute(query, values)
+
+        except Exception as e:
+            print(f"Erreur lors de la récupération des utilisateurs : {e}")
+            return
+        finally:
+            cursor.close()

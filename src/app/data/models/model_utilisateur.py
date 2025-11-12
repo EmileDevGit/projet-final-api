@@ -15,9 +15,16 @@ class Utilisateur(BaseModel):
     nom: str
     prénom: str
     email: str
-    type_compte: TypeCompte 
+    type_compte: TypeCompte
     mot_de_passe: str
     status_actif: bool
+
+
+class UtilisateurModify(BaseModel):
+    nom: str = Field(..., min_length=2, max_length=50)
+    prenom: str = Field(..., min_length=2, max_length=50)
+    email: EmailStr = Field(...)
+    mot_de_passe: str = Field(...)
 
 
 class UtilisateurLogin(BaseModel):
