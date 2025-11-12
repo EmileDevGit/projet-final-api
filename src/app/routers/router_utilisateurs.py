@@ -18,8 +18,8 @@ async def get_users(user=Depends(verify_token)):
 
 
 @users_router.get("/token")
-async def get_auth_token(role: str):
-    data = {"sub": "test@token.gmail", "role": role}
+async def get_auth_token(id:int, role: str):
+    data = {"id": id, "email": "test@token.gmail", "role": role}
     token = create_access_token(data)
     return {"access_token": token}
 
@@ -33,7 +33,7 @@ async def get_user_by_id(id: int, user=Depends(verify_token)):
             raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
         return utilisateur
 
-    elif user["utilisateur_id"] == id:
+    elif user["id"] == id:
         utilisateur = service.get_utilisateur_by_id(id)
         if not utilisateur:
             #404 si utilisateur existe pas
