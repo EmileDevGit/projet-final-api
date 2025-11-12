@@ -10,16 +10,16 @@ USE sapienta_db;
 CREATE TABLE utilisateur (
     utilisateur_id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
-    prénom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(255) NOT NULL,
     status_actif BOOLEAN NOT NULL DEFAULT TRUE,
-    type_compte ENUM('MENTOR', 'ADMIN', 'ÉTUDIANT') NOT NULL
+    type_compte SET('MENTOR', 'ADMIN', 'USER') NOT NULL
 );
 
 -- Table: CATÉGORIE
 CREATE TABLE categorie (
-    catégorie_id INT AUTO_INCREMENT PRIMARY KEY,
+    categorie_id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL
 );
 
@@ -29,10 +29,10 @@ CREATE TABLE ressource (
     titre VARCHAR(200) NOT NULL,
     description VARCHAR(500),
     url_ressource VARCHAR(500) NOT NULL,
-    visibilité BOOLEAN NOT NULL DEFAULT TRUE,
-    catégorie_id INT,
+    visibilite BOOLEAN NOT NULL DEFAULT TRUE,
+    categorie_id INT,
     auteur_id INT,
-    FOREIGN KEY (catégorie_id) REFERENCES categorie(catégorie_id) ON DELETE SET NULL,
+    FOREIGN KEY (categorie_id) REFERENCES categorie(categorie_id) ON DELETE SET NULL,
     FOREIGN KEY (auteur_id) REFERENCES utilisateur(utilisateur_id) ON DELETE SET NULL
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE collection (
     collection_id INT AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(200) NOT NULL,
     description VARCHAR(500),
-    visibilité BOOLEAN NOT NULL DEFAULT TRUE,
+    visibilite BOOLEAN NOT NULL DEFAULT TRUE,
     auteur_id INT,
     FOREIGN KEY (auteur_id) REFERENCES utilisateur(utilisateur_id) ON DELETE SET NULL
 );
