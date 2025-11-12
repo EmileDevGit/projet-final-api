@@ -8,10 +8,16 @@ class UserServices:
     def __init__(self, db):
         self.db = db
 
-    def get_all_utilisateurs(self):
+    def get_all_utilisateurs(self, q: str | None = None):
         cursor = self.db.cursor(dictionary=True)
         try:
-            cursor.execute("SELECT * FROM utilisateur")
+            if q:
+                query = "SELECT * FROM utilisateur WHERE prenom LIKE %s OR nom LIKE %s"
+                filter = f"%{q}%"
+                cursor.execute(query, (filter, filter))
+            else:
+                query = "SELECT * FROM utilisateur"
+                cursor.execute(query)
             result = cursor.fetchall()
 
             # Transformation du SET en str pour le type de compte
