@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from data.connexion import mydb as db
 from services.service_utilisateurs import UserServices as UserServices
 from utils.auth import *
+from data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
 
 
 users_router = APIRouter(prefix="/utilisateurs")
@@ -18,7 +19,7 @@ async def get_users(user=Depends(verify_token), filter: str | None = None):
 
 
 @users_router.get("/token")
-async def get_auth_token(id:int, role: str):
+async def get_auth_token(id: int, role: str):
     data = {"id": id, "email": "test@token.gmail", "role": role}
     token = create_access_token(data)
     return {"access_token": token}
@@ -50,8 +51,12 @@ async def post_users():
 
 
 @ users_router.put("/{id}")
-async def put_user(id: int):
-    return {"message": "Modification d'un utilisateur"}
+async def put_user(id: int, data: UtilisateurModify, user=Depends(verify_token)):
+    if user["role"] in ["ADMIN"] or user["id"] == id:
+        return service.edit_user(id, data)
+    else:
+        raise HTTPException(
+            status_code=403, detail="Vous ne possédez pas les droits de modification pour cet utilisateur")
 
 
 @ users_router.patch("/{id}")
