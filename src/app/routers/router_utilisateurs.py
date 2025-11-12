@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from data.connexion import mydb as db
 from services.service_utilisateurs import UserServices as UserServices
-from fastapi.responses import JSONResponse
 
 users_router = APIRouter(prefix="/utilisateurs")
 
@@ -11,7 +10,6 @@ service = UserServices(db)
 @users_router.get("/")
 async def get_users():
     return service.get_all_utilisateurs()
-    
 
 
 @users_router.get("/{id}")
