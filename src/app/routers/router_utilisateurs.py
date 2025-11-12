@@ -10,9 +10,9 @@ service = UserServices(db)
 
 
 @users_router.get("/")
-async def get_users(user=Depends(verify_token)):
+async def get_users(user=Depends(verify_token), filter: str | None = None):
     if user["role"] in ["ADMIN"]:
-        return service.get_all_utilisateurs()
+        return service.get_all_utilisateurs(filter)
     else:
         return service.get_all_mentors()
 
