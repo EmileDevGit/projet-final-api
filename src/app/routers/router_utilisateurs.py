@@ -18,8 +18,8 @@ async def get_users(user=Depends(verify_token)):
 
 
 @users_router.get("/token")
-async def get_auth_token(role: str):
-    data = {"sub": "test@token.gmail", "role": role}
+async def get_auth_token(id:int, role: str):
+    data = {"id": id, "email": "test@token.gmail", "role": role}
     token = create_access_token(data)
     return {"access_token": token}
 

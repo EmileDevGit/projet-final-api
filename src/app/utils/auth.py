@@ -25,7 +25,8 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
     token = credentials.credentials
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        email: str = payload.get("sub")
+        id: int = payload.get("id")
+        email: str = payload.get("email")
         role: str = payload.get("role")
         if email is None or role is None:
             raise HTTPException(status_code=401, detail="Token invalide")
