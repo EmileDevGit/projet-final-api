@@ -10,8 +10,8 @@ service = UserServices(db)
 
 @users_router.get("/")
 async def get_users():
-    users_dict = service.get_all_utilisateurs()
-    return JSONResponse(content=users_dict, media_type="application/json")
+    return service.get_all_utilisateurs()
+    
 
 
 @users_router.get("/{id}")
