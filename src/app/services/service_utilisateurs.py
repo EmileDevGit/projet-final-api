@@ -63,7 +63,8 @@ class UserServices:
     def get_utilisateur_by_id(self, utilisateur_id: int):
         cursor = self.db.cursor(dictionary=True)
         try:
-            cursor.execute(f"SELECT * FROM utilisateur WHERE utilisateur_id = {utilisateur_id}")
+            cursor.execute(
+                f"SELECT * FROM utilisateur WHERE utilisateur_id = {utilisateur_id}")
             row = cursor.fetchone()
             if isinstance(row.get("type_compte"), set):
                 row["type_compte"] = next(iter(row["type_compte"]), "USER")
@@ -85,6 +86,7 @@ class UserServices:
             values = [data.nom, data.prenom,
                       data.email, data.mot_de_passe, id]
             cursor.execute(query, values)
+            return self.get_utilisateur_by_id(id)
 
         except Exception as e:
             print(f"Erreur lors de la récupération des utilisateurs : {e}")
