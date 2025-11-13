@@ -73,6 +73,16 @@ async def patch_user_visibility(id: int, actif: bool, user=Depends(verify_token)
             detail="Vous ne possédez pas les droits de modification pour cet utilisateur"
         )
 
-@ users_router.delete("/{id}")
-async def delete_user(id: int):
-    return {"message": f"L'utilisateur avec l'id {id} à été supprimé"}
+
+@users_router.delete("/{id}")
+async def delete_user(id: int, user=Depends(verify_token)):
+    if user["role"] in ["ADMIN"]:
+        deleted_user = service.delete_user(id)
+        if not deleted_user:
+            raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+        return {"message": f"L'utilisateur avec l'id {id} a été supprimé avec succès"}
+    else:
+        raise HTTPException(
+            status_code=403,
+            detail="Vous ne possédez pas les droits de suppression pour cet utilisateur"
+        )

@@ -110,3 +110,22 @@ class UserServices:
             return
         finally:
             cursor.close()
+
+
+    def delete_user(self, id: int):
+        cursor = self.db.cursor(dictionary=True)
+        try:
+            query = "DELETE FROM utilisateur WHERE utilisateur_id = %s"
+            cursor.execute(query, (id,))
+            self.db.commit()
+
+            if cursor.rowcount == 0:
+                return False  
+
+            return True  
+
+        except Exception as e:
+            print(f"Erreur lors de la suppression de l'utilisateur : {e}")
+            return False
+        finally:
+            cursor.close()
