@@ -76,7 +76,7 @@ async def patch_user_visibility(id: int, actif: bool, user=Depends(verify_token)
 
 @users_router.delete("/{id}")
 async def delete_user(id: int, user=Depends(verify_token)):
-    if user["role"] in ["ADMIN"] :
+    if user["role"] in ["ADMIN"] or user["id"] == id:
         deleted_user = service.delete_user(id)
         if not deleted_user:
             raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
