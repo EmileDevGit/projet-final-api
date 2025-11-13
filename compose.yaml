@@ -48,9 +48,9 @@ services:
     env_file:
       - .env
 # À utiliser lors de l'implémentation de l'Api
-#    depends_on:
-#      sapienta_api:
-#        condition: service_healthy
+    depends_on:
+      sapienta_api:
+        condition: service_healthy
 
 
 volumes:

@@ -4,3 +4,4 @@ fastapi[all]
 httpx
 python-jose
 pytest-bdd
+mysql-connector-python
