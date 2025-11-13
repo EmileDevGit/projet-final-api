@@ -1,6 +1,8 @@
 import pytest
 from pydantic import ValidationError
 from services.service_utilisateurs import UserServices
+from data.models.model_utilisateur import UtilisateurModify
+
 
 class FakeCursor:
     def __init__(self, rowcount=1):
@@ -70,6 +72,77 @@ def test_update_user_status_utilisateur_non_trouve():
     assert called_with_id["id"] == 99
     assert result is None
 
+
+#test modification utilisateur
+def test_edit_user_succes():
+    cursor = FakeCursor()
+    fake_db = FakeDB(cursor)
+    service = UserServices(fake_db)
+
+    data = UtilisateurModify(
+        nom="Dupont",
+        prenom="Marie",
+        email="marie.dupont@example.com",
+        mot_de_passe="Secret123"
+    )
+    expected_user = {
+        "id": 5,
+        "nom": "Dupont",
+        "prenom": "Marie",
+        "email": "marie.dupont@example.com",
+        "status_actif": True
+    }
+    called_with_id = {}
+    def fake_get_user(user_id: int):
+        called_with_id["id"] = user_id
+        return expected_user
+    service.get_utilisateur_by_id = fake_get_user
+    result = service.edit_user(5, data)
+
+    assert cursor.last_query == (
+        "UPDATE utilisateur SET nom=%s, prenom=%s, email=%s, mot_de_passe=%s WHERE utilisateur_id=%s"
+    )
+    assert cursor.last_values == [
+        "Dupont",
+        "Marie",
+        "marie.dupont@example.com",
+        "Secret123",
+        5,
+    ]
+    assert called_with_id["id"] == 5
+    assert result == expected_user
+
+def test_edit_user_utilisateur_non_trouve():
+    cursor = FakeCursor()
+    fake_db = FakeDB(cursor)
+    service = UserServices(fake_db)
+
+    data = UtilisateurModify(
+        nom="Test",
+        prenom="User",
+        email="test.user@example.com",
+        mot_de_passe="Password123"
+    )
+    called_with_id = {}
+    def fake_get_user(user_id: int):
+        called_with_id["id"] = user_id
+        return None 
+
+    service.get_utilisateur_by_id = fake_get_user
+    result = service.edit_user(42, data)
+
+    assert cursor.last_query == (
+        "UPDATE utilisateur SET nom=%s, prenom=%s, email=%s, mot_de_passe=%s WHERE utilisateur_id=%s"
+    )
+    assert cursor.last_values == [
+        "Test",
+        "User",
+        "test.user@example.com",
+        "Password123",
+        42,
+    ]
+    assert called_with_id["id"] == 42
+    assert result is None
 
 
 #test suppresion de compte
