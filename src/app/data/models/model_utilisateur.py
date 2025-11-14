@@ -62,11 +62,27 @@ class UtilisateurCreate(BaseModel):
                 'Le mot de passe doit contenir au moins 8 caractères')
         return v
 
+    @field_validator("type_compte", mode="before")
+    def convert_set_to_string(cls, v):
+        if isinstance(v, set):
+            if len(v) == 1:
+                return next(iter(v))
+        return v
+
 
 class UtilisateurResponse(BaseModel):
     id: int = Field(alias="utilisateur_id")
     nom: str
     prenom: str
     email: EmailStr
-    type_compte: str
+    type_compte: TypeCompte
     status_actif: bool
+
+    @field_validator("type_compte", mode="before")
+    def convert_set_to_string(cls, v):
+        if isinstance(v, set):
+            if len(v) == 1:
+                return next(iter(v))
+        return v
+
+
