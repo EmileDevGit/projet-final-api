@@ -40,6 +40,7 @@ services:
       timeout: 3s
       retries: 5
 
+# Roule les tests unitaires
   sapienta_tests:
     build:
       context: .
