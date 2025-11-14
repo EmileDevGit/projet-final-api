@@ -79,9 +79,9 @@ API de bibliothèque de savoir © 2025 by Émile Girard & Émile Larochelle-Lang
 Pour consulter les détails de la licence, visitez https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 ## État du projet et plans futurs
-✅Sprint 1 - Analyse du projet et ébauche du mock de l'API
+✅ Sprint 1 - Analyse du projet et ébauche du mock de l'API
 
-✅Sprint 2 - Mise en place structure du projet et de la couche Interface
+✅ Sprint 2 - Mise en place structure du projet et de la couche Interface
 
-✅Sprint 3 - Implémentation des routes utilisateurs
+✅ Sprint 3 - Implémentation des routes utilisateurs
 
