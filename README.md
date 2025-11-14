@@ -47,7 +47,7 @@ Le tableau suivant montre les droits d'accès de bases en prenant acquis une ses
 [Diagramme de classes](docs/diagrammes/classes.puml)
 
 ## Diagramme des composants de l’architecture
-[Diagramme de classes](docs/diagrammes/DiagrammeDesComposantsDeArchitecture.png)
+[Diagramme des composants de l’architecture](docs/diagrammes/DiagrammeDesComposantsDeArchitecture.png)
 
 ## Installation
 À venir!
