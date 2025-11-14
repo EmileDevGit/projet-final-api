@@ -2,18 +2,28 @@ import pytest
 from pydantic import ValidationError
 from services.service_utilisateurs import UserServices
 from data.models.model_utilisateur import UtilisateurModify
+from data.models.model_utilisateur import UtilisateurResponse
+
 
 
 class FakeCursor:
-    def __init__(self, rowcount=1):
+    def __init__(self, rowcount=1, fetchall_result=None, row=None):
         self.rowcount = rowcount
+        self._row = row  
         self.last_query = None
         self.last_values = None
         self.closed = False
+        self._fetchall_result = fetchall_result or []
 
-    def execute(self, query, values):
+    def execute(self, query, values=None):
         self.last_query = query
         self.last_values = values
+        
+    def fetchall(self):
+        return self._fetchall_result
+    
+    def fetchone(self):
+        return self._row
 
     def close(self):
         self.closed = True
@@ -30,6 +40,119 @@ class FakeDB:
         self.commit_called = True
 
 
+#test obtenir list des utilisateur
+def test_get_all_utilisateurs():
+    rows = [
+        {
+            "utilisateur_id": 1,
+            "nom": "Dupont",
+            "prenom": "Marie",
+            "email": "marie@example.com",
+            "type_compte": "ADMIN",
+            "status_actif": True,
+        },
+        {
+            "utilisateur_id": 2,
+            "nom": "Martin",
+            "prenom": "Jean",
+            "email": "jean@example.com",
+            "type_compte": "MENTOR",
+            "status_actif": False,
+        },
+    ]
+
+    cursor = FakeCursor(fetchall_result=rows)
+    fake_db = FakeDB(cursor)
+    service = UserServices(fake_db)
+    result = service.get_all_utilisateurs()
+
+    assert cursor.last_query == "SELECT * FROM utilisateur"
+    assert cursor.last_values is None  
+    assert isinstance(result, list)
+    assert len(result) == 2
+    assert isinstance(result[0], UtilisateurResponse)
+    assert result[0].id == 1
+    assert result[0].type_compte == "ADMIN"
+    assert result[1].id == 2
+    assert result[1].type_compte == "MENTOR"
+
+#test obtenir list mentor
+def test_get_all_mentors():
+    rows = [
+        {
+            "utilisateur_id": 1,
+            "nom": "Dupont",
+            "prenom": "Marie",
+            "email": "marie@example.com",
+            "type_compte": "MENTOR",
+            "status_actif": True,
+        },
+        {
+            "utilisateur_id": 2,
+            "nom": "Martin",
+            "prenom": "Jean",
+            "email": "jean@example.com",
+            "type_compte": "MENTOR",
+            "status_actif": False,
+        },
+    ]
+    cursor = FakeCursor(fetchall_result=rows)
+    fake_db = FakeDB(cursor)
+    service = UserServices(fake_db)
+    result = service.get_all_mentors()
+
+    assert cursor.last_query == "SELECT * FROM utilisateur WHERE type_compte = 'MENTOR'"
+    assert cursor.last_values is None 
+    assert isinstance(result, list)
+    assert len(result) == 2
+    assert isinstance(result[0], UtilisateurResponse)
+    assert result[0].id == 1
+    assert result[0].type_compte == "MENTOR"
+    assert result[1].id == 2
+    assert result[1].type_compte == "MENTOR"
+
+
+#test recherche utilisateur par id
+def test_get_utilisateur_by_id_succes():
+    row = {
+        "utilisateur_id": 5,
+        "nom": "Dupont",
+        "prenom": "Marie",
+        "email": "marie.dupont@example.com",
+        "type_compte": "ADMIN",
+        "status_actif": True,
+    }
+    cursor = FakeCursor(row=row)
+    fake_db = FakeDB(cursor)
+    service = UserServices(fake_db)
+    result = service.get_utilisateur_by_id(5)
+
+    assert (
+        cursor.last_query
+        == "SELECT * FROM utilisateur WHERE utilisateur_id = 5"
+    )
+    assert isinstance(result, UtilisateurResponse)
+    assert result.id == 5
+    assert result.nom == "Dupont"
+    assert result.prenom == "Marie"
+    assert result.email == "marie.dupont@example.com"
+    assert result.type_compte == "ADMIN"
+    assert result.status_actif is True
+    assert cursor.closed is True
+
+def test_get_utilisateur_by_id_utilisateur_non_trouve():
+
+    cursor = FakeCursor(row=None)
+    fake_db = FakeDB(cursor)
+    service = UserServices(fake_db)
+    result = service.get_utilisateur_by_id(999)
+
+    assert (
+        cursor.last_query
+        == "SELECT * FROM utilisateur WHERE utilisateur_id = 999"
+    )
+    assert result is None
+    assert cursor.closed is True
 
 
 #test changement de status
