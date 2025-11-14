@@ -41,5 +41,22 @@ class UtilsServices:
         finally:
             cursor.close()
 
-    def register():
-        return "Not Yet Implemented"
+    def register(self, user_data: UtilisateurCreate):
+        cursor = self.db.cursor(dictionary=True)
+        try:
+            cursor.execute(
+                "SELECT * FROM utilisateur WHERE email = %s", (user_data.email,))
+            if cursor.fetchone():
+                return {"error": "Cet email existe déjà."}
+            query = "INSERT INTO utilisateur(nom, prenom, email, mot_de_passe, status_actif, type_compte) VALUES (%s, %s, %s, %s, %s, %s)"
+            cursor.execute(query, (user_data.nom, user_data.prenom, user_data.email, user_data.mot_de_passe, True, user_data.type_compte.value))
+            cursor.execute("SELECT * FROM utilisateur WHERE email = %s", (user_data.email,))
+            row = cursor.fetchone()
+            if row is None:
+                return {"erreur": "Erreur lors de la création du  compte"}
+            new_user = UtilisateurResponse(**row)
+            return new_user
+        except Exception as e:
+            print("Une erreur est survenue lors du chargement des données", e)
+        finally:
+            cursor.close()
