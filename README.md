@@ -59,5 +59,7 @@ Pour consulter les détails de la licence, visitez https://creativecommons.org/l
 
 ## État du projet et plans futurs
 Sprint 1 - Analyse du projet et ébauche du mock de l'API
+
 Sprint 2 - Mise en place structure du projet et de la couche Interface
+
 Sprint 3 - Implémentation des routes utilisateurs
