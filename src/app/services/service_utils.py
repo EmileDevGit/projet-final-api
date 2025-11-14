@@ -30,8 +30,9 @@ class UtilsServices:
             }
             return {"token": create_access_token(token_data)}
         except Exception as e:
-            print("Une erreur est survenue lors du chargement des données", e)
-            return None
+            print(f"Erreur lors de la récupération des utilisateurs : {e}")
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
 
     def register(self, user_data: UtilisateurCreate):
         try:
@@ -40,9 +41,11 @@ class UtilsServices:
                 raise HTTPException(400, detail="Cet email existe déjà")
             created = self.dao.create_user(user_data)
             if not created:
-                raise HTTPException(500, detail="Erreur interne lors de la création du compte")
+                raise HTTPException(
+                    500, detail="Erreur interne lors de la création du compte")
             return self.dao.get_utilisateur_by_email(user_data.email)
 
         except Exception as e:
-            print("Une erreur est survenue lors du chargement des données", e)
-            return None
+            print(f"Erreur lors de la récupération des utilisateurs : {e}")
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
