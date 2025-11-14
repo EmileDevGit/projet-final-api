@@ -1,3 +1,7 @@
 fastapi
 uvicorn[standard]
 pydantic
+pydantic[email]
+pydantic_settings
+mysql-connector-python
+python-jose[cryptography]

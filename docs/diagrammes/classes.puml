@@ -1,40 +1,53 @@
 @startuml
-class Utilisateur{
-  utilisateur_id: Int
+class Utilisateur {
+  +utilisateur_id: Int
   ---
-  nom: String
-  prénom: String
-  email: String
-  mot_de_passe: String
-  status_actif: Boolean
-  type_compte: Enum(MENTOR, ADMIN, ÉTUDIANT)
+  +nom: String
+  +prénom: String
+  +email: String
+  +mot_de_passe: String
+  +status_actif: Boolean
+  +type_compte: Enum(MENTOR, ADMIN, ÉTUDIANT)
 }
-class Catégorie{
-  catégorie_id: Int
+
+class "Catégorie" as Categorie {
+  +catégorie_id: Int
   ---
-  nom: String
+  +nom: String
 }
-class Collection{
-  collection_id: Int
+
+class Ressource {
+  +ressource_id: Int
   ---
-  titre: String
-  description: String
-  visibilité: Boolean
-  auteur_id: Int
+  +titre: String
+  +description: String
+  +url_ressource: String
+  +visibilité: Boolean
+  +catégorie_id: Int  
+  +auteur_id: Int     
 }
-class Ressource{
-  ressource_id: Int
+
+class Collection {
+  +collection_id: Int
   ---
-  titre: String
-  description: String
-  url_ressource: String
-  visibilité: Boolean
-  catégorie_id: Int
-  auteur_id: Int
-	collection_id: Int
+  +titre: String
+  +description: String
+  +visibilité: Boolean
+  +auteur_id: Int     
 }
-Collection *-- Ressource : regroupe
-Catégorie "1" o-- "0..*" Ressource : catégorisée dans
-Utilisateur "1"<--"0..*" Ressource : créé
-Utilisateur "1"<--"0..*" Collection : créé
+
+
+class CollectionRessource {
+  +collection_id: Int  
+  +ressource_id: Int   
+  ---
+
+}
+
+
+Categorie "1" o-- "0..*" Ressource 
+Utilisateur "1" <-- "0..*" Ressource  
+Utilisateur "1" <-- "0..*" Collection 
+Collection "1" -- "0..*" CollectionRessource
+Ressource  "1" -- "0..*" CollectionRessource
 @enduml

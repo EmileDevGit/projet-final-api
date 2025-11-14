@@ -1,0 +1,87 @@
+from fastapi import APIRouter, Depends, HTTPException
+from data.connexion import mydb as db
+from services.service_utilisateurs import UserServices as UserServices
+from utils.auth import *
+from data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
+
+
+users_router = APIRouter(prefix="/utilisateurs")
+
+service = UserServices(db)
+
+
+@users_router.get("/")
+async def get_users(user=Depends(verify_token), filter: str | None = None):
+    if user["role"] in ["ADMIN"]:
+        return service.get_all_utilisateurs(filter)
+    else:
+        return service.get_all_mentors()
+
+
+@users_router.get("/{id}")
+async def get_user_by_id(id: int, user=Depends(verify_token)):
+    if user["role"] == "ADMIN":
+        utilisateur = service.get_utilisateur_by_id(id)
+        # 404 si utilisateur existe pas
+        if not utilisateur:
+            raise HTTPException(
+                status_code=404, detail="Utilisateur non trouvé")
+        return utilisateur
+
+    elif user["id"] == id:
+        utilisateur = service.get_utilisateur_by_id(id)
+        if not utilisateur:
+            # 404 si utilisateur existe pas
+            raise HTTPException(
+                status_code=404, detail="Utilisateur non trouvé")
+        return utilisateur
+
+    else:
+        # 403 si l'utilisateur n'a pas les droit admin
+        raise HTTPException(
+            status_code=403, detail="Accès refusé : vous ne pouvez consulter que votre propre profil")
+
+
+@ users_router.post("/")
+async def post_users():
+    return {"message": "Création d'un utilisateur"}
+
+
+@ users_router.put("/{id}")
+async def put_user(id: int, data: UtilisateurModify, user=Depends(verify_token)):
+    if user["role"] in ["ADMIN"] or user["id"] == id:
+        return service.edit_user(id, data)
+    else:
+        raise HTTPException(
+            status_code=403, detail="Vous ne possédez pas les droits de modification pour cet utilisateur")
+
+
+@users_router.patch("/{id}")
+async def patch_user_visibility(id: int, actif: bool, user=Depends(verify_token)):
+    if user["role"] in ["ADMIN"] or user["id"] == id:
+        updated_user = service.update_user_status(id, actif)
+        if not updated_user:
+            raise HTTPException(
+                status_code=404, detail="Utilisateur non trouvé")
+        return updated_user
+
+    else:
+        raise HTTPException(
+            status_code=403,
+            detail="Vous ne possédez pas les droits de modification pour cet utilisateur"
+        )
+
+
+@users_router.delete("/{id}")
+async def delete_user(id: int, user=Depends(verify_token)):
+    if user["role"] in ["ADMIN"] or user["id"] == id:
+        deleted_user = service.delete_user(id)
+        if not deleted_user:
+            raise HTTPException(
+                status_code=404, detail="Utilisateur non trouvé")
+        return {"message": f"L'utilisateur avec l'id {id} a été supprimé avec succès"}
+    else:
+        raise HTTPException(
+            status_code=403,
+            detail="Vous ne possédez pas les droits de suppression pour cet utilisateur"
+        )

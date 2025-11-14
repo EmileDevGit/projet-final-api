@@ -13,6 +13,7 @@ services:
       - "3306:3306"
     volumes:
       - ./db_data:/var/lib/mysql
+      - ./src/initdb:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -39,6 +40,7 @@ services:
       timeout: 3s
       retries: 5
 
+# Roule les tests unitaires
   sapienta_tests:
     build:
       context: .
@@ -47,9 +49,9 @@ services:
     env_file:
       - .env
 # À utiliser lors de l'implémentation de l'Api
-#    depends_on:
-#      sapienta_api:
-#        condition: service_healthy
+    depends_on:
+      sapienta_api:
+        condition: service_healthy
 
 
 volumes:
