@@ -22,6 +22,7 @@ Cette api permet de déployer une bibliothèque de savoir. Elle comprends des co
 |![Pydantic](https://img.shields.io/badge/Pydantic-0673E6?style=flat&logo=pydantic&logoColor=white) | Validation des données et modèles|
 
 
+
 ## Authentification et droits d'accès
 Le persona cherchant à se connecter à la plateforme devra s'authentifier avec un courriel et un mot de passe, si les informations sont correctes, un token d'authentification sera attribué pour une durée de 90 minutes.
 

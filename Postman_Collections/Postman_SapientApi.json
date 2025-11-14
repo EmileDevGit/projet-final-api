@@ -6,20 +6,17 @@
   },
   "item": [
     {
-      "name": "Admin",
+      "name": "/utilisateurs",
       "item": [
         {
-          "name": "/utilisateurs",
+          "name": "Utilisateurs - Liste",
           "id": "480883a3-c789-4fb6-80c7-268b65d20b49",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
             "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{adminToken}}"
-              }
+              "type": "noauth"
             },
             "method": "GET",
             "header": [],
@@ -28,12 +25,20 @@
           "response": [
             {
               "id": "dabf08da-f43e-483e-9e2a-c6e19231917a",
-              "name": "/utilisateurs",
+              "name": "200 OK - Admin - Liste des utilisateurs",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des utilisateurs",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -45,51 +50,27 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "[\n    {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    {\n        \"utilisateur_id\": 12,\n        \"nom\": \"Rousseau\",\n        \"prénom\": \"Thomas\",\n        \"email\": \"thomas.rousseau@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"étudiant\"\n    },\n    {\n        \"utilisateur_id\": 15,\n        \"nom\": \"Martin\",\n        \"prénom\": \"Sophie\",\n        \"email\": \"sophie.martin@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"admin\"\n    },\n    {\n        \"utilisateur_id\": 23,\n        \"nom\": \"Dubois\",\n        \"prénom\": \"Alexandre\",\n        \"email\": \"alexandre.dubois@example.com\",\n        \"status_actif\": false,\n        \"type_compte\": \"étudiant\"\n    }\n]"
-            }
-          ]
-        },
-        {
-          "name": "/utilisateurs/recherche?mot-clé",
-          "id": "26bdd600-b32d-4acc-a9b3-6fa10269aba4",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "utilisateurs",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
+              "body": "{\"utilisateurs\": [\n    {\n        \"utilisateur_id\": 1,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    {\n        \"utilisateur_id\": 2,\n        \"nom\": \"Rousseau\",\n        \"prénom\": \"Thomas\",\n        \"email\": \"thomas.rousseau@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"étudiant\"\n    },\n    {\n        \"utilisateur_id\": 3,\n        \"nom\": \"Martin\",\n        \"prénom\": \"Sophie\",\n        \"email\": \"sophie.martin@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"admin\"\n    },\n    {\n        \"utilisateur_id\": 4,\n        \"nom\": \"Dubois\",\n        \"prénom\": \"Alexandre\",\n        \"email\": \"alexandre.dubois@example.com\",\n        \"status_actif\": false,\n        \"type_compte\": \"étudiant\"\n    }\n]\n}"
+            },
             {
               "id": "65f821dc-c829-4a9d-aa0a-143a02973b59",
-              "name": "/utilisateurs/recherche?mot-clé",
+              "name": "200 OK - Admin - Liste des utilisateurs filtrée par mot-clé",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des utilisateurs filtrée par mot-clé",
+                    "type": "text"
+                  }
+                ],
                 "url": {
-                  "raw": "{{baseUrl}}/utilisateurs/recherche?mot-clé=marie",
+                  "raw": "{{baseUrl}}/utilisateurs?mot-clé=marie",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "utilisateurs",
-                    "recherche"
+                    "utilisateurs"
                   ],
                   "query": [
                     {
@@ -99,6 +80,8 @@
                   ]
                 }
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -111,11 +94,112 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche d'utilisateurs effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
+              "id": "d509401a-8663-4364-8ff1-d90752815b36",
+              "name": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des utilisateurs (mentor)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"utilisateurs\":[\n        {\n            \"utilisateur_id\": 1,\n            \"nom\": \"Leclerc\",\n            \"prénom\": \"Marie\",\n            \"email\": \"marie.leclerc@example.com\",\n            \"status_actif\": true,\n            \"type_compte\": \"mentor\"\n        }\n        \n    ],\n    \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_type_compte\"\n        }\n}\n    "
+            },
+            {
+              "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
+              "name": "200 OK - Utilisateur - Liste des utilisateurs filtrée par mot-clé (mentor)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des utilisateurs filtrée par mot-clé (mentor)",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs?mot-clé=marie",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": "marie"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_type_compte\"\n        }\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
+              "id": "615af1ec-71d3-46f1-bfd5-5194cc2bec8d",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des utilisateurs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Liste des utilisateurs",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
         {
-          "name": "/utilisateurs/{id}",
+          "name": "Utilisateur - Détails",
           "id": "bd47e6fc-a4af-4ff2-85df-a3269c1fc4de",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -127,13 +211,21 @@
           },
           "response": [
             {
-              "id": "21f257f9-c38e-42de-805f-9b056300f6e3",
-              "name": "/utilisateurs/8",
+              "id": "1d9b6406-7b37-4bd3-94c6-9e6446cfa82d",
+              "name": "200 OK - Admin - Détails d'un utilisateur",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Détails d'un utilisateur",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/utilisateurs/8"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -146,27 +238,45 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories/{id}",
-          "id": "1d443ec9-b185-4b70-a0d8-a45397a81c58",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "url": "{{baseUrl}}/catégories/{id}"
-          },
-          "response": [
+            },
             {
-              "id": "ab6a9d9f-868e-4397-bc26-87b58f69ed54",
-              "name": "/catégories/3",
+              "id": "21f257f9-c38e-42de-805f-9b056300f6e3",
+              "name": "200 OK - Utilisateur - Détails d'un utilisateur (sois)",
               "originalRequest": {
-                "method": "PUT",
+                "method": "GET",
                 "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Détails d'un utilisateur (sois)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs/5"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 5 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 5,\n        \"nom\": \"Leclerc\",\n        \"prenom\": \"Emile\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"role\": \"user\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+            },
+            {
+              "id": "5dc6e51f-2556-4038-bac6-487019dff137",
+              "name": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
+                    "type": "text"
+                  },
                   {
                     "key": "Content-Type",
                     "value": "application/json",
@@ -175,15 +285,17 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"nom\": \"Design UX/UI & Expérience Utilisateur\"\n}",
+                  "raw": "",
                   "options": {
                     "raw": {
                       "language": "json"
                     }
                   }
                 },
-                "url": "{{baseUrl}}/catégories/3"
+                "url": "{{baseUrl}}/utilisateurs/1"
               },
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -195,272 +307,38 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie mise à jour avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"date_modification\": \"2024-03-20T13:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:15:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories/{id}",
-          "id": "bf0f3a55-9009-4366-bf4d-655b462a8bfe",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{baseUrl}}/catégories/{id}"
-          },
-          "response": [
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
             {
-              "id": "bebde58c-9e73-48b3-bc4d-a7a63f9d9f8e",
-              "name": "/catégories/3",
-              "originalRequest": {
-                "method": "DELETE",
-                "header": [],
-                "url": "{{baseUrl}}/catégories/3"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie supprimée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"supprimé_le\": \"2024-03-20T13:20:00Z\",\n        \"ressources_affectées\": 15,\n        \"action_ressources\": \"Déplacées vers catégorie 'Non classé' (ID: 0)\"\n    },\n    \"timestamp\": \"2024-03-20T13:20:00Z\"\n}"
-            }
-          ]
-        }
-      ],
-      "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
-    },
-    {
-      "name": "Mentor",
-      "item": [
-        {
-          "name": "/collections/{id}?visible",
-          "id": "23de8236-f47a-4c8d-855b-0c5cee06243f",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PATCH",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/collections/{id}?visible",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "collections",
-                "{id}"
-              ],
-              "query": [
-                {
-                  "key": "visible",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "46ceb188-73ad-4e97-b583-51fbb75343ee",
-              "name": "/collections/4?visible=false",
-              "originalRequest": {
-                "method": "PATCH",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/collections/4?visible=false",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "collections",
-                    "4"
-                  ],
-                  "query": [
-                    {
-                      "key": "visible",
-                      "value": "false"
-                    }
-                  ]
-                }
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la collection mise à jour\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"visibilité\": false,\n        \"date_modification\": \"2024-03-20T13:40:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:40:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/collections/{id}",
-          "id": "9c1ff8cb-d2ef-4f61-9090-0fdb735a4b5c",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": "{{baseUrl}}/collections/{id}"
-          },
-          "response": [
-            {
-              "id": "5d0bac99-ba96-47b0-88eb-aa2e5bbfd13b",
-              "name": "/collections/4",
-              "originalRequest": {
-                "method": "DELETE",
-                "header": [],
-                "url": "{{baseUrl}}/collections/4"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
-            }
-          ]
-        }
-      ],
-      "id": "42193496-9939-4330-81bd-a0d194c28a2b"
-    },
-    {
-      "name": "User",
-      "item": [
-        {
-          "name": "/utilisateurs/{id}",
-          "id": "438e8a73-fe29-4425-8462-08b31574ed3b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/utilisateurs/{id}"
-          },
-          "response": [
-            {
-              "id": "ad9b520d-df19-49d7-b6bb-20e08098cfd7",
-              "name": "/utilisateurs/8",
+              "id": "570212d1-8420-4ae6-95de-ae61cbcd245a",
+              "name": "404 Not Found - Admin - Détails d'un utilisateur inexistant",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/utilisateurs/8"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Utilisateur 8 trouvé avec succès\",\n    \"data\": {\n        \"utilisateur_id\": 8,\n        \"nom\": \"Leclerc\",\n        \"prénom\": \"Marie\",\n        \"email\": \"marie.leclerc@example.com\",\n        \"status_actif\": true,\n        \"type_compte\": \"mentor\"\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/auth/connexion",
-          "id": "3dbc591b-5ba6-4704-be75-1e8b1fab8e03",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{baseUrl}}/auth/connexion"
-          },
-          "response": []
-        },
-        {
-          "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé",
-          "id": "44699cc2-0962-4e3e-ae96-94c8055e1559",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "utilisateurs",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "type_compte",
-                  "value": "mentor"
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Détails d'un utilisateur (autre)",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
                 },
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "32d44f65-e9e9-47c8-b3bc-e0266ec6b882",
-              "name": "/utilisateurs/recherche?type_compte=mentor&mot-clé=marie",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/utilisateurs/recherche?type_compte=mentor&mot-clé",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "utilisateurs",
-                    "recherche"
-                  ],
-                  "query": [
-                    {
-                      "key": "type_compte",
-                      "value": "mentor"
-                    },
-                    {
-                      "key": "mot-clé",
-                      "value": null
-                    }
-                  ]
-                }
+                "url": "{{baseUrl}}/utilisateurs/999"
               },
+              "status": "Not Found",
+              "code": 404,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -472,34 +350,41 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de mentor effectuée\",\n    \"data\": {\n        \"mot_clé\": \"marie\",\n        \"utilisateurs\": [\n            {\n                \"utilisateur_id\": 8,\n                \"nom\": \"Leclerc\",\n                \"prénom\": \"Marie\",\n                \"email\": \"marie.leclerc@example.com\",\n                \"status_actif\": true,\n                \"type_compte\": \"mentor\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T13:55:00Z\"\n}"
+              "body": "{\n    \"error\": \"not found\"\n}"
+            },
+            {
+              "id": "193af623-f1d1-469d-929b-dc4a520903d6",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'un utilisateur",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Détails d'un utilisateur",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
         {
-          "name": "/utilisateurs/{id}",
-          "id": "5b45642f-ae83-461b-9603-a7da33fc5a28",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{baseUrl}}/utilisateurs/{id}"
-          },
-          "response": []
-        },
-        {
-          "name": "/utilisateurs/{id}?actif",
+          "name": "Utilisateur - Activité",
           "id": "3d0bf635-dfe3-43d4-9546-43d1ee425778",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -524,28 +409,43 @@
               ]
             }
           },
-          "response": []
-        },
-        {
-          "name": "/collections",
-          "id": "f1036a4c-9b05-4d6e-83bf-cb7e8652f597",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/collections"
-          },
           "response": [
             {
-              "id": "2ef8dafb-e03f-4fec-b30a-8d635da6dd2f",
-              "name": "/collections",
+              "id": "02e6c0b3-252f-4cf7-a084-4306727a507e",
+              "name": "200 OK - Admin - Changer status d'un utilisateur",
               "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/collections"
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Changer status d'un utilisateur",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/{id}?actif=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "{id}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actif",
+                      "value": "true"
+                    }
+                  ]
+                }
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -557,56 +457,33 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            },\n            {\n                \"collection_id\": 2,\n                \"titre\": \"Algorithmes Fondamentaux\",\n                \"description\": \"Collection des algorithmes essentiels en informatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 23\n            },\n            {\n                \"collection_id\": 3,\n                \"titre\": \"Design System Guide\",\n                \"description\": \"Ressources pour créer et maintenir un design system\",\n                \"visibilité\": false,\n                \"auteur_id\": 8\n            },\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            }\n        ],\n        \"pagination\": {\n            \"page_actuelle\": 1,\n            \"total_pages\": 2,\n            \"total_collections\": 7,\n            \"collections_par_page\": 4\n        }\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/collections/recherche?mot_clé",
-          "id": "3c6b8551-aa1e-4c7b-84c5-a7079eacfcdc",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/collections/recherche?mot_clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "collections",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "mot_clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
+              "body": "{\n    \"message\": \"Status d'activité changé avec succès\"\n}"
+            },
             {
-              "id": "92617eb9-4227-459e-874b-1ac78e34cea9",
-              "name": "/collections/recherche?mot_clé=marie",
+              "id": "b223291e-d361-4f99-a905-230a2246e9c2",
+              "name": "200 OK - Utilisateur - Changer status d'un utilisateur (sois)",
               "originalRequest": {
-                "method": "GET",
-                "header": [],
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Changer status d'un utilisateur (sois)",
+                    "type": "text"
+                  }
+                ],
                 "url": {
-                  "raw": "{{baseUrl}}/collections/recherche?mot-clé=machine",
+                  "raw": "{{baseUrl}}/utilisateurs/{id}?actif=false",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "collections",
-                    "recherche"
+                    "utilisateurs",
+                    "{id}"
                   ],
                   "query": [
                     {
-                      "key": "mot-clé",
-                      "value": "machine"
+                      "key": "actif",
+                      "value": "false"
                     }
                   ]
                 }
@@ -622,125 +499,532 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de collections effectuée\",\n    \"data\": {\n        \"mot_clé\": \"machine\",\n        \"collections\": [\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            },\n            {\n                \"collection_id\": 7,\n                \"titre\": \"Machine Learning Avancé\",\n                \"description\": \"Techniques avancées et recherche en apprentissage automatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 34\n            }\n        ],\n        \"total_résultats\": 2\n    },\n    \"timestamp\": \"2024-03-20T13:30:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/collections/{id}",
-          "id": "6ccefa79-4f9d-4828-b2ac-820b03f7e013",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/collections/{id}"
-          },
-          "response": [
+              "body": "{\n    \"message\": \"Status d'activité changé avec succès\"\n}"
+            },
             {
-              "id": "cd8df9a1-5bf1-408e-87a8-78c66fd9ebe8",
-              "name": "/collections/4",
+              "id": "d0e3a2a9-7df0-4570-930b-1152e2c3e96e",
+              "name": "403 Forbidden - Utilisateur -  Changer status d'un utilisateur (autre)",
               "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/collections/4"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection récupérée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"description\": \"Tutoriels et exercices pratiques en ML\",\n        \"visibilité\": true,\n        \"auteur_id\": 12,\n        \"nombre_ressources\": 8,\n        \"ressources_publiques\": 6,\n        \"ressources_privées\": 2,\n        \"date_création\": \"2024-02-05T09:00:00Z\",\n        \"date_modification\": \"2024-03-18T16:45:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T16:45:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:35:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/ressources",
-          "id": "66394802-b2ea-4ff8-996e-5ad38cf752e7",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/ressources"
-          },
-          "response": [
-            {
-              "id": "0dab5d39-8a22-47e3-95d9-4924eec04ee9",
-              "name": "/ressources",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": "{{baseUrl}}/ressources"
-              },
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json",
-                  "description": "",
-                  "type": "text"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    },\n    {\n        \"ressource_id\": 2,\n        \"titre\": \"Algorithmes de tri en Python\",\n        \"description\": \"Implémentation et comparaison des principaux algorithmes de tri\",\n        \"url_ressource\": \"/uploads/ressources/algorithmes-tri-python.zip\",\n        \"visibilité\": true,\n        \"catégorie_id\": 1,\n        \"auteur_id\": 23\n    },\n    {\n        \"ressource_id\": 3,\n        \"titre\": \"Design Thinking pour l'innovation\",\n        \"description\": \"Méthode créative pour résoudre des problèmes complexes et innover\",\n        \"url_ressource\": \"/uploads/ressources/design-thinking-innovation.pptx\",\n        \"visibilité\": false,\n        \"catégorie_id\": 3,\n        \"auteur_id\": 8\n    },\n    {\n        \"ressource_id\": 4,\n        \"titre\": \"Machine Learning avec Scikit-learn\",\n        \"description\": \"Tutoriel pratique pour débuter en apprentissage automatique\",\n        \"url_ressource\": \"/uploads/ressources/machine-learning-scikit-learn.ipynb\",\n        \"visibilité\": true,\n        \"catégorie_id\": 4,\n        \"auteur_id\": 12\n    }\n]"
-            }
-          ]
-        },
-        {
-          "name": "/ressources/recherche?mot-clé",
-          "id": "02e18c8b-7325-42fb-8fce-95bec47a5512",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/ressources/recherche?mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "ressources",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "141d8459-8db8-4d46-9d0a-f900ff520cbc",
-              "name": "/ressources/recherche?mot-clé=React",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur -  Changer status d'un utilisateur (autre)",
+                    "type": "text"
+                  }
+                ],
                 "url": {
-                  "raw": "{{baseUrl}}/ressources/recherche?mot-clé=React",
+                  "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "path": [
-                    "ressources",
-                    "recherche"
+                    "utilisateurs",
+                    "{id}"
                   ],
                   "query": [
                     {
-                      "key": "mot-clé",
+                      "key": "actif",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "ffa4e018-5219-40ef-b5cc-319183374972",
+              "name": "401 Unauthorized - Utilisateur non-authentifié -  Changer status d'un utilisateur",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié -  Changer status d'un utilisateur",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/utilisateurs/{id}?actif",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "utilisateurs",
+                    "{id}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actif",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Utilisateur - Modifier",
+          "id": "5b45642f-ae83-461b-9603-a7da33fc5a28",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": [
+            {
+              "id": "c31bd7ef-6c0c-4ab5-8015-29bf9d53c8ba",
+              "name": "200 OK - Admin - Modifier un utilisateur",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier un utilisateur",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Utilisateur mis à jour avec succès\"\n}"
+            },
+            {
+              "id": "5304781a-ea37-4b78-9842-e466de94fb56",
+              "name": "200 OK - Utilisateur - Modifier un utilisateur (sois)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Modifier un utilisateur (sois)",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Utilisateur mis à jour avec succès\"\n}"
+            },
+            {
+              "id": "a7d60634-041a-46b8-af59-bb2602caec07",
+              "name": "403 Forbidden - Utilisateur - Modifier un utilisateur (autre)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Modifier un utilisateur (autre)",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "633c3db4-c57a-4995-a16f-2ae2b494c657",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Modifier un utilisateur",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Modifier un utilisateur",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"utilisateur_id\": 1,\n    \"nom\": \"Leclerc\",\n    \"prénom\": \"Marie\",\n    \"email\": \"marie.leclerc@example.com\",\n    \"status_actif\": true,\n    \"type_compte\": \"mentor\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Utilisateur - Supprimer",
+          "id": "bc665103-dafc-464d-9597-3ee6f429d644",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{adminToken}}"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/utilisateurs/{id}"
+          },
+          "response": [
+            {
+              "id": "97873767-0203-4303-9bca-d77731895299",
+              "name": "200 OK - Admin - Supprimer un utilisateur",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Supprimer un utilisateur",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Utilisateur supprimé avec succès\"\n}"
+            },
+            {
+              "id": "c16d3c18-2899-40fd-b318-6110f1ec0b74",
+              "name": "200 OK - Utilisateur - Supprimer un utilisateur (sois)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Supprimer un utilisateur (sois)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs/5"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"Utilisateur supprimé avec succès\"\n}"
+            },
+            {
+              "id": "6b40ff0f-6f61-4a54-a7e2-9fbb62bdf787",
+              "name": "403 Forbidden - Utilisateur - Supprimer un utilisateur (autre)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Supprimer un utilisateur (autre)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs/8"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"forbidden\"\n}"
+            },
+            {
+              "id": "33523e63-b155-4cc0-b541-f45765abe729",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer un utilisateur",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Supprimer un utilisateur",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs/{id}"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            },
+            {
+              "id": "5ece1290-70ae-4cc3-9760-a386bd86f110",
+              "name": "404 Not found - Admin - utilisateur inexistant",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "404 Not found - Admin - utilisateur inexistant",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/utilisateurs/999"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"not found\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Utilisateur Ajouter",
+          "id": "81ca1e74-add7-4936-b397-cdb16d3afc87",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/utilisateurs"
+          },
+          "response": [
+            {
+              "id": "4aa2d878-7a33-4126-8e5e-7f10d009d076",
+              "name": "Utilisateur Ajouter",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "{{baseUrl}}/utilisateurs"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        }
+      ],
+      "id": "d5b50782-f6d4-4190-a740-4f5f5fc3760d"
+    },
+    {
+      "name": "/collections",
+      "item": [
+        {
+          "name": "Collections - Liste",
+          "id": "f1036a4c-9b05-4d6e-83bf-cb7e8652f597",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/collections"
+          },
+          "response": [
+            {
+              "id": "2ef8dafb-e03f-4fec-b30a-8d635da6dd2f",
+              "name": "200 OK - Admin - Liste des collections",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des collections",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            },\n            {\n                \"collection_id\": 2,\n                \"titre\": \"Algorithmes Fondamentaux\",\n                \"description\": \"Collection des algorithmes essentiels en informatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 23\n            },\n            {\n                \"collection_id\": 3,\n                \"titre\": \"Design System Guide\",\n                \"description\": \"Ressources pour créer et maintenir un design system\",\n                \"visibilité\": false,\n                \"auteur_id\": 8\n            },\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            }\n        ],\n        \"pagination\": {\n            \"page_actuelle\": 1,\n            \"total_pages\": 2,\n            \"total_collections\": 7,\n            \"collections_par_page\": 4\n        }\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
+            },
+            {
+              "id": "7a91ad78-91c1-4249-a309-e8f0c15aed1d",
+              "name": "200 OK - Admin - Liste des collections filtrée par mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des collections filtrée par mot-clé",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/collections?mot-cle=React",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-cle",
                       "value": "React"
                     }
                   ]
@@ -757,12 +1041,1631 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    }\n]"
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            }\n        ]\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
+            },
+            {
+              "id": "7f0f054d-85f5-4184-8b0f-e660d966e237",
+              "name": "200 OK - Utilisateur - Liste des collections (visibles)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des collections (visibles)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            },\n            {\n                \"collection_id\": 2,\n                \"titre\": \"Algorithmes Fondamentaux\",\n                \"description\": \"Collection des algorithmes essentiels en informatique\",\n                \"visibilité\": true,\n                \"auteur_id\": 23\n            },\n            {\n                \"collection_id\": 4,\n                \"titre\": \"Machine Learning Pratique\",\n                \"description\": \"Tutoriels et exercices pratiques en ML\",\n                \"visibilité\": true,\n                \"auteur_id\": 12\n            }\n        ],\n        \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_visibility\"\n        }\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
+            },
+            {
+              "id": "153e64a4-c48a-4739-b4fe-4fbe8725ef27",
+              "name": "200 OK - Utilisateur - Liste des collections filtrée par mot-clé (visible)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des collections filtrée par mot-clé (visible)",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/collections?mot-cle=React",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-cle",
+                      "value": "React"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collections récupérées avec succès\",\n    \"data\": {\n        \"collections\": [\n            {\n                \"collection_id\": 1,\n                \"titre\": \"Formation React Complète\",\n                \"description\": \"Ensemble de ressources pour maîtriser React.js de A à Z\",\n                \"visibilité\": true,\n                \"auteur_id\": 15\n            }\n        ],\n        \"meta\": {\n            \"filtered\": true,\n            \"filterReason\": \"restricted_visibility\"\n        }\n    },\n    \"timestamp\": \"2024-03-20T13:25:00Z\"\n}"
+            },
+            {
+              "id": "6314ff94-2d0c-44e4-aebc-d4a047326587",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des collections",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Liste des collections",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections"
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
         {
-          "name": "/ressources/{id}",
+          "name": "Collection - Détails",
+          "id": "6ccefa79-4f9d-4828-b2ac-820b03f7e013",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/collections/{id}"
+          },
+          "response": [
+            {
+              "id": "cd8df9a1-5bf1-408e-87a8-78c66fd9ebe8",
+              "name": "200 OK - Admin - Détail d'une collection",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Détail d'une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection récupérée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"description\": \"Tutoriels et exercices pratiques en ML\",\n        \"visibilité\": true,\n        \"auteur_id\": 12,\n        \"nombre_ressources\": 8,\n        \"ressources_publiques\": 6,\n        \"ressources_privées\": 2,\n        \"date_création\": \"2024-02-05T09:00:00Z\",\n        \"date_modification\": \"2024-03-18T16:45:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T16:45:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:35:00Z\"\n}"
+            },
+            {
+              "id": "dcc29e83-d767-49ac-a4c0-0dfdab8434e4",
+              "name": "200 OK - Utilisateur - Détails d'une collection (visible)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Détails d'une collection (visible)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection récupérée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"description\": \"Tutoriels et exercices pratiques en ML\",\n        \"visibilité\": true,\n        \"auteur_id\": 12,\n        \"nombre_ressources\": 8,\n        \"ressources_publiques\": 6,\n        \"ressources_privées\": 2,\n        \"date_création\": \"2024-02-05T09:00:00Z\",\n        \"date_modification\": \"2024-03-18T16:45:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T16:45:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:35:00Z\"\n}"
+            },
+            {
+              "id": "f1dff324-2586-430d-961a-2dbb5dd86be2",
+              "name": "403 Forbidden - Utilisateur - Détails d'une collection (non-visible)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "404 Not Found - Utilisateur - Détails d'une collection (non-visible)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/5"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"403\",\n    \"message\": \"forbidden\"\n}"
+            },
+            {
+              "id": "d64dcb02-f9ac-4298-9bb5-a27ac2401fe5",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une collection",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/5"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Collections - Ajouter",
+          "id": "333a2bd3-4ac6-425b-bde3-7ca3d78299e8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/collections"
+          },
+          "response": [
+            {
+              "id": "d534a526-a1b1-4d4c-9f21-b1edc8d9a9cc",
+              "name": "201 Created - Admin - Ajouter une collection",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "201 Created - Admin - Ajouter une collection",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/collections"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "e955a8de-49ed-40cf-8565-fb94d6b8afa3",
+              "name": "201 Created - Utilisateur - Ajouter une collection (mentor)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "201 Created - Utilisateur - Ajouter une collection (mentor)",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/collections"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "3f4980cc-04b7-4011-9c08-d0c6c9f8bfa5",
+              "name": "403 Frobidden - Utilisateur - Ajouter une collection (user)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Frobidden - Utilisateur - Ajouter une collection (user)",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/collections"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "9015ce7b-b441-4f1e-b814-466c9c0fd000",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une collection",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une collection",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/collections"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\" \n}"
+            }
+          ]
+        },
+        {
+          "name": "Collections - Visibilité",
+          "id": "239fabfa-5075-4712-8748-15b2873ec71d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{adminToken}}"
+              }
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": "{{baseUrl}}/collections"
+          },
+          "response": [
+            {
+              "id": "809e3d29-556a-4ba4-a208-c26a31bf51b4",
+              "name": "200 OK - Admin - Modifier la visibilité d'une collection",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier la visibilité d'une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"modification effectuée avec succès\"\n}"
+            },
+            {
+              "id": "d7d309fc-0fb2-41d7-ad73-06605b164457",
+              "name": "200 OK - Utilisateur - Modifier la visibilité d'une collection (mentor / propriétaire)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Modifier la visibilité d'une collection (mentor / sois)",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"modification effectuée avec succès\"\n}"
+            },
+            {
+              "id": "cd586cb9-0177-492c-a0df-352c1f7f15df",
+              "name": "403 Forbidden - Utilisateur - Modifier la visibilité d'une collection (mentor / non-propriétaire)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Modifier la visibilité d'une collection (mentor / non-propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"modification effectuée avec succès\"\n}"
+            },
+            {
+              "id": "59254afd-a1f8-44db-be73-e618b378d73c",
+              "name": "403 Forbidden - Utilisateur - Modifier la visibilité d'une collection (user)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Modifier la visibilité d'une collection (user)",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"message\": \"modification effectuée avec succès\"\n}"
+            },
+            {
+              "id": "66005027-9cbc-4a55-b77a-8842ea7aa6c1",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Modifier la visibilité d'une collection",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Modifier la visibilité d'une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/collections/4?visible=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "collections",
+                    "4"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "Collection - Modifier",
+          "id": "23de8236-f47a-4c8d-855b-0c5cee06243f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/collections/{id}?visible",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "collections",
+                "{id}"
+              ],
+              "query": [
+                {
+                  "key": "visible",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46ceb188-73ad-4e97-b583-51fbb75343ee",
+              "name": "200 OK - Admin - Modifier une collection",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "59c58439-66af-4fc7-a988-b056ee23dbe2",
+              "name": "200 OK - Utilisateur - Modifier une collection (propriétaire)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "0b4ac209-dde9-4495-a4c9-4e9681efba38",
+              "name": "403 Forbidden - Utilisateur - Modifier une collection (non-propriétaire)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Modifier une collection (non-propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "d28ee5f4-4fed-4b88-b953-58708f20595c",
+              "name": "401 Unauthorized - Utilisateur non-identifié - Modifier une collection",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-identifié - Modifier une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "Collection - Supprimer",
+          "id": "9c1ff8cb-d2ef-4f61-9090-0fdb735a4b5c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/collections/{id}"
+          },
+          "response": [
+            {
+              "id": "5d0bac99-ba96-47b0-88eb-aa2e5bbfd13b",
+              "name": "200 OK - Admin - Supprimer une collection",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Supprimer une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            },
+            {
+              "id": "b7cb5b6b-b7e6-44a8-820b-ed12fcb3189e",
+              "name": "200 OK - Utilisateur - Supprimer une collection (propriétaire)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Supprimer une collection (propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            },
+            {
+              "id": "a23fcbb0-0f7d-49c8-b289-c9a32c2b8694",
+              "name": "403 Forbidden - Utilisateur - Supprimer une collection (non-propriétaire)",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Supprimer une collection (non-propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            },
+            {
+              "id": "5b0f17f1-a772-42b3-883f-7144ae5853ae",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une collection",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une collection",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/collections/4"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Collection supprimée avec succès\",\n    \"data\": {\n        \"collection_id\": 4,\n        \"titre\": \"Machine Learning Pratique\",\n        \"supprimé_le\": \"2024-03-20T13:45:00Z\",\n        \"ressources_affectées\": 8,\n        \"action_ressources\": \"collection_id défini à null - ressources conservées\"\n    },\n    \"timestamp\": \"2024-03-20T13:45:00Z\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "42193496-9939-4330-81bd-a0d194c28a2b"
+    },
+    {
+      "name": "/catégories",
+      "item": [
+        {
+          "name": "Catégories - Liste",
+          "id": "984f0629-16cf-4942-8d5a-376c1e16a4ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/catégories"
+          },
+          "response": [
+            {
+              "id": "fcd39c4a-7c65-4f38-8480-55043f3a2c9f",
+              "name": "200 OK - Utilisateur - Liste des catégories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des catégories",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégories récupérées avec succès\",\n    \"data\": {\n        \"catégories\": [\n            {\n                \"catégorie_id\": 1,\n                \"nom\": \"Informatique\"\n            },\n            {\n                \"catégorie_id\": 2,\n                \"nom\": \"Développement Web\"\n            },\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            },\n            {\n                \"catégorie_id\": 4,\n                \"nom\": \"Intelligence Artificielle\"\n            },\n            {\n                \"catégorie_id\": 5,\n                \"nom\": \"Base de données\"\n            },\n            {\n                \"catégorie_id\": 6,\n                \"nom\": \"Cybersécurité\"\n            },\n            {\n                \"catégorie_id\": 7,\n                \"nom\": \"Mobile\"\n            },\n            {\n                \"catégorie_id\": 8,\n                \"nom\": \"DevOps\"\n            }\n        ],\n        \"total_catégories\": 8\n    },\n    \"timestamp\": \"2024-03-20T12:50:00Z\"\n}"
+            },
+            {
+              "id": "316c9a5e-c3fb-4b5d-b7cb-ab8b5ac54273",
+              "name": "200 OK - Utilisateur - Liste des catégories filtrée par mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des catégories filtrée par mot-clé",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/catégories?mot-clé=Dev",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "catégories"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-clé",
+                      "value": "Dev"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégories récupérées avec succès\",\n    \"data\": {\n        \"catégories\": [\n            {\n                \"catégorie_id\": 2,\n                \"nom\": \"Développement Web\"\n            },\n            {\n                \"catégorie_id\": 8,\n                \"nom\": \"DevOps\"\n            }\n        ],\n        \"total_catégories\": 2\n    },\n    \"timestamp\": \"2024-03-20T12:50:00Z\"\n}"
+            },
+            {
+              "id": "be235a71-5769-480c-9479-af090fd8ac10",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Liste des catégories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Liste des catégories",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Catégorie - Détails",
+          "id": "af70766c-584a-43a4-a9cf-54276feda07b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "67bb45ad-70e8-4993-a2b1-a1dba30de749",
+              "name": "200 OK - Utilisateur - Détails d'une catégorie",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Détails d'une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie récupérée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design & UX\",\n        \"nombre_ressources\": 15,\n        \"ressources_publiques\": 12,\n        \"ressources_privées\": 3,\n        \"date_création\": \"2024-01-10T08:00:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T14:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:00:00Z\"\n}"
+            },
+            {
+              "id": "c01682c9-f615-44b0-b0d8-5ff7c9158f65",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une catégorie",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Catégorie - Ajouter",
+          "id": "afde79bf-dfde-4e59-a4c1-6d899ae98faf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/catégories"
+          },
+          "response": [
+            {
+              "id": "9ef7c3c9-b738-4270-98c2-59bc7253cf0a",
+              "name": "200 OK - Admin - Ajouter une catégorie",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Ajouter une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "4dcaf95d-a74a-4b0c-b4fe-01d4aa7e1926",
+              "name": "403 Forbidden - Utilisateur - Ajouter une catégorie",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Ajouter une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "b2cc0691-f6e2-4abe-9000-787c73b282bb",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une catégorie",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
+          "name": "Catégorie - Modifier",
+          "id": "1d443ec9-b185-4b70-a0d8-a45397a81c58",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "ab6a9d9f-868e-4397-bc26-87b58f69ed54",
+              "name": "200 OK - Admin - Modifier une catégorie",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Modifier une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nom\": \"Design UX/UI & Expérience Utilisateur\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie mise à jour avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"date_modification\": \"2024-03-20T13:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:15:00Z\"\n}"
+            },
+            {
+              "id": "4ef73bbd-2947-48c2-b57a-d6a292c39e79",
+              "name": "403 Forbidden - Utilisateur - Modifier une catégorie",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Modifier une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nom\": \"Design UX/UI & Expérience Utilisateur\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "3f30179c-fb48-4701-af49-a520c0923240",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Modifier une catégorie",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Modifier une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nom\": \"Design UX/UI & Expérience Utilisateur\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Catégorie - Supprimer",
+          "id": "bf0f3a55-9009-4366-bf4d-655b462a8bfe",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/catégories/{id}"
+          },
+          "response": [
+            {
+              "id": "bebde58c-9e73-48b3-bc4d-a7a63f9d9f8e",
+              "name": "200 OK - Admin - Supprimer une catégorie",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Supprimer une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie supprimée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design UX/UI & Expérience Utilisateur\",\n        \"supprimé_le\": \"2024-03-20T13:20:00Z\",\n        \"ressources_affectées\": 15,\n        \"action_ressources\": \"Déplacées vers catégorie 'Non classé' (ID: 0)\"\n    },\n    \"timestamp\": \"2024-03-20T13:20:00Z\"\n}"
+            },
+            {
+              "id": "669a1588-2eff-4eef-ad1b-8606228f3492",
+              "name": "403 Forbidden - Utilisateur - Supprimer une catégorie",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "403 Forbidden - Utilisateur - Supprimer une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "7f6f467e-ac58-478e-a3f0-a6c6c52193d7",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une catégorie",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une catégorie",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/catégories/3"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "e6a9902e-39ad-481e-86b3-384dd6ba4e0b"
+    },
+    {
+      "name": "/ressources",
+      "item": [
+        {
+          "name": "Ressources - Liste",
+          "id": "66394802-b2ea-4ff8-996e-5ad38cf752e7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/ressources"
+          },
+          "response": [
+            {
+              "id": "0dab5d39-8a22-47e3-95d9-4924eec04ee9",
+              "name": "200 OK - Admin - Liste des ressources",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des ressources",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/ressources"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    },\n    {\n        \"ressource_id\": 2,\n        \"titre\": \"Algorithmes de tri en Python\",\n        \"description\": \"Implémentation et comparaison des principaux algorithmes de tri\",\n        \"url_ressource\": \"/uploads/ressources/algorithmes-tri-python.zip\",\n        \"visibilité\": true,\n        \"catégorie_id\": 1,\n        \"auteur_id\": 23\n    },\n    {\n        \"ressource_id\": 3,\n        \"titre\": \"Design Thinking pour l'innovation\",\n        \"description\": \"Méthode créative pour résoudre des problèmes complexes et innover\",\n        \"url_ressource\": \"/uploads/ressources/design-thinking-innovation.pptx\",\n        \"visibilité\": false,\n        \"catégorie_id\": 3,\n        \"auteur_id\": 8\n    },\n    {\n        \"ressource_id\": 4,\n        \"titre\": \"Machine Learning avec Scikit-learn\",\n        \"description\": \"Tutoriel pratique pour débuter en apprentissage automatique\",\n        \"url_ressource\": \"/uploads/ressources/machine-learning-scikit-learn.ipynb\",\n        \"visibilité\": true,\n        \"catégorie_id\": 4,\n        \"auteur_id\": 12\n    }\n]"
+            },
+            {
+              "id": "5bb7dfb0-80ab-46b2-9fd1-5591c1f2d637",
+              "name": "200 OK - Admin - Liste des ressources filtrée par mot-clé",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Liste des ressources filtrée par mot-clé",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources?mot-cle=React",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-cle",
+                      "value": "React"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n    {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15\n    }\n]"
+            },
+            {
+              "id": "4f61c87b-324f-4901-9817-da3e4cc800a5",
+              "name": "200 OK - Utilisateur - Liste des ressources (visible / propriétaire)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des ressources (visible / propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/ressources"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": [\n        {\n            \"ressource_id\": 1,\n            \"titre\": \"Introduction à React.js\",\n            \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n            \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n            \"visibilité\": true,\n            \"catégorie_id\": 2,\n            \"auteur_id\": 15\n        },\n        {\n            \"ressource_id\": 2,\n            \"titre\": \"Algorithmes de tri en Python\",\n            \"description\": \"Implémentation et comparaison des principaux algorithmes de tri\",\n            \"url_ressource\": \"/uploads/ressources/algorithmes-tri-python.zip\",\n            \"visibilité\": true,\n            \"catégorie_id\": 1,\n            \"auteur_id\": 23\n        },\n        {\n            \"ressource_id\": 4,\n            \"titre\": \"Machine Learning avec Scikit-learn\",\n            \"description\": \"Tutoriel pratique pour débuter en apprentissage automatique\",\n            \"url_ressource\": \"/uploads/ressources/machine-learning-scikit-learn.ipynb\",\n            \"visibilité\": true,\n            \"catégorie_id\": 4,\n            \"auteur_id\": 12\n        }\n    ],\n    \"meta\": {\n        \"filtered\": true,\n        \"filterReason\": \"restricted_visibility_owner\"\n    }\n}"
+            },
+            {
+              "id": "c00014bc-17d9-4213-8f28-ba6065b1a5b9",
+              "name": "200 OK - Utilisateur - Liste des ressources filtrée par mot-clé (visible / propriétaire)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Liste des ressources filtrée par mot-clé (visible / propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources?mot-cle=machine",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources"
+                  ],
+                  "query": [
+                    {
+                      "key": "mot-cle",
+                      "value": "machine"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": [\n        {\n            \"ressource_id\": 4,\n            \"titre\": \"Machine Learning avec Scikit-learn\",\n            \"description\": \"Tutoriel pratique pour débuter en apprentissage automatique\",\n            \"url_ressource\": \"/uploads/ressources/machine-learning-scikit-learn.ipynb\",\n            \"visibilité\": true,\n            \"catégorie_id\": 4,\n            \"auteur_id\": 12\n        }\n    ],\n    \"meta\": {\n        \"filtered\": true,\n        \"filterReason\": \"restricted_visibility_owner\"\n    }\n}"
+            },
+            {
+              "id": "1e2a203f-6461-4c55-a861-8480140426b0",
+              "name": "401 Unauthorized- Utilisateur non-authentifié - Liste des ressources",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized- Utilisateur non-authentifié - Liste des ressources",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/ressources"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ressource - Détails",
           "id": "7230653f-4d95-4106-a2b0-f1fa82b884ac",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -775,12 +2678,20 @@
           "response": [
             {
               "id": "12391c6a-1d4c-47e1-b9f0-000b2b9c8a12",
-              "name": "/ressources/1",
+              "name": "200 OK - Admin - Détails d'une ressource",
               "originalRequest": {
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Admin - Détails d'une ressource",
+                    "type": "text"
+                  }
+                ],
                 "url": "{{baseUrl}}/ressources/1"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -793,11 +2704,98 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"ressource_id\": 1,\n    \"titre\": \"Introduction à React.js\",\n    \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n    \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n    \"visibilité\": true,\n    \"catégorie_id\": 2,\n    \"auteur_id\": 15\n}"
+            },
+            {
+              "id": "76a81ccc-6c07-47fc-9623-fb9344499ca9",
+              "name": "200 OK - Utilisateur - Détails d'une ressource (propriétaire)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "200 OK - Utilisateur - Détails d'une ressource (propriétaire)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"ressource_id\": 1,\n    \"titre\": \"Introduction à React.js\",\n    \"description\": \"Guide complet pour apprendre les bases de React.js avec des exemples pratiques\",\n    \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n    \"visibilité\": true,\n    \"catégorie_id\": 2,\n    \"auteur_id\": 15\n}"
+            },
+            {
+              "id": "60950e90-ac4f-4769-814c-7abb05cc7678",
+              "name": "403 Forbidden - Utilisateur - Détails d'une ressource (non-visible)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "404 Not Found - Utilisateur - Détails d'une ressource (non-visible)",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/ressources/3"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "a5168bfb-6246-46e6-ab7d-dc44cfbea4c0",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une ressource",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "401 Unauthorized - Utilisateur non-authentifié - Détails d'une ressource",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{baseUrl}}/ressources/3"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
         {
-          "name": "/ressources/{id}/télécharger",
+          "name": "Ressource - Télécharger",
           "id": "a235d8f8-9676-43a2-8083-81eb806bdb5e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -810,12 +2808,14 @@
           "response": [
             {
               "id": "a2d114f5-b18f-4883-a369-37bb68aa0557",
-              "name": "/ressources/1/télécharger",
+              "name": "200 OK - Admin - Télécharger une ressource",
               "originalRequest": {
                 "method": "GET",
                 "header": [],
                 "url": "{{baseUrl}}/ressources/1/télécharger"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -828,44 +2828,17 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource prête pour téléchargement\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"nom_fichier\": \"react-intro-guide.pdf\",\n        \"url_telechargement\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"taille_fichier\": \"2.5 MB\",\n        \"type_fichier\": \"application/pdf\",\n        \"mime_type\": \"application/pdf\",\n        \"date_creation\": \"2024-01-15T10:30:00Z\",\n        \"auteur\": {\n            \"nom\": \"Martin\",\n            \"prénom\": \"Sophie\"\n        },\n        \"expires_at\": \"2024-03-20T18:00:00Z\"\n    },\n    \"headers\": {\n        \"Content-Type\": \"application/pdf\",\n        \"Content-Disposition\": \"attachment; filename=\\\"react-intro-guide.pdf\\\"\",\n        \"Content-Length\": \"2621440\",\n        \"Cache-Control\": \"private, max-age=3600\"\n    },\n    \"timestamp\": \"2024-03-20T12:00:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/ressources/{id}",
-          "id": "504201ae-fd4a-48d4-b971-738f32725910",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "url": "{{baseUrl}}/ressources/{id}"
-          },
-          "response": [
+            },
             {
-              "id": "ae139f94-e3ca-4107-bb7a-66c61ebfc19b",
-              "name": "/ressources/1",
+              "id": "637b7e55-c014-4adf-8134-fc5342810720",
+              "name": "200 OK - Utilisateur - Télécharger une ressource (visible / propriétaire)",
               "originalRequest": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"titre\": \"Introduction avancée à React.js et Hooks\",\n  \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n  \"visibilité\": true,\n  \"catégorie_id\": 2\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": "{{baseUrl}}/ressources/1"
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1/télécharger"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -877,12 +2850,104 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource mise à jour avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction avancée à React.js et Hooks\",\n        \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15,\n        \"date_création\": \"2024-01-15T10:30:00Z\",\n        \"date_modification\": \"2024-03-20T12:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:15:00Z\"\n}"
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource prête pour téléchargement\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"nom_fichier\": \"react-intro-guide.pdf\",\n        \"url_telechargement\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"taille_fichier\": \"2.5 MB\",\n        \"type_fichier\": \"application/pdf\",\n        \"mime_type\": \"application/pdf\",\n        \"date_creation\": \"2024-01-15T10:30:00Z\",\n        \"auteur\": {\n            \"nom\": \"Martin\",\n            \"prénom\": \"Sophie\"\n        },\n        \"expires_at\": \"2024-03-20T18:00:00Z\"\n    },\n    \"headers\": {\n        \"Content-Type\": \"application/pdf\",\n        \"Content-Disposition\": \"attachment; filename=\\\"react-intro-guide.pdf\\\"\",\n        \"Content-Length\": \"2621440\",\n        \"Cache-Control\": \"private, max-age=3600\"\n    },\n    \"timestamp\": \"2024-03-20T12:00:00Z\"\n}"
+            },
+            {
+              "id": "c17505f4-cc3b-477e-a103-d3f5d65ebab1",
+              "name": "403 Forbidden - Utilisateur - Télécharger une ressource (non-visible)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/ressources/1/télécharger"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
             }
           ]
         },
         {
-          "name": "/ressources/{id}?visible",
+          "name": "Ressource - Ajouter",
+          "id": "79ef4fe0-2c3b-446e-bc7a-757063a64208",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "/ressources"
+          },
+          "response": [
+            {
+              "id": "7e0e4684-9f9d-4af7-8c66-7b663c667365",
+              "name": "200 OK - Admin - Ajouter une ressource",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "/ressources"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "c1a2dbdd-419b-428b-9ae6-f7c14c393f69",
+              "name": "200 OK - Utilisateur - Ajouter une ressource",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "/ressources"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "fafb228e-1840-4fc5-81a4-f4913aae1a8a",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Ajouter une ressource",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": "/ressources"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ressource - Visibilité",
           "id": "b16f3553-2668-438c-ae45-78cb6d88584e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -910,7 +2975,7 @@
           "response": [
             {
               "id": "fce6d7c3-657f-40c8-b831-2e0bd5cd1e58",
-              "name": "/ressources/1?visible=true",
+              "name": "200 OK - Admin - Changer la visibilité d'une ressource",
               "originalRequest": {
                 "method": "PATCH",
                 "header": [],
@@ -931,6 +2996,8 @@
                   ]
                 }
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -943,11 +3010,434 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            },
+            {
+              "id": "40b215e7-f423-4dc9-be6f-ea9605582b57",
+              "name": "200 OK - Utilisateur - Changer la visibilité d'une ressource (propriétaire / mentor)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            },
+            {
+              "id": "4fdc751d-7e95-4303-94d2-52161fbfa762",
+              "name": "403 Forbidden - Utilisateur - Changer la visibilité d'une ressource",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "9ae61dc7-ca57-47c9-9836-78f3298ec8fe",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Changer la visibilité d'une ressource",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         },
         {
-          "name": "/ressources/{id}",
+          "name": "Ressource - Changer catégorie",
+          "id": "2230c60b-7e62-4257-8252-3977b9abb15d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/ressources/{id}?visible",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ressources",
+                "{id}"
+              ],
+              "query": [
+                {
+                  "key": "visible",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a1eebc39-11db-40cd-9b17-d354c272c72d",
+              "name": "200 OK - Admin - Changer la catégorie d'une ressource",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            },
+            {
+              "id": "69720b8d-6a4b-4473-959f-e1a81b6dfb63",
+              "name": "200 OK - Utilisateur - Changer la catégorie d'une ressource (propriétaire)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Visibilité de la ressource mise à jour\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"visibilité\": true,\n        \"date_modification\": \"2024-03-20T12:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:30:00Z\"\n}"
+            },
+            {
+              "id": "db379ce7-9a09-4aa9-9b36-8d32fddb6b15",
+              "name": "403 Forbidden - Utilisateur - Changer la catégorie d'une ressource (non-propriétaire)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
+            {
+              "id": "d72fd412-9a3c-4a30-9bdc-f57591b3e4ef",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Changer la catégorie d'une ressource",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ressources/1?visible=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ressources",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ressource - Modifier",
+          "id": "504201ae-fd4a-48d4-b971-738f32725910",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{baseUrl}}/ressources/{id}"
+          },
+          "response": [
+            {
+              "id": "ae139f94-e3ca-4107-bb7a-66c61ebfc19b",
+              "name": "200 OK - Admin - Modifier une ressource",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"titre\": \"Introduction avancée à React.js et Hooks\",\n  \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n  \"visibilité\": true,\n  \"catégorie_id\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource mise à jour avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction avancée à React.js et Hooks\",\n        \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15,\n        \"date_création\": \"2024-01-15T10:30:00Z\",\n        \"date_modification\": \"2024-03-20T12:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:15:00Z\"\n}"
+            },
+            {
+              "id": "2b7283b4-ceaa-4fd7-9ed3-d9fd7c536794",
+              "name": "200 OK - Utilisateur - Modifier une ressource (propriétaire)",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"titre\": \"Introduction avancée à React.js et Hooks\",\n  \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n  \"visibilité\": true,\n  \"catégorie_id\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource mise à jour avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction avancée à React.js et Hooks\",\n        \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n        \"url_ressource\": \"/uploads/ressources/react-intro-guide.pdf\",\n        \"visibilité\": true,\n        \"catégorie_id\": 2,\n        \"auteur_id\": 15,\n        \"date_création\": \"2024-01-15T10:30:00Z\",\n        \"date_modification\": \"2024-03-20T12:15:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T12:15:00Z\"\n}"
+            },
+            {
+              "id": "dfd13521-73b5-4f66-95f3-fa5d61a3cfef",
+              "name": "401 Unauthorized - Utilisateur non-authentfié - Modifier une ressource",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"titre\": \"Introduction avancée à React.js et Hooks\",\n  \"description\": \"Guide complet mis à jour pour apprendre React.js avec les Hooks, Context API et les bonnes pratiques modernes\",\n  \"visibilité\": true,\n  \"catégorie_id\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/ressources/1"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Ressource - Supprimer",
           "id": "38e700a8-db3a-45d9-9b8d-5169fb59e64c",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -960,12 +3450,14 @@
           "response": [
             {
               "id": "d37218f9-82e1-4b23-b2b9-78f79807b91d",
-              "name": "/ressources/1",
+              "name": "200 OK - Admin - Supprimer une ressource",
               "originalRequest": {
                 "method": "DELETE",
                 "header": [],
                 "url": "{{baseUrl}}/ressources/1"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -978,29 +3470,17 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource supprimée avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"supprimé_le\": \"2024-03-20T12:45:00Z\",\n        \"fichier_supprimé\": \"/uploads/ressources/react-intro-guide.pdf\"\n    },\n    \"timestamp\": \"2024-03-20T12:45:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories",
-          "id": "984f0629-16cf-4942-8d5a-376c1e16a4ae",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/catégories"
-          },
-          "response": [
+            },
             {
-              "id": "fcd39c4a-7c65-4f38-8480-55043f3a2c9f",
-              "name": "/catégories",
+              "id": "9c34128a-cdde-4c48-bc04-f91ee10e5a8b",
+              "name": "200 OK - Utilisateur - Supprimer une ressource (propriétaire)",
               "originalRequest": {
-                "method": "GET",
+                "method": "DELETE",
                 "header": [],
-                "url": "{{baseUrl}}/catégories"
+                "url": "{{baseUrl}}/ressources/1"
               },
+              "status": "OK",
+              "code": 200,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -1012,60 +3492,18 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégories récupérées avec succès\",\n    \"data\": {\n        \"catégories\": [\n            {\n                \"catégorie_id\": 1,\n                \"nom\": \"Informatique\"\n            },\n            {\n                \"catégorie_id\": 2,\n                \"nom\": \"Développement Web\"\n            },\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            },\n            {\n                \"catégorie_id\": 4,\n                \"nom\": \"Intelligence Artificielle\"\n            },\n            {\n                \"catégorie_id\": 5,\n                \"nom\": \"Base de données\"\n            },\n            {\n                \"catégorie_id\": 6,\n                \"nom\": \"Cybersécurité\"\n            },\n            {\n                \"catégorie_id\": 7,\n                \"nom\": \"Mobile\"\n            },\n            {\n                \"catégorie_id\": 8,\n                \"nom\": \"DevOps\"\n            }\n        ],\n        \"total_catégories\": 8\n    },\n    \"timestamp\": \"2024-03-20T12:50:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories/recherche?mot-clé",
-          "id": "6e0b5ef5-2a24-4771-a865-e9718707410b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/catégories/recherche?mot-clé",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "catégories",
-                "recherche"
-              ],
-              "query": [
-                {
-                  "key": "mot-clé",
-                  "value": null
-                }
-              ]
-            }
-          },
-          "response": [
+              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Ressource supprimée avec succès\",\n    \"data\": {\n        \"ressource_id\": 1,\n        \"titre\": \"Introduction à React.js\",\n        \"supprimé_le\": \"2024-03-20T12:45:00Z\",\n        \"fichier_supprimé\": \"/uploads/ressources/react-intro-guide.pdf\"\n    },\n    \"timestamp\": \"2024-03-20T12:45:00Z\"\n}"
+            },
             {
-              "id": "a4645599-bc41-47a7-880f-3cd5ba5b9a3a",
-              "name": "/catégories/recherche?mot-clé=design",
+              "id": "dc78e5fd-cf3e-436b-9fa7-bb004f4e6e39",
+              "name": "403 Forbidden - Utilisateur - Supprimer une ressource (non-propriétaire)",
               "originalRequest": {
-                "method": "GET",
+                "method": "DELETE",
                 "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/catégories/recherche?mot-clé=design",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "catégories",
-                    "recherche"
-                  ],
-                  "query": [
-                    {
-                      "key": "mot-clé",
-                      "value": "design"
-                    }
-                  ]
-                }
+                "url": "{{baseUrl}}/ressources/1"
               },
+              "status": "Forbidden",
+              "code": 403,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -1077,30 +3515,18 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Recherche de catégories effectuée\",\n    \"data\": {\n        \"mot_clé\": \"design\",\n        \"catégories\": [\n            {\n                \"catégorie_id\": 3,\n                \"nom\": \"Design & UX\"\n            }\n        ],\n        \"total_résultats\": 1\n    },\n    \"timestamp\": \"2024-03-20T12:55:00Z\"\n}"
-            }
-          ]
-        },
-        {
-          "name": "/catégories/{id}",
-          "id": "af70766c-584a-43a4-a9cf-54276feda07b",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{baseUrl}}/catégories/{id}"
-          },
-          "response": [
+              "body": "{\n    \"error\": \"forbidden\"\n}"
+            },
             {
-              "id": "67bb45ad-70e8-4993-a2b1-a1dba30de749",
-              "name": "/catégories/3",
+              "id": "3b27174f-b8b8-44de-a6c6-dcc3e6006d28",
+              "name": "401 Unauthorized - Utilisateur non-authentifié - Supprimer une ressource",
               "originalRequest": {
-                "method": "GET",
+                "method": "DELETE",
                 "header": [],
-                "url": "{{baseUrl}}/catégories/3"
+                "url": "{{baseUrl}}/ressources/1"
               },
+              "status": "Unauthorized",
+              "code": 401,
               "_postman_previewlanguage": "json",
               "header": [
                 {
@@ -1112,18 +3538,141 @@
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"status\": \"success\",\n    \"message\": \"Catégorie récupérée avec succès\",\n    \"data\": {\n        \"catégorie_id\": 3,\n        \"nom\": \"Design & UX\",\n        \"nombre_ressources\": 15,\n        \"ressources_publiques\": 12,\n        \"ressources_privées\": 3,\n        \"date_création\": \"2024-01-10T08:00:00Z\",\n        \"dernière_ressource_ajoutée\": \"2024-03-18T14:30:00Z\"\n    },\n    \"timestamp\": \"2024-03-20T13:00:00Z\"\n}"
+              "body": "{\n    \"error\": \"unauthorized\"\n}"
             }
           ]
         }
       ],
-      "id": "e6a9902e-39ad-481e-86b3-384dd6ba4e0b"
+      "id": "896ba2fc-00f5-4845-af90-8705f37c5353"
     },
     {
-      "name": "Public",
+      "name": "/auth",
       "item": [
         {
-          "name": "/auth/inscrire",
+          "name": "Authentification - Connexion",
+          "id": "3dbc591b-5ba6-4704-be75-1e8b1fab8e03",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/auth/connexion"
+          },
+          "response": [
+            {
+              "id": "9da9ac39-94f6-44c0-9623-2f355edf8adb",
+              "name": "200 OK - Utilisateur existant - Se connecter",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/connexion"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "0ebecca4-8a1c-4ec9-b5bc-970aa0ca8f28",
+              "name": "401 Unauthorized - Utilisateur existant - Se connecter (mauvais credentials)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/connexion"
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "a414ad60-e6c5-4e00-87f2-11b394469a92",
+              "name": "403 Forbidden - Utilisateur existant- Se connecter (inactif)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/connexion"
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            },
+            {
+              "id": "9431d256-4acf-45f8-b6d9-61470093da59",
+              "name": "404 Not Found - Utilisateur inexistant - Se connecter",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"utilisateur@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/connexion"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
+        },
+        {
+          "name": "Authentification - Inscription",
           "id": "6a776674-cc99-4ce5-a5bf-e3012062e8b0",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -1142,10 +3691,36 @@
             },
             "url": "{{baseUrl}}/auth/inscrire"
           },
-          "response": []
+          "response": [
+            {
+              "id": "4d627a00-d9ed-49b0-beaf-44cd8d5d8792",
+              "name": "201 Created - Inscription",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nom\": \"Dupont\",\n  \"prénom\": \"Jean\",\n  \"email\": \"jean.dupont@exemple.com\",\n  \"mot_de_passe\": \"motdepasse123\",\n  \"type_compte\": \"Utilisateur\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{baseUrl}}/auth/inscrire"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "responseTime": null,
+              "body": null
+            }
+          ]
         }
       ],
-      "id": "896ba2fc-00f5-4845-af90-8705f37c5353"
+      "id": "39e662c0-c492-4109-8e0b-e25b76be2929"
     }
   ],
   "event": [
