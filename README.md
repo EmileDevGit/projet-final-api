@@ -48,9 +48,6 @@ Le tableau suivant montre les droits d'accès de bases en prenant acquis une ses
 ## Installation
 À venir!
 
-## Usage
-À venir!
-
 ## Contributeurs
 - Émile Girard
 - Émile Larochelle-Langevin
