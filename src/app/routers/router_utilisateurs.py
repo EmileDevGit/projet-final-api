@@ -23,7 +23,6 @@ async def get_users(
         q: str | None = None,
         user: dict = Depends(verify_token),
         service: UserServices = Depends(get_service)):
-
     if user["role"] == "ADMIN":
         return service.get_all_utilisateurs(q)
     else:
@@ -35,20 +34,12 @@ async def get_user_by_id(
         id: int,
         user: dict = Depends(verify_token),
         service: UserServices = Depends(get_service)):
-    if user["role"] == "ADMIN":
+    if user["role"] == "ADMIN" or user["id"] == id:
         utilisateur = service.get_utilisateur_by_id(id)
         if not utilisateur:
             raise HTTPException(
                 status_code=404, detail="Utilisateur non trouvé")
         return utilisateur
-
-    elif user["id"] == id:
-        utilisateur = service.get_utilisateur_by_id(id)
-        if not utilisateur:
-            raise HTTPException(
-                status_code=404, detail="Utilisateur non trouvé")
-        return utilisateur
-
     else:
         raise HTTPException(
             status_code=403, detail="Accès refusé : vous ne pouvez consulter que votre propre profil")
@@ -98,6 +89,4 @@ async def delete_user(
         return {"message": f"L'utilisateur avec l'id {id} a été supprimé avec succès"}
     else:
         raise HTTPException(
-            status_code=403,
-            detail="Vous ne possédez pas les droits de suppression pour cet utilisateur"
-        )
+            status_code=403, detail="Vous ne possédez pas les droits de suppression pour cet utilisateur")
