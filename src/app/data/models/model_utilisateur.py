@@ -3,9 +3,9 @@ from enum import Enum
 
 
 class TypeCompte(str, Enum):
-    USER = "user"
-    MENTOR = "mentor"
-    ADMIN = "admin"
+    USER = "USER"
+    MENTOR = "MENTOR"
+    ADMIN = "ADMIN"
 
 # Modèle utilisateur complet
 
@@ -13,11 +13,18 @@ class TypeCompte(str, Enum):
 class Utilisateur(BaseModel):
     id: int = Field(alias="utilisateur_id")
     nom: str
-    prénom: str
-    email: str
+    prenom: str
+    email: EmailStr
     type_compte: TypeCompte
     mot_de_passe: str
     status_actif: bool
+
+    @field_validator("type_compte", mode="before")
+    def convert_set_to_string(cls, v):
+        if isinstance(v, set):
+            if len(v) == 1:
+                return next(iter(v))
+        return v
 
 
 class UtilisateurModify(BaseModel):

@@ -18,32 +18,29 @@ async def get_users(user=Depends(verify_token), filter: str | None = None):
         return service.get_all_mentors()
 
 
-@users_router.get("/token")
-async def get_auth_token(id: int, role: str):
-    data = {"id": id, "email": "test@token.gmail", "role": role}
-    token = create_access_token(data)
-    return {"access_token": token}
-
-
 @users_router.get("/{id}")
 async def get_user_by_id(id: int, user=Depends(verify_token)):
     if user["role"] == "ADMIN":
         utilisateur = service.get_utilisateur_by_id(id)
-        #404 si utilisateur existe pas
+        # 404 si utilisateur existe pas
         if not utilisateur:
-            raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+            raise HTTPException(
+                status_code=404, detail="Utilisateur non trouvé")
         return utilisateur
 
     elif user["id"] == id:
         utilisateur = service.get_utilisateur_by_id(id)
         if not utilisateur:
-            #404 si utilisateur existe pas
-            raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+            # 404 si utilisateur existe pas
+            raise HTTPException(
+                status_code=404, detail="Utilisateur non trouvé")
         return utilisateur
 
     else:
-        #403 si l'utilisateur n'a pas les droit admin
-        raise HTTPException(status_code=403,detail="Accès refusé : vous ne pouvez consulter que votre propre profil")
+        # 403 si l'utilisateur n'a pas les droit admin
+        raise HTTPException(
+            status_code=403, detail="Accès refusé : vous ne pouvez consulter que votre propre profil")
+
 
 @ users_router.post("/")
 async def post_users():
@@ -64,9 +61,10 @@ async def patch_user_visibility(id: int, actif: bool, user=Depends(verify_token)
     if user["role"] in ["ADMIN"] or user["id"] == id:
         updated_user = service.update_user_status(id, actif)
         if not updated_user:
-            raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+            raise HTTPException(
+                status_code=404, detail="Utilisateur non trouvé")
         return updated_user
-        
+
     else:
         raise HTTPException(
             status_code=403,
@@ -79,7 +77,8 @@ async def delete_user(id: int, user=Depends(verify_token)):
     if user["role"] in ["ADMIN"] or user["id"] == id:
         deleted_user = service.delete_user(id)
         if not deleted_user:
-            raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+            raise HTTPException(
+                status_code=404, detail="Utilisateur non trouvé")
         return {"message": f"L'utilisateur avec l'id {id} a été supprimé avec succès"}
     else:
         raise HTTPException(
