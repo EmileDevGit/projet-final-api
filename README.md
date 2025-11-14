@@ -19,6 +19,7 @@ Cette api permet de déployer une bibliothèque de savoir. Elle comprends des co
 |![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) | Gestion de version |
 |![Pytest](https://img.shields.io/badge/Pytest-008080?style=flat&logo=pytest&logoColor=white) | Tests unitaires |
 |![Gherkin](https://img.shields.io/badge/Gherkin-5C4F3C?style=flat&logo=cucumber&logoColor=white) | Tests comportementaux |
+|![Pydantic](https://img.shields.io/badge/Pydantic-0673E6?style=flat&logo=pydantic&logoColor=white) | Validation des données et modèles|
 
 
 ## Authentification et droits d'accès
@@ -44,6 +45,9 @@ Le tableau suivant montre les droits d'accès de bases en prenant acquis une ses
 
 ## Diagramme de classes UML
 [Diagramme de classes](docs/diagrammes/classes.puml)
+
+## Diagramme des composants de l’architecture
+[Diagramme des composants de l’architecture](docs/diagrammes/DiagrammeDesComposantsDeArchitecture.png)
 
 ## Installation
 À venir!
