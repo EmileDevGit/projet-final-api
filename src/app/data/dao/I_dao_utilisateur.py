@@ -38,7 +38,7 @@ class IUtilisateurDAO(ABC):
         pass
 
     @abstractmethod
-    def update_user_status(self, user_data: UtilisateurModify):
+    def update_user_status(self, id: int, actif: bool):
         pass
 
     @abstractmethod

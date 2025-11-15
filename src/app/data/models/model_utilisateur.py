@@ -84,5 +84,3 @@ class UtilisateurResponse(BaseModel):
             if len(v) == 1:
                 return next(iter(v))
         return v
-
-
