@@ -1,131 +1,88 @@
-from data.connexion import mydb as db
-from data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
 from data.models.model_utilisateur import UtilisateurResponse as UtilisateurResponse
 from data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
+from fastapi import HTTPException
 
 
 class UserServices:
 
-    def __init__(self, db):
-        self.db = db
+    def __init__(self, dao):
+        self.dao = dao
 
     def get_all_utilisateurs(self, q: str | None = None):
-        cursor = self.db.cursor(dictionary=True)
         try:
             if q:
-                query = "SELECT * FROM utilisateur WHERE prenom LIKE %s OR nom LIKE %s"
-                filter = f"%{q}%"
-                cursor.execute(query, (filter, filter))
+                result = self.dao.get_filtered_utilisateurs(q)
             else:
-                query = "SELECT * FROM utilisateur"
-                cursor.execute(query)
-            result = cursor.fetchall()
-
-            # Transformation du SET en str pour le type de compte
-            for row in result:
-                if isinstance(row.get("type_compte"), set):
-                    row["type_compte"] = next(iter(row["type_compte"]), "USER")
-
+                result = self.dao.get_all_utilisateurs()
+            if not result:
+                return None
             utilisateurs = [UtilisateurResponse(**row) for row in result]
-
             return utilisateurs
 
         except Exception as e:
             print(f"Erreur lors de la récupération des utilisateurs : {e}")
-            return []
-
-        finally:
-            cursor.close()
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
 
     def get_all_mentors(self):
-        cursor = self.db.cursor(dictionary=True)
         try:
-            cursor.execute(
-                "SELECT * FROM utilisateur WHERE type_compte = 'MENTOR'")
-            result = cursor.fetchall()
-
-            # Transformation du SET en str pour le type de compte
-            for row in result:
-                if isinstance(row.get("type_compte"), set):
-                    row["type_compte"] = next(iter(row["type_compte"]), "USER")
-
+            result = self.dao.get_all_mentors()
+            if not result:
+                return None
             utilisateurs = [UtilisateurResponse(**row) for row in result]
-
             return utilisateurs
 
         except Exception as e:
             print(f"Erreur lors de la récupération des utilisateurs : {e}")
-            return []
-
-        finally:
-            cursor.close()
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
 
     def get_utilisateur_by_id(self, utilisateur_id: int):
-        cursor = self.db.cursor(dictionary=True)
         try:
-            cursor.execute(
-                f"SELECT * FROM utilisateur WHERE utilisateur_id = {utilisateur_id}")
-            row = cursor.fetchone()
-            if isinstance(row.get("type_compte"), set):
-                row["type_compte"] = next(iter(row["type_compte"]), "USER")
-
-            utilisateur = UtilisateurResponse(**row)
+            result = self.dao.get_utilisateur_by_id(utilisateur_id)
+            if not result:
+                return None
+            utilisateur = UtilisateurResponse(**result)
             return utilisateur
 
         except Exception as e:
-            print(f"Erreur lors de la récupération de l'utilisateur : {e}")
-            return None
-
-        finally:
-            cursor.close()
+            print(f"Erreur lors de la récupération des utilisateurs : {e}")
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
 
     def edit_user(self, id: int, data: UtilisateurModify):
-        cursor = self.db.cursor(dictionary=True)
         try:
-            query = "UPDATE utilisateur SET nom=%s, prenom=%s, email=%s, mot_de_passe=%s WHERE utilisateur_id=%s"
-            values = [data.nom, data.prenom,
-                      data.email, data.mot_de_passe, id]
-            cursor.execute(query, values)
-            return self.get_utilisateur_by_id(id)
+            result = self.dao.edit_user(id, data)
+            if not result:
+                return None
+            utilisateur = UtilisateurResponse(**result)
+            return utilisateur
 
         except Exception as e:
             print(f"Erreur lors de la récupération des utilisateurs : {e}")
-            return
-        finally:
-            cursor.close()
-
-
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
 
     def update_user_status(self, id: int, actif: bool):
-        cursor = self.db.cursor(dictionary=True)
         try:
-            query = "UPDATE utilisateur SET status_actif = %s WHERE utilisateur_id = %s"
-            values = [actif, id]
-            cursor.execute(query, values)
-            self.db.commit()
-            return self.get_utilisateur_by_id(id)
+            result = self.dao.update_user_status(id, actif)
+            if not result:
+                return None
+            utilisateur = UtilisateurResponse(**result)
+            return utilisateur
 
         except Exception as e:
-            print(f"Erreur lors de la mise à jour du status_actif : {e}")
-            return
-        finally:
-            cursor.close()
-
+            print(f"Erreur lors de la récupération des utilisateurs : {e}")
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
 
     def delete_user(self, id: int):
-        cursor = self.db.cursor(dictionary=True)
         try:
-            query = "DELETE FROM utilisateur WHERE utilisateur_id = %s"
-            cursor.execute(query, (id,))
-            self.db.commit()
-
-            if cursor.rowcount == 0:
-                return False  
-
-            return True  
-
+            result = self.dao.get_utilisateur_by_id(id)
+            if not result:
+                return None
+            return self.dao.delete_user(id)
         except Exception as e:
-            print(f"Erreur lors de la suppression de l'utilisateur : {e}")
-            return False
-        finally:
-            cursor.close()
+            print(f"Erreur lors de la récupération des utilisateurs : {e}")
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
