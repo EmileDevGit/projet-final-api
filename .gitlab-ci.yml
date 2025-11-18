@@ -1,0 +1,34 @@
+image: tiangolo/uvicorn-gunicorn:python3.11
+
+stages:
+  - test
+  - deploy
+
+.prepare_contexte: &prepare_contexte
+    - apt update && apt install -y ca-certificates openssh-client
+    - mkdir -p ~/.ssh
+    - echo "$ID_RSA_PRIV" | base64 -d > ~/.ssh/id_ed25519
+    - chmod 400 ~/.ssh/id_ed25519
+    - echo -e "Host *\n  StrictHostKeyChecking no" > ~/.ssh/config
+
+before_script:
+  - pip install --no-cache-dir -r requirements.txt
+
+testing:
+  stage: test
+  script:
+    - echo "Fin des tests"
+
+deploy:
+  stage: deploy
+  needs:
+    - job: testing
+  before_script:
+    - *prepare_contexte
+  script:
+    - ssh $USER@$HOST mkdir -p /home/$USER/sapientapi
+    - scp -r ./* $USER@$HOST:/home/$USER/sapientapi
+    - ssh $USER@$HOST bash -c "true && export PORT=$PORT && docker compose -f /home/$USER/sapientapi/compose.yml build sapienta_api"
+    - ssh $USER@$HOST bash -c "true && export PORT=$PORT && docker compose -f /home/$USER/sapientapi/compose.yml up --force-recreate -d sapienta_api"
+  only:
+    - main
