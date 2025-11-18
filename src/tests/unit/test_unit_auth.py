@@ -4,7 +4,7 @@ from fastapi.testclient import TestClient
 from jose import jwt
 from datetime import timedelta, datetime
 
-from utils.auth import (
+from app.utils.auth import (
     create_access_token,
     verify_token,
     SECRET_KEY,
