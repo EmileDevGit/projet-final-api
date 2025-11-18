@@ -18,7 +18,7 @@ testing:
   stage: test
   script:
     - echo "Début des tests"
-    - docker compose up -d sapienta_test
+    - docker compose up -d sapienta_unit_tests
 
 deploy:
   stage: deploy
