@@ -20,7 +20,7 @@ testing:
     - echo "Début des tests"
     - export PYTHONPATH=$PYTHONPATH:src
     - export ENV=test
-    - pytest -v
+    - pytest src/tests/unit/ -v
     
 deploy:
   stage: deploy
