@@ -1,7 +1,7 @@
-from data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
-from data.models.model_utilisateur import UtilisateurLogin as UtilisateurLogin
-from data.models.model_utilisateur import Utilisateur as Utilisateur
-from utils.auth import create_access_token
+from app.data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
+from app.data.models.model_utilisateur import UtilisateurLogin as UtilisateurLogin
+from app.data.models.model_utilisateur import Utilisateur as Utilisateur
+from app.utils.auth import create_access_token
 from fastapi import HTTPException
 
 
