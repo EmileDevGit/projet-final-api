@@ -1,4 +1,4 @@
-from app.services.service_utilisateurs import UserServices
+from services.service_utilisateurs import UserServices
 from data.models.model_utilisateur import UtilisateurModify
 from data.dao.I_dao_utilisateur import IUtilisateurDAO as IUtilisateurDAO
 from unittest.mock import create_autospec
