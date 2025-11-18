@@ -41,13 +41,13 @@ services:
 #      retries: 5
 
 # Roule les tests unitaires
-#  sapienta_tests:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile.tests
-#    command: pytest -v
-#    env_file:
-#      - .env
+  sapienta_unit_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    command: pytest -v
+    env_file:
+      - .env
 # À utiliser lors de l'implémentation de l'Api
 #    depends_on:
 #      sapienta_api:
