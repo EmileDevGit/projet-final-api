@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
-from data.connexion import mydb as db
-from services.service_utils import UtilsServices as UtilsServices
-from data.models.model_utilisateur import UtilisateurLogin as UtilisateurLogin
-from data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
-from data.dao.dao_utilisateur import UtilisateurDAO as UtilisateurDAO
+from app.data.connexion import mydb as db
+from app.services.service_utils import UtilsServices as UtilsServices
+from app.data.models.model_utilisateur import UtilisateurLogin as UtilisateurLogin
+from app.data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
+from app.data.dao.dao_utilisateur import UtilisateurDAO as UtilisateurDAO
 
 
 utils_router = APIRouter(prefix="/auth")

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
-from data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
+from app.data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
+from app.data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
 
 
 class IUtilisateurDAO(ABC):
