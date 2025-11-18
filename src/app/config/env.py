@@ -19,9 +19,8 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     ALGORITHM: str
 
-
-model_config = SettingsConfigDict(
-    extra="ignore", env_file=env_file, env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(
+        extra="ignore", env_file=env_file, env_file_encoding="utf-8")
 
 
 settings = Settings()
