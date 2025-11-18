@@ -55,7 +55,7 @@ def test_valider_token_manquant():
 def test_token_signature_invalide():
     mauvais_token = jwt.encode(
         {"id": 5, "email": "user@example.com", "role": "USER"},
-        "MAUVAIS_SECRET",algorithm=ALGORITHM,
+        "MAUVAIS_SECRET", algorithm=ALGORITHM,
     )
     headers = {"Authorization": f"Bearer {mauvais_token}"}
     response = client.get("/protected", headers=headers)
@@ -66,7 +66,8 @@ def test_token_signature_invalide():
 def test_token_expire():
     expiration_passee = datetime.utcnow() - timedelta(minutes=1)
     token_expire = jwt.encode(
-        {"id": 5, "email": "user@example.com", "role": "USER", "exp": expiration_passee},
+        {"id": 5, "email": "user@example.com",
+            "role": "USER", "exp": expiration_passee},
         SECRET_KEY,
         algorithm=ALGORITHM,
     )
