@@ -18,7 +18,8 @@ testing:
   stage: test
   script:
     - echo "Début des tests"
-    - export PYTHONPATH=$PYTHONPATH:src/app
+    - export PYTHONPATH=$PYTHONPATH:src
+    - export ENV=test
     - pytest -v
     
 deploy:
