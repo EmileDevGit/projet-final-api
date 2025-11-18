@@ -11,8 +11,8 @@ stages:
     - chmod 400 ~/.ssh/id_ed25519
     - echo -e "Host *\n  StrictHostKeyChecking no" > ~/.ssh/config
 
-before_script:
-  - pip install --no-cache-dir -r requirements.txt
+# before_script:
+#  - pip install --no-cache-dir -r requirements.txt
 
 testing:
   stage: test
