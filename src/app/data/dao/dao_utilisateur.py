@@ -1,6 +1,6 @@
-from data.dao.I_dao_utilisateur import IUtilisateurDAO
-from data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
-from data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
+from app.data.dao.I_dao_utilisateur import IUtilisateurDAO
+from app.data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
+from app.data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
 
 
 class UtilisateurDAO(IUtilisateurDAO):

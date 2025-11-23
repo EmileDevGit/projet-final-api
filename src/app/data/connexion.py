@@ -1,5 +1,5 @@
 import mysql.connector
-from config.env import settings as settings
+from app.config.env import settings as settings
 
 mydb = mysql.connector.connect(
     host=settings.DATABASE_HOST,

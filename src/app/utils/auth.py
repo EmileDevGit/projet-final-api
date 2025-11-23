@@ -2,7 +2,7 @@ from fastapi import HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
-from config.env import settings as settings
+from app.config.env import settings as settings
 
 
 # Clé secrète et algorithme

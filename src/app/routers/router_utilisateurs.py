@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
-from data.connexion import mydb as db
-from data.dao.dao_utilisateur import UtilisateurDAO as UtilisateurDAO
-from services.service_utilisateurs import UserServices as UserServices
-from utils.auth import verify_token
-from data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
+from app.data.connexion import mydb as db
+from app.data.dao.dao_utilisateur import UtilisateurDAO as UtilisateurDAO
+from app.services.service_utilisateurs import UserServices as UserServices
+from app.utils.auth import verify_token
+from app.data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
 
 # Gestion des dépendances
 users_router = APIRouter(prefix="/utilisateurs")

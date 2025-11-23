@@ -1,5 +1,5 @@
-from data.models.model_utilisateur import UtilisateurResponse as UtilisateurResponse
-from data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
+from app.data.models.model_utilisateur import UtilisateurResponse as UtilisateurResponse
+from app.data.models.model_utilisateur import UtilisateurModify as UtilisateurModify
 from fastapi import HTTPException
 
 
