@@ -26,6 +26,7 @@ def check_db_health():
         conn.close()
         return {"status": "ok", "database_connection": "successful"}
 
+
 print("Routes enregistrées :")
 for route in app.routes:
     print(route.path)
