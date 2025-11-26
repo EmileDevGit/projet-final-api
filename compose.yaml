@@ -1,5 +1,6 @@
 services:
 
+# ===== DATABASE ===== #
   sapienta_db:
     image: mysql:8.0
     container_name: sapienta_db
@@ -18,6 +19,24 @@ services:
       timeout: 5s
       retries: 5
 
+
+# ===== AUTH ===== #
+  sapienta_auth:
+    build:
+      context: .
+      dockerfile: Dockerfile.auth
+    container_name: sapienta_auth
+    restart: always
+    depends_on:
+      sapienta_db:
+        condition: service_healthy
+    env_file:
+      - .env
+    command: sh -c "uvicorn auth.main:auth --host 0.0.0.0 --port 8080"
+
+
+
+# ===== API ===== #
   sapienta_api:
     build:
       context: .
@@ -27,6 +46,8 @@ services:
     depends_on:
       sapienta_db: 
         condition: service_healthy
+      sapienta_auth:
+        condition: service_started
     env_file:
       - .env
     ports:
@@ -38,7 +59,7 @@ services:
       timeout: 3s
       retries: 5
 
-# Roule les tests unitaires
+# ===== UNIT TESTS ===== #
   sapienta_unit_tests:
     build:
       context: .
@@ -46,11 +67,7 @@ services:
     command: pytest -v
     env_file:
       - .env
-# À utiliser lors de l'implémentation de l'Api
-#    depends_on:
-#      sapienta_api:
-#       condition: service_healthy
-
 
 #volumes:
 #  db_data:
+
