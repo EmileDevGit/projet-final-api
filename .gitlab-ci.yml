@@ -1,7 +1,7 @@
 image: tiangolo/uvicorn-gunicorn:python3.11
 
 stages:
-#  - test
+  - test
   - deploy
 
 .prepare_contexte: &prepare_contexte
@@ -14,24 +14,25 @@ stages:
 before_script:
   - pip install --no-cache-dir -r requirements/tests.txt
 
-#testing:
-#  stage: test
-#  script:
-#    - echo "Début des tests"
-#    - export PYTHONPATH=$PYTHONPATH:src
-#    - export ENV=test
-#    - pytest src/tests/unit/ -v
+testing:
+  stage: test
+  script:
+    - echo "Début des tests"
+    - export PYTHONPATH=$PYTHONPATH:src
+    - export ENV=test
+    - pytest src/tests/unit/ -v
     
 deploy:
   stage: deploy
-#  needs:
-#    - job: testing
+  needs:
+    - job: testing
   before_script:
     - *prepare_contexte
   script:
     - ssh $USER@$HOST mkdir -p /home/$USER/sapientapi
     - scp -r ./* $USER@$HOST:/home/$USER/sapientapi
-    - ssh $USER@$HOST bash -c "true && docker compose -f /home/$USER/sapientapi/compose.yaml build sapienta_api"
-    - ssh $USER@$HOST bash -c "true && docker compose -f /home/$USER/sapientapi/compose.yaml up --force-recreate -d sapienta_api"
+    - ssh $USER@$HOST bash -c "true && export PORT=$PORT && docker compose -f /home/$USER/sapientapi/compose.yaml build sapienta_api"
+    - ssh $USER@$HOST bash -c "true && export PORT=$PORT && docker compose -f /home/$USER/sapientapi/compose.yaml up --force-recreate -d sapienta_api"
   only:
     - main
+
