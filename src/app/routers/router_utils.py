@@ -23,7 +23,7 @@ def get_auth_service(dao: UtilisateurDAO = Depends(get_dao)):
     return AuthServices(dao)
 
 
-@utils_router.post("/register")
+@utils_router.post("/register", tags=["Auth"])
 async def post_register(
         user_data: UtilisateurCreate,
         service: UtilsServices = Depends(get_service)
@@ -31,7 +31,7 @@ async def post_register(
     return service.register(user_data)
 
 
-@utils_router.post("/login")
+@utils_router.post("/login", tags=["Auth"])
 def login_user(
         form_data: OAuth2PasswordRequestForm = Depends(),
         service: AuthServices = Depends(get_auth_service)

@@ -47,7 +47,7 @@ def get_current_user(
         )
 
 
-@ressources_router.get("/")
+@ressources_router.get("/", tags=["Ressources"], summary="Récupérer la liste des ressources", description="")
 async def get_ressources(
     q: str | None = None,
     user_token: TokenViewDecoded = Depends(get_current_user),
@@ -64,7 +64,7 @@ async def get_ressources(
     return [r for r in ressources if r.visibilite or r.auteur_id == user_id]
 
 
-@ressources_router.get("/{id}")
+@ressources_router.get("/{id}", tags=["Ressources"], summary="Récupérer une ressource", description="")
 async def get_ressource_by_id(
     id: int,
     user_token: TokenViewDecoded = Depends(get_current_user),
@@ -87,7 +87,7 @@ async def get_ressource_by_id(
         403, "Accès refusé : vous ne pouvez consulter que vos propre ressouces")
 
 
-@ressources_router.post("/")
+@ressources_router.post("/", tags=["Ressources"], summary="Créer une nouvelle ressource", description="")
 async def create_ressource(
     data: RessourceCreate,
     user_token: TokenViewDecoded = Depends(get_current_user),
@@ -110,7 +110,7 @@ async def create_ressource(
     raise HTTPException(403, "Accès interdit")
 
 
-@ressources_router.put("/{id}")
+@ressources_router.put("/{id}", tags=["Ressources"], summary="Modifier une ressource", description="")
 async def update_ressource(
     id: int,
     data: RessourceModify,
@@ -134,7 +134,7 @@ async def update_ressource(
         403, "Vous ne pouvez modifier que vos propres ressources")
 
 
-@ressources_router.patch("/{id}")
+@ressources_router.patch("/{id}", tags=["Ressources"], summary="Modifier la visibilité d'une ressoruce", description="")
 async def update_visibility(
     id: int,
     visible: bool,
@@ -158,7 +158,7 @@ async def update_visibility(
         403, "Vous ne pouvez modifier que vos propres ressources")
 
 
-@ressources_router.delete("/{id}")
+@ressources_router.delete("/{id}", tags=["Ressources"], summary="Supprimer une ressource", description="")
 async def delete_ressource(
     id: int,
     user_token: TokenViewDecoded = Depends(get_current_user),
