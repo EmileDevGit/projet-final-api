@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
-from data.models.model_ressource import RessourceCreate, RessourceModify
+from app.data.models.model_ressource import RessourceCreate, RessourceModify
 
 
 class IRessourceDAO(ABC):

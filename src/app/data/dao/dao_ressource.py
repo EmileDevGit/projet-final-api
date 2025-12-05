@@ -1,5 +1,5 @@
-from data.dao.I_dao_ressource import IRessourceDAO
-from data.models.model_ressource import RessourceModify, RessourceCreate
+from app.data.dao.I_dao_ressource import IRessourceDAO
+from app.data.models.model_ressource import RessourceModify, RessourceCreate
 
 class RessourceDAO(IRessourceDAO):
 
