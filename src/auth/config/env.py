@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     AUTH_API_VERSION: str = "0.0.0"
 
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
-    REFRESH_JWT_SECRET: str = "ANother SecReT KEy"
+    REFRESH_JWT_SECRET: str = "SECRET_TO_CHANGE"
 
 
 settings = Settings()

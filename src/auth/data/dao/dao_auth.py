@@ -29,8 +29,8 @@ class AuthDAO(IAuthDAO):
                 """
         values = [
             token_data["jwt_id"],
-            token_data["user_sub"],
-            token_data["expires_at"]
+            token_data["sub"],
+            token_data["exp"]
         ]
         cursor.execute(query, values)
         self.db.commit()

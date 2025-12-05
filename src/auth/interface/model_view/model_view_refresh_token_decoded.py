@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 
 class RefreshTokenViewDecoded(BaseModel):
-    jid: str
-    user_sub: str
-    iat: int
+    jwt_id: str
+    sub: str
     exp: int

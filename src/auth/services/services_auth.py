@@ -7,6 +7,7 @@ from starlette import status
 from auth.interface.model_view.model_view_token import TokenView
 from auth.config.env import settings
 from auth.interface.model_view.model_view_token_decoded import TokenViewDecoded
+from auth.interface.model_view.model_view_refresh_token_decoded import RefreshTokenViewDecoded
 
 
 class TokenServices:
@@ -30,8 +31,8 @@ class TokenServices:
         expire = datetime.now() + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS)
         to_encode = {
             "jwt_id": str(jwt_id),
-            "user_sub": user_data["sub"],
-            "expires_at": int(expire.timestamp())
+            "sub": user_data["sub"],
+            "exp": int(expire.timestamp())
         }
         refresh_token = jwt.encode(
             to_encode,
@@ -40,12 +41,40 @@ class TokenServices:
         )
         token_data = {
             "jwt_id": str(jwt_id),
-            "user_sub": user_data["sub"],
-            "expires_at": int(expire.timestamp())
+            "sub": user_data["sub"],
+            "exp": int(expire.timestamp())
         }
 
         self.dao.save_refresh_token(token_data)
         return refresh_token
+
+    def refresh_access_token(self, refresh_token, old_access_token) -> TokenView:
+        try:
+            decode_refresh_result = jwt.decode(
+                refresh_token,
+                settings.REFRESH_JWT_SECRET,
+                algorithms=[settings.JWT_ALGORITHM]
+            )
+            refresh_token_decoded = RefreshTokenViewDecoded(**decode_refresh_result)
+
+            decode_access_result = jwt.decode(
+                old_access_token,
+                settings.JWT_SECRET,
+                algorithms=[settings.JWT_ALGORITHM]
+            )
+            old_access_token_decoded = TokenViewDecoded(**decode_access_result)
+        except Exception as e:
+            print(f"Decoding error {e}")
+        self.dao.update_refresh_token_state(refresh_token_decoded.jwt_id, True)
+        user_data = {
+            "sub": old_access_token_decoded.sub,
+            "id": old_access_token_decoded.id,
+            "role": old_access_token_decoded.role
+        }
+        new_refresh_token = self.create_refresh_token(user_data)
+        new_access_token = self.create_access_token(user_data)
+
+        return TokenView(access_token=new_access_token, refresh_token=new_refresh_token)
 
     def validate_token(self, token: str) -> TokenViewDecoded:
         decode_result = jwt.decode(token, settings.JWT_SECRET, algorithms=[
