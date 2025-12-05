@@ -5,6 +5,15 @@ SET CHARACTER SET utf8mb4;
 CREATE DATABASE IF NOT EXISTS sapienta_db;
 USE sapienta_db;
 
+CREATE TABLE refresh_token (
+	jwt_id VARCHAR(255) PRIMARY KEY,
+	user_sub VARCHAR(255) NOT NULL,
+	token_hash VARCHAR(255) NOT NULL,
+	expires_at DATETIME NOT NULL,
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+	is_revoked TINYINT(1) DEFAULT 0
+);
+
 
 -- Table: UTILISATEUR
 CREATE TABLE utilisateur (
