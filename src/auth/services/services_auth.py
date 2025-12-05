@@ -38,6 +38,13 @@ class TokenServices:
             settings.REFRESH_JWT_SECRET,
             algorithm=settings.JWT_ALGORITHM
         )
+        token_data = {
+            jwt_id,
+            user_data["sub"],
+            int(expire.timestamp())
+        }
+
+        self.dao.save_refresh_token(token_data)
         return refresh_token
 
     def validate_token(self, token: str) -> TokenViewDecoded:

@@ -24,15 +24,13 @@ class AuthDAO(IAuthDAO):
                 INSERT INTO refresh_token(
                     jwt_id,
                     user_sub,
-                    token_hash,
                     expires_at)
-                VALUES (%s, %s, %s, %s)
+                VALUES (%s, %s, %s)
                 """
         values = [
             token_data["jwt_id"],
             token_data["user_sub"],
-            token_data["token_hash"],
-            token_data["exp"],
+            token_data["exp"]
         ]
         cursor.execute(query, values)
         self.db.commit()

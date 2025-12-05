@@ -7,5 +7,9 @@ class IAuthDAO(ABC):
         pass
 
     @abstractmethod
-    def create_refresh_token(self, res_data: dict):
+    def check_refresh_token(self, res_data: dict):
+        pass
+
+    @abstractmethod
+    def save_refresh_token(self, res_data: dict):
         pass
