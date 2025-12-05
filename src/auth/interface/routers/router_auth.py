@@ -32,6 +32,15 @@ def authenticate(
     return service.issue_token(user_data)
 
 
+@router.post("/token/refresh")
+def refresh(
+    refresh_token: str = Form(...),
+    old_access_token: str = Form(...),
+    service: TokenServices = Depends(get_service)
+):
+    return service.refresh_access_token(refresh_token, old_access_token)
+
+
 @router.post("/token/validate")
 def validate(
     token: str = Form(...),

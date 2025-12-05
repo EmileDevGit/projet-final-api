@@ -1,6 +1,6 @@
 import bcrypt
 import requests
-from fastapi import HTTPException
+from fastapi import HTTPException, Form
 from starlette import status
 
 from app.config.env import settings
@@ -13,6 +13,7 @@ class AuthServices:
     def __init__(self, dao):
         self.token_endpoint = settings.TOKEN_ENDPOINT
         self.token_validate_endpoint = settings.TOKEN_VALIDATE_ENDPOINT
+        self.token_refresh_endpoint = settings.TOKEN_REFRESH_ENDPOINT
         self.dao = dao
 
     def authenticate_and_issue_token(
@@ -54,7 +55,7 @@ class AuthServices:
         token_data = response.json()
         return TokenView(**token_data)
 
-    def validate_token(self, token: str) -> TokenViewDecoded:
+    def validate_token(self, token: str = Form(...)) -> TokenViewDecoded:
 
         print(f"Sent token: {token}")
         try:
@@ -80,6 +81,24 @@ class AuthServices:
 
         token_data = response.json()
         return TokenViewDecoded(**token_data)
+
+    def refresh_access_token(
+            self,
+            refresh_token: str = Form(...),
+            old_access_token: str = Form(...)
+    ):
+        try:
+            response = requests.post(
+                self.token_refresh_endpoint,
+                data={
+                    "refresh_token": refresh_token,
+                    "old_access_token": old_access_token
+                }
+            )
+        except Exception:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+        token_data = response.json()
+        return TokenView(**token_data)
 
     @staticmethod
     def verify_password(plain_password: str, hashed_password: str) -> bool:
