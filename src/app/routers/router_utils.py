@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, status, HTTPException
+from fastapi import APIRouter, Depends, status, HTTPException, Form
 from fastapi.security import OAuth2PasswordRequestForm
 
 from app.data.connexion import mydb as db
@@ -41,3 +41,12 @@ def login_user(
         email=form_data.username,
         password=form_data.password
     )
+
+
+@utils_router.post("/refresh", tags=["Auth"])
+async def post_refresh(
+    refresh_token: str = Form(...),
+    old_access_token: str = Form(...),
+    service: AuthServices = Depends(get_auth_service)
+):
+    return service.refresh_access_token(refresh_token, old_access_token)

@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     ALGORITHM: str
     TOKEN_ENDPOINT: str = "http://sapienta_auth:8080/token"
     TOKEN_VALIDATE_ENDPOINT: str = "http://sapienta_auth:8080/token/validate"
+    TOKEN_REFRESH_ENDPOINT: str = "http://sapienta_auth:8080/token/refresh"
 
     model_config = SettingsConfigDict(
         extra="ignore", env_file=env_file, env_file_encoding="utf-8")
