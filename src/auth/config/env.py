@@ -11,5 +11,8 @@ class Settings(BaseSettings):
     AUTH_PROJECT_NAME: str = "Default Project Name"
     AUTH_API_VERSION: str = "0.0.0"
 
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 7
+    REFRESH_JWT_SECRET: str = "ANother SecReT KEy"
+
 
 settings = Settings()

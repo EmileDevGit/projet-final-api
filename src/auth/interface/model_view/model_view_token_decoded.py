@@ -7,4 +7,4 @@ class TokenViewDecoded(BaseModel):
     id: int
     sub: str
     role: str
-    exp: datetime
+    exp: int
