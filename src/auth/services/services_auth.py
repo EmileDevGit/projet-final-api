@@ -39,9 +39,9 @@ class TokenServices:
             algorithm=settings.JWT_ALGORITHM
         )
         token_data = {
-            jwt_id,
-            user_data["sub"],
-            int(expire.timestamp())
+            "jwt_id": str(jwt_id),
+            "user_sub": user_data["sub"],
+            "expires_at": int(expire.timestamp())
         }
 
         self.dao.save_refresh_token(token_data)

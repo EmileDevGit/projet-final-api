@@ -9,7 +9,6 @@ CREATE TABLE refresh_token (
 	jwt_id VARCHAR(255) PRIMARY KEY,
 	user_sub VARCHAR(255) NOT NULL,
 	expires_at BIGINT NOT NULL,
-	created_at INT DEFAULT CURRENT_TIMESTAMP,
 	is_revoked TINYINT(1) DEFAULT 0
 );
 
