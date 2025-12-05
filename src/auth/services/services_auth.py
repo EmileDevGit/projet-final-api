@@ -9,26 +9,33 @@ from auth.config.env import settings
 from auth.interface.model_view.model_view_token_decoded import TokenViewDecoded
 
 
-def issue_token(user_data: dict) -> TokenView:
-    token = create_access_token(user_data)
-    return TokenView(access_token=token)
+class TokenServices:
 
+    def __init__(self, dao):
+        self.dao = dao
 
-def create_access_token(user_data: dict) -> str:
-    to_encode = user_data.copy()
-    expire = datetime.datetime.now(
-        datetime.UTC) + datetime.timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
-    to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
+    def issue_token(self, user_data: dict) -> TokenView:
+        token = self.create_access_token(user_data)
+        refresh_token = self.create_refresh_token(user_data)
+        return TokenView(access_token=token, refresh_token=refresh_token)
 
+    def create_access_token(self, user_data: dict) -> str:
+        to_encode = user_data.copy()
+        expire = datetime.datetime.now(
+            datetime.UTC) + datetime.timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+        to_encode.update({"exp": expire})
+        return jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
 
-def validate_token(token: str) -> TokenViewDecoded:
-    decode_result = jwt.decode(token, settings.JWT_SECRET, algorithms=[
-                               settings.JWT_ALGORITHM])
-    token_decoded = TokenViewDecoded(**decode_result)
+    def create_refresh_token(self, user_data: dict) -> str:
+        return "REFRESH PLACEHOLDER"
 
-    if token_decoded.exp < datetime.datetime.now(datetime.timezone.utc):
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN, detail="Expired token")
+    def validate_token(self, token: str) -> TokenViewDecoded:
+        decode_result = jwt.decode(token, settings.JWT_SECRET, algorithms=[
+            settings.JWT_ALGORITHM])
+        token_decoded = TokenViewDecoded(**decode_result)
 
-    return token_decoded
+        if token_decoded.exp < datetime.datetime.now(datetime.timezone.utc):
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN, detail="Expired token")
+
+        return token_decoded

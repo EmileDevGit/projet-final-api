@@ -48,3 +48,6 @@ class AuthDAO(IAuthDAO):
         cursor.execute(query, (is_revoked, jwt_id))
         self.db.commit()
         return True
+
+    def create_refresh_token(self, res_data: dict):
+        pass
