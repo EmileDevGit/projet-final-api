@@ -47,7 +47,15 @@ def get_current_user(
         )
 
 
-@ressources_router.get("/")
+@ressources_router.get("/", tags=["Ressources"], summary="Récupérer la liste des ressources",     description=(
+        "Droits d'accès :\n"
+        "- **Utilisateur** : peut lister toutes les ressources **publiques** et ses "
+        "propres ressources (publiques ou privées).\n"
+        "- **Mentor** : peut lister toutes les ressources **publiques** et ses "
+        "propres ressources (publiques ou privées).\n"
+        "- **Admin** : peut lister **toutes** les ressources, quelle que soit leur "
+        "visibilité ou leur auteur."
+    ))
 async def get_ressources(
     q: str | None = None,
     user_token: TokenViewDecoded = Depends(get_current_user),
@@ -64,7 +72,14 @@ async def get_ressources(
     return [r for r in ressources if r.visibilite or r.auteur_id == user_id]
 
 
-@ressources_router.get("/{id}")
+@ressources_router.get("/{id}", tags=["Ressources"], summary="Récupérer une ressource",     description=(
+        "Droits d'accès :\n"
+        "- **Utilisateur** : peut consulter une ressource si elle est **publique** "
+        "ou si c’est l’une de ses propres ressources.\n"
+        "- **Mentor** : mêmes droits que l’utilisateur (ressources publiques ou "
+        "propres).\n"
+        "- **Admin** : peut consulter **toutes** les ressources."
+    ))
 async def get_ressource_by_id(
     id: int,
     user_token: TokenViewDecoded = Depends(get_current_user),
@@ -87,7 +102,15 @@ async def get_ressource_by_id(
         403, "Accès refusé : vous ne pouvez consulter que vos propre ressouces")
 
 
-@ressources_router.post("/")
+@ressources_router.post("/", tags=["Ressources"], summary="Créer une nouvelle ressource",     description=(
+        "Droits d'accès :\n"
+        "- **Utilisateur** : peut créer uniquement des ressources **privées** dont "
+        "il est automatiquement l’auteur (visibilité forcée à privée).\n"
+        "- **Mentor** : peut créer des ressources **publiques ou privées** dont il "
+        "est automatiquement l’auteur.\n"
+        "- **Admin** : peut créer des ressources **publiques ou privées** pour "
+        "n’importe quel utilisateur."
+    ))
 async def create_ressource(
     data: RessourceCreate,
     user_token: TokenViewDecoded = Depends(get_current_user),
@@ -110,7 +133,12 @@ async def create_ressource(
     raise HTTPException(403, "Accès interdit")
 
 
-@ressources_router.put("/{id}")
+@ressources_router.put("/{id}", tags=["Ressources"], summary="Modifier une ressource", description=(
+        "Droits d'accès :\n"
+        "- **Utilisateur** : peut modifier uniquement ses **propres** ressources.\n"
+        "- **Mentor** : peut modifier uniquement ses **propres** ressources.\n"
+        "- **Admin** : peut modifier **toutes** les ressources."
+    ))
 async def update_ressource(
     id: int,
     data: RessourceModify,
@@ -134,7 +162,14 @@ async def update_ressource(
         403, "Vous ne pouvez modifier que vos propres ressources")
 
 
-@ressources_router.patch("/{id}")
+@ressources_router.patch("/{id}", tags=["Ressources"], summary="Modifier la visibilité d'une ressoruce",     description=(
+        "Droits d'accès :\n"
+        "- **Utilisateur** : peut changer la visibilité uniquement de ses "
+        "**propres** ressources.\n"
+        "- **Mentor** : peut changer la visibilité uniquement de ses **propres** "
+        "ressources.\n"
+        "- **Admin** : peut changer la visibilité de **toutes** les ressources."
+    ))
 async def update_visibility(
     id: int,
     visible: bool,
@@ -158,7 +193,12 @@ async def update_visibility(
         403, "Vous ne pouvez modifier que vos propres ressources")
 
 
-@ressources_router.delete("/{id}")
+@ressources_router.delete("/{id}", tags=["Ressources"], summary="Supprimer une ressource",     description=(
+        "Droits d'accès :\n"
+        "- **Utilisateur** : peut supprimer uniquement ses **propres** ressources.\n"
+        "- **Mentor** : peut supprimer uniquement ses **propres** ressources.\n"
+        "- **Admin** : peut supprimer **toutes** les ressources."
+    ))
 async def delete_ressource(
     id: int,
     user_token: TokenViewDecoded = Depends(get_current_user),

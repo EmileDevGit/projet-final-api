@@ -42,7 +42,12 @@ def get_current_user(
 
 
 # Routes Utilisateurs
-@users_router.get("/")
+@users_router.get("/", tags=["Utilisateurs"], summary="Récupérer la liste des utilisateurs", description=(
+    "Droits d'accès :\n"
+    "- **Utilisateur** : peut uniquement voir la liste des **mentors**.\n"
+    "- **Mentor** : peut uniquement voir la liste des **mentors**.\n"
+    "- **Admin** : peut consulter la liste de **tous** les utilisateurs."
+))
 async def get_users(
         q: str | None = None,
         user_token: TokenViewDecoded = Depends(get_current_user),
@@ -53,7 +58,12 @@ async def get_users(
         return service.get_all_mentors()
 
 
-@users_router.get("/{id}")
+@users_router.get("/{id}", tags=["Utilisateurs"], summary="Récupérer un utilisateur", description=(
+    "Droits d'accès :\n"
+    "- **Utilisateur** : peut consulter **son propre profil** uniquement.\n"
+    "- **Mentor** : peut consulter **son propre profil** uniquement.\n"
+    "- **Admin** : peut consulter les profils de **tous** les utilisateurs."
+))
 async def get_user_by_id(
         id: int,
         user_token: TokenViewDecoded = Depends(get_current_user),
@@ -69,7 +79,12 @@ async def get_user_by_id(
             status_code=403, detail="Accès refusé : vous ne pouvez consulter que votre propre profil")
 
 
-@users_router.put("/{id}")
+@users_router.put("/{id}", tags=["Utilisateurs"], summary="Modifier un utilisateur", description=(
+    "Droits d'accès :\n"
+    "- **Utilisateur** : peut modifier **son propre compte** (informations personnelles uniquement).\n"
+    "- **Mentor** : peut modifier **son propre compte**.\n"
+    "- **Admin** : peut modifier **tout utilisateur**, sans restriction."
+))
 async def put_user(
         id: int, data: UtilisateurModify,
         user_token: TokenViewDecoded = Depends(get_current_user),
@@ -81,7 +96,12 @@ async def put_user(
             status_code=403, detail="Vous ne possédez pas les droits de modification pour cet utilisateur")
 
 
-@users_router.patch("/{id}")
+@users_router.patch("/{id}", tags=["Utilisateurs"], summary="Modifier la visibilié d'un utilisateur", description=(
+    "Droits d'accès :\n"
+    "- **Utilisateur** : peut modifier uniquement **son propre statut**.\n"
+    "- **Mentor** : peut modifier uniquement **son propre statut**.\n"
+    "- **Admin** : peut modifier le statut de **n'importe quel utilisateur**."
+))
 async def patch_user_visibility(
         id: int, actif: bool,
         user_token: TokenViewDecoded = Depends(get_current_user),
@@ -100,7 +120,12 @@ async def patch_user_visibility(
         )
 
 
-@users_router.delete("/{id}")
+@users_router.delete("/{id}", tags=["Utilisateurs"], summary="Supprimer un utilisateur", description=(
+    "Droits d'accès :\n"
+    "- **Utilisateur** : peut supprimer **son propre compte** uniquement.\n"
+    "- **Mentor** : peut supprimer **son propre compte** uniquement.\n"
+    "- **Admin** : peut supprimer **tout utilisateur**."
+))
 async def delete_user(
         id: int,
         user_token: TokenViewDecoded = Depends(get_current_user),
