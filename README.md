@@ -57,14 +57,37 @@ Le persona cherchant à se connecter à la plateforme devra s'authentifier avec 
 ## Diagramme des composants de l’architecture
 [Diagramme des composants de l’architecture](docs/diagrammes/DiagrammeDesComposantsDeArchitecture.png)
 
-## Installation
-Le projet utilise docker compose afin de déployer de manière rapide et souple.
-
-### Dépendances
+## Dépendances
 Le déploiement des services demande les dépendances suivantes:
 - Docker / Docker-Compose
 
 C'est tout! Les services gèrent eux-même leurs dépendances au sein des conteneurs par les différents fichiers sous `/requirements`
+
+## Installation
+Simplement cloner ce dépôt dans un répertoire dédié à l'application sur le serveur de votre choix.
+
+Pour assurer un déploiement fonctionnel, veuillez créer un fichier `.env` à la racine de ce répertoire.
+Le fichier `.env.example` est distribué à titre d'exemple afin que vous ayez toutes les variables d'environnement
+nécessaires au bon fonctionnement de l'application. Les valeurs qu'il contient devraient être changées afin d'assurer
+la sécurité du service.
+
+(Optionnel) Afin de valider l'intégrité du projet, vous pouvez lancer les tests unitaires avec:
+
+`docker compose up sapienta_unit_tests`
+
+Ensuite, déployez simplement l'application avec la commande suivante:
+
+`docker compose up -d sapienta_api`
+
+Docker compose assure un déploiement combiné du serveur de base de données MySQL, du serveur de l'API elle même
+ainsi que le serveur d'authentification dédié.
+
+Après quelques minutes, vérifez que vos conteneurs sont bel et bien déployés avec:
+
+`docker ps | grep sapienta`
+
+Pour toutes questions / bug trouvé, veuillez remplir un ticket et il sera évalué par notre équipe.
+Vous trouverez ci-dessous la liste des bugs connus ainsi que le ticket associé.
 
 ## Bugs connus
 - [\[ Ticket #107 \]](https://git.dti.crosemont.quebec/2252359/projetfinalapi/-/issues/107): la création de nouvelles ressources comporte un bug apparant lors de la requêtes de toutes les ressources.
