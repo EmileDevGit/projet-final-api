@@ -47,7 +47,7 @@ entity "COLLECTION_RESSOURCE" as collection_ressource {
 entity "REFRESH_TOKEN" as refresh_token {
   *jwt_id : VARCHAR(255) <<PK>>
   --
-  user_sub : VARCHAR(255)
+  user_sub : VARCHAR(255) <<FK>>
   expires_at : BIGINT
   is_revoked : TINYINT(1)
 }
@@ -59,6 +59,8 @@ categorie ||--o{ ressource
 utilisateur ||--o{ collection 
 ressource ||--o{ collection_ressource
 collection ||--o{ collection_ressource
+utilisateur ||--o{ refresh_token
+
 
 @enduml
 
