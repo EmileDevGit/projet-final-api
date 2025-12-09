@@ -1,14 +1,16 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, status, HTTPException, Form
+from fastapi.security import OAuth2PasswordRequestForm
+
 from app.data.connexion import mydb as db
-from app.services.service_utils import UtilsServices as UtilsServices
-from app.data.models.model_utilisateur import UtilisateurLogin as UtilisateurLogin
-from app.data.models.model_utilisateur import UtilisateurCreate as UtilisateurCreate
-from app.data.dao.dao_utilisateur import UtilisateurDAO as UtilisateurDAO
+from app.services.service_utils import UtilsServices
+from app.services.service_auth import AuthServices
+from app.data.models.model_utilisateur import UtilisateurCreate
+from app.data.dao.dao_utilisateur import UtilisateurDAO
 
 
 utils_router = APIRouter(prefix="/auth")
 
-# Gestion des dépendances
+
 def get_dao():
     return UtilisateurDAO(db)
 
@@ -17,16 +19,34 @@ def get_service(dao: UtilisateurDAO = Depends(get_dao)):
     return UtilsServices(dao)
 
 
-# Routes utilitaires
-@utils_router.post("/register")
+def get_auth_service(dao: UtilisateurDAO = Depends(get_dao)):
+    return AuthServices(dao)
+
+
+@utils_router.post("/register", tags=["Auth"])
 async def post_register(
         user_data: UtilisateurCreate,
-        service: UtilsServices = Depends(get_service)):
+        service: UtilsServices = Depends(get_service)
+):
     return service.register(user_data)
 
 
-@utils_router.post("/login")
-async def post_login(
-        creds: UtilisateurLogin,
-        service: UtilsServices = Depends(get_service)):
-    return service.login(creds)
+@utils_router.post("/login", tags=["Auth"])
+def login_user(
+        form_data: OAuth2PasswordRequestForm = Depends(),
+        service: AuthServices = Depends(get_auth_service)
+):
+    print(f"Trying to login: email={form_data.username}, password={form_data.password}")
+    return service.authenticate_and_issue_token(
+        email=form_data.username,
+        password=form_data.password
+    )
+
+
+@utils_router.post("/refresh", tags=["Auth"])
+async def post_refresh(
+    refresh_token: str = Form(...),
+    old_access_token: str = Form(...),
+    service: AuthServices = Depends(get_auth_service)
+):
+    return service.refresh_access_token(refresh_token, old_access_token)

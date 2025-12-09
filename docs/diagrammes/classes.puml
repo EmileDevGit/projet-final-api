@@ -10,11 +10,6 @@ class Utilisateur {
   +type_compte: Enum(MENTOR, ADMIN, ÉTUDIANT)
 }
 
-class "Catégorie" as Categorie {
-  +catégorie_id: Int
-  ---
-  +nom: String
-}
 
 class Ressource {
   +ressource_id: Int
@@ -27,27 +22,8 @@ class Ressource {
   +auteur_id: Int     
 }
 
-class Collection {
-  +collection_id: Int
-  ---
-  +titre: String
-  +description: String
-  +visibilité: Boolean
-  +auteur_id: Int     
-}
 
 
-class CollectionRessource {
-  +collection_id: Int  
-  +ressource_id: Int   
-  ---
 
-}
-
-
-Categorie "1" o-- "0..*" Ressource 
 Utilisateur "1" <-- "0..*" Ressource  
-Utilisateur "1" <-- "0..*" Collection 
-Collection "1" -- "0..*" CollectionRessource
-Ressource  "1" -- "0..*" CollectionRessource
 @enduml
