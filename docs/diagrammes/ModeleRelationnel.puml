@@ -44,6 +44,14 @@ entity "COLLECTION_RESSOURCE" as collection_ressource {
 	ressource_id : INT <<FK>>
 }
 
+entity "REFRESH_TOKEN" as refresh_token {
+  *jwt_id : VARCHAR(255) <<PK>>
+  --
+  user_sub : VARCHAR(255)
+  expires_at : BIGINT
+  is_revoked : TINYINT(1)
+}
+
 
 
 utilisateur ||--o{ ressource

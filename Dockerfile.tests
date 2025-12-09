@@ -4,4 +4,4 @@ ENV PYTHONPATH=/app
 COPY requirements/tests.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 COPY src/tests/unit ./tests
-COPY src/app ./ 
+COPY src .

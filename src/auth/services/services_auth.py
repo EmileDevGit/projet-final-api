@@ -1,8 +1,9 @@
 from datetime import datetime, timedelta
 import uuid
 from fastapi import HTTPException, status
-from jwt.exceptions import InvalidTokenError, ExpiredSignatureError, DecodeError
 from jose import jwt
+from jwt.exceptions import InvalidTokenError, ExpiredSignatureError, DecodeError
+
 
 from auth.interface.model_view.model_view_token import TokenView
 from auth.config.env import settings
