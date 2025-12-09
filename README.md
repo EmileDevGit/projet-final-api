@@ -5,7 +5,7 @@ La gestion et le partage de ressources pédagogiques peuvent rapidement devenir 
 
 
 ## Description
-Cette api permet de déployer une bibliothèque de savoir. Elle comprends des collections, différents types de documents ainsi que la gestion des membres et des ressources. Les utilisateurs ont accès à la plateforme afin de consommer les ressources publiées par les mentors, mais peuvent tout de même enregistrer leurs propes notes personelles. Les mentors peuvent gérer la visibilité de leurs ressources et organiser celles-ci en collections.
+Cette api permet de déployer une bibliothèque de savoir. Elle comprends différents types de documents ainsi que la gestion des membres et des ressources. Les utilisateurs ont accès à la plateforme afin de consommer les ressources publiées par les mentors, mais peuvent tout de même enregistrer leurs propes notes personelles. Les mentors peuvent gérer la visibilité de leurs ressources.
 
 
 ## Technologies utilisées
@@ -35,16 +35,6 @@ Le persona cherchant à se connecter à la plateforme devra s'authentifier avec 
 | Lire | ✅ Publiques - Propres | ✅ Publiques - Propres | ✅ Toutes |
 | Modifier | ✅ Propres | ✅ Propres | ✅ Toutes |
 | Supprimer | ✅ Propres | ✅ Propres | ✅ Toutes |
-| **Catégories** | | | |
-| Créer | ❌ | ❌ | ✅ |
-| Lire | ✅ | ✅ | ✅ |
-| Modifier | ❌ | ❌ | ✅ |
-| Supprimer | ❌ | ❌ | ✅ |
-| **Collections** | | | |
-| Créer | ✅ Propres - Privées | ✅ Propres - Publiques | ✅ Toutes |
-| Lire | ✅ Publiques - Propres | ✅ Publiques - Propres | ✅ Toutes |
-| Modifier | ✅ Propres | ✅ Propes | ✅ Toutes |
-| Supprimer | ✅ Propres | ✅ Propres | ✅ Toutes |
 | **Utilisateurs** | | | |
 | Créer | ✅ Auto-inscription | ❌ | ✅ |
 | Lire | ✅ Propre - Mentor | ✅ Propre - Mentor | ✅ Tous |
@@ -68,7 +58,13 @@ Le persona cherchant à se connecter à la plateforme devra s'authentifier avec 
 [Diagramme des composants de l’architecture](docs/diagrammes/DiagrammeDesComposantsDeArchitecture.png)
 
 ## Installation
-Le projet est déployé à travers Docker compose. Celui-ci automatique le déploiement de l'API, les tests unitaires ainsi qu'une base de données MySQL. À noter qu'en date d'aujourd'hui, le projet n'est seulement compatible qu'avec une base de données relationelle MySQL.
+Le projet utilise docker compose afin de déployer de manière rapide et souple.
+
+### Dépendances
+Le déploiement des services demande les dépendances suivantes:
+- Docker / Docker-Compose
+
+C'est tout! Les services gèrent eux-même leurs dépendances au sein des conteneurs par les différents fichiers sous `/requirements`
 
 ## Contributeurs
 - Émile Girard
@@ -86,3 +82,6 @@ Pour consulter les détails de la licence, visitez https://creativecommons.org/l
 
 ✅ Sprint 3 - Implémentation des routes utilisateurs
 
+✅ Sprint 4 - Implémentation du service d'authentification
+
+✅ Déploiement v0.9 - Cleanup du projet et présentation finale
