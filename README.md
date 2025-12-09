@@ -67,7 +67,7 @@ Le déploiement des services demande les dépendances suivantes:
 C'est tout! Les services gèrent eux-même leurs dépendances au sein des conteneurs par les différents fichiers sous `/requirements`
 
 ## Bugs connus
-- v0.9 la création de nouvelles ressources comporte un bug apparant lors de la requêtes de toutes les ressources.
+- [\[ Ticket #107 \]](https://git.dti.crosemont.quebec/2252359/projetfinalapi/-/issues/107): la création de nouvelles ressources comporte un bug apparant lors de la requêtes de toutes les ressources.
 
 ## Contributeurs
 - Émile Girard
